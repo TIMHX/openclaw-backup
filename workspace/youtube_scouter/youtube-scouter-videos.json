@@ -1889,6 +1889,146 @@
       "url": "https://www.youtube.com/watch?v=cxcb55zr2Q8",
       "recommended_date": "2026-02-25",
       "topic": "Fireship"
+    },
+    {
+      "video_id": "dyb_cFywuik",
+      "title": "Lecture 15 - PCA and ICA | Stanford CS229: Machine Learning Andrew Ng - Autumn 2018",
+      "url": "https://www.youtube.com/watch?v=dyb_cFywuik",
+      "recommended_date": "2026-02-26",
+      "topic": "Stanford Online"
+    },
+    {
+      "video_id": "Jc8c4hifGis",
+      "title": "Python Program to Solve Quadratic Equation | Step-by-Step Tutorial for Beginners Lecture1",
+      "url": "https://www.youtube.com/watch?v=Jc8c4hifGis",
+      "recommended_date": "2026-02-26",
+      "topic": "Signals and Systems"
+    },
+    {
+      "video_id": "rYPUpQj0sWs",
+      "title": "Course Overview: Design and Control of Haptic Systems (ME327)",
+      "url": "https://www.youtube.com/watch?v=rYPUpQj0sWs",
+      "recommended_date": "2026-02-26",
+      "topic": "Stanford Online"
+    },
+    {
+      "video_id": "3fzhNAoAjaE",
+      "title": "Take a Deep Dive with this Autonomous Underwater Vehicle",
+      "url": "https://www.youtube.com/watch?v=3fzhNAoAjaE",
+      "recommended_date": "2026-02-26",
+      "topic": "Carnegie Mellon University"
+    },
+    {
+      "video_id": "KhU9BwLebXE",
+      "title": "Scalable Research Agents with Tavily, LangGraph, Flyte - ai workshop",
+      "url": "https://www.youtube.com/watch?v=KhU9BwLebXE",
+      "recommended_date": "2026-02-26",
+      "topic": "Union-ai"
+    },
+    {
+      "video_id": "R4I0BBMDp1Q",
+      "title": "Cursor&#39;s Agents Test Their Own Code Now",
+      "url": "https://www.youtube.com/watch?v=R4I0BBMDp1Q",
+      "recommended_date": "2026-02-26",
+      "topic": "Ray Fernando"
+    },
+    {
+      "video_id": "WiXo2SNvr54",
+      "title": "How AI Actually Controls Robots | VLA Explained",
+      "url": "https://www.youtube.com/watch?v=WiXo2SNvr54",
+      "recommended_date": "2026-02-26",
+      "topic": "Notes from my Life"
+    },
+    {
+      "video_id": "DtD0ngZ5_bU",
+      "title": "The AI That Beat the World’s Hardest Math Test (Putnam 2025) — Carina Hong",
+      "url": "https://www.youtube.com/watch?v=DtD0ngZ5_bU",
+      "recommended_date": "2026-02-26",
+      "topic": "The MAD Podcast with Matt Turck"
+    },
+    {
+      "video_id": "qvrdCpLPbuQ",
+      "title": "Reiner Pope of MatX on accelerating AI with transformer-optimized chips",
+      "url": "https://www.youtube.com/watch?v=qvrdCpLPbuQ",
+      "recommended_date": "2026-02-26",
+      "topic": "Stripe"
+    },
+    {
+      "video_id": "0JDuA1X7GIY",
+      "title": "Is This the End of Maps? Tesla&#39;s Vision-Only Self-Driving Revolution Explained",
+      "url": "https://www.youtube.com/watch?v=0JDuA1X7GIY",
+      "recommended_date": "2026-02-26",
+      "topic": "TESLA UNIVERSE"
+    },
+    {
+      "video_id": "_pqVPYFZGgQ",
+      "title": "CNNs vs. Transformers: The Final Showdown 🏆",
+      "url": "https://www.youtube.com/watch?v=_pqVPYFZGgQ",
+      "recommended_date": "2026-02-26",
+      "topic": "LearnOpenCV"
+    },
+    {
+      "video_id": "kCSsp-4wDog",
+      "title": "TensorFlow: Advanced Techniques Specialization",
+      "url": "https://www.youtube.com/watch?v=kCSsp-4wDog",
+      "recommended_date": "2026-02-26",
+      "topic": "DeepLearning.AI"
+    },
+    {
+      "video_id": "VmEa3fVvZDw",
+      "title": "They Got Caught...",
+      "url": "https://www.youtube.com/watch?v=VmEa3fVvZDw",
+      "recommended_date": "2026-02-26",
+      "topic": "Matthew Berman"
+    },
+    {
+      "video_id": "MeGmBTfuQzU",
+      "title": "Sneak Peek: Design and Control of Haptic Systems",
+      "url": "https://www.youtube.com/watch?v=MeGmBTfuQzU",
+      "recommended_date": "2026-02-26",
+      "topic": "Stanford Online"
+    },
+    {
+      "video_id": "uXW_1hepfT4",
+      "title": "The First Exploit  - Pwn2Own Documentary (Part 2)",
+      "url": "https://www.youtube.com/watch?v=uXW_1hepfT4",
+      "recommended_date": "2026-02-26",
+      "topic": "LiveOverflow"
+    },
+    {
+      "video_id": "W-EPzOh-6E4",
+      "title": "Generative Adversarial Networks (GANs) Specialization",
+      "url": "https://www.youtube.com/watch?v=W-EPzOh-6E4",
+      "recommended_date": "2026-02-26",
+      "topic": "DeepLearning.AI"
+    },
+    {
+      "video_id": "77qwwH9MhSs",
+      "title": "TensorFlow: Data and Deployment Specialization",
+      "url": "https://www.youtube.com/watch?v=77qwwH9MhSs",
+      "recommended_date": "2026-02-26",
+      "topic": "DeepLearning.AI"
+    },
+    {
+      "video_id": "WEX8Hk60anc",
+      "title": "Building Quso.ai: Autonomous social media, the death of traditional SaaS, and founder lessons",
+      "url": "https://www.youtube.com/watch?v=WEX8Hk60anc",
+      "recommended_date": "2026-02-26",
+      "topic": "AssemblyAI"
+    },
+    {
+      "video_id": "aoag03mSuXQ",
+      "title": "The Internet Was Weeks Away From Disaster and No One Knew",
+      "url": "https://www.youtube.com/watch?v=aoag03mSuXQ",
+      "recommended_date": "2026-02-26",
+      "topic": "Veritasium"
+    },
+    {
+      "video_id": "Ukt2gVz25PQ",
+      "title": "10 open source tools that feel illegal...",
+      "url": "https://www.youtube.com/watch?v=Ukt2gVz25PQ",
+      "recommended_date": "2026-02-26",
+      "topic": "Fireship"
     }
   ]
 }
