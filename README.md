@@ -15,4 +15,4 @@ https://www.youtube.com/watch?v=40SnEd1RWUU
 `/home/xing/backups/openclaw`。
 ### 四、 当前系统状态概览 (纽约时间 02:32 AM)
 * **时区**：America/New_York（已与你的本地工作时间同步）。 * **安全**：Fail2Ban 活跃，UFW 已开启并允许 Tailscale 流量。 * **运行**：OpenClaw 服务正在后台稳定运行（占用约 700MB 内存）。 * **监控**：你可以随时通过 `sudo journalctl -u openclaw -f` 查看实时运行日志。
-这套架构完美平衡了 **BMS 数据科学工作** 所需的安全性、稳定性和开发便利性。现在你可以放心休息，服务器会自动处理后续的备份和更新任务。
+这套架构完美平衡了所需的安全性、稳定性和开发便利性。现在你可以放心休息，服务器会自动处理后续的备份和更新任务。
