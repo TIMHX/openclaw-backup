@@ -49,7 +49,6 @@ identity/
 logs/
 media/
 memory/
-plugins/
 
 workspace/memory/
 workspace/config/

@@ -41,7 +41,7 @@
       "name": "daily-openclaw-backup",
       "enabled": true,
       "createdAtMs": 1770181817389,
-      "updatedAtMs": 1772035258855,
+      "updatedAtMs": 1772096590180,
       "schedule": {
         "kind": "cron",
         "expr": "0 11 * * *",
@@ -51,7 +51,8 @@
       "wakeMode": "next-heartbeat",
       "payload": {
         "kind": "agentTurn",
-        "message": "Daily OpenClaw backup check - run git add, commit, and push if there are changes"
+        "message": "执行 OpenClaw 备份检查：\n1. cd ~/.openclaw && git status --porcelain\n2. 从输出中提取未跟踪的新文件（排除 .gitignore 中的）\n3. 对每个新文件检查敏感信息（关键词：password, secret, key, token, api_key, AKIA, -----BEGIN PRIVATE KEY）\n4. 如果发现敏感文件：\n   - 列出文件名和发现的敏感关键词\n   - 告知用户风险\n   - 询问：(a) 加入 .gitignore (b) 清理敏感信息后继续 (c) 跳过本次备份\n5. 如果无敏感信息或用户确认继续，执行 git add -A && git commit && git push",
+        "timeoutSeconds": 120
       },
       "delivery": {
         "mode": "announce",
