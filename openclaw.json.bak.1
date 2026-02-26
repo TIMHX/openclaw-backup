@@ -1,0 +1,627 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.24",
+    "lastTouchedAt": "2026-02-25T04:43:48.223Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-25T04:43:48.075Z",
+    "lastRunVersion": "2026.2.24",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "update": {
+    "channel": "stable",
+    "checkOnStart": true
+  },
+  "auth": {
+    "profiles": {
+      "minimax:default": {
+        "provider": "minimax",
+        "mode": "api_key"
+      },
+      "google:default": {
+        "provider": "google",
+        "mode": "api_key"
+      },
+      "moonshot:default": {
+        "provider": "moonshot",
+        "mode": "api_key"
+      },
+      "minimax-cn:default": {
+        "provider": "minimax-cn",
+        "mode": "api_key"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "minimax": {
+        "baseUrl": "https://api.minimaxi.com/anthropic",
+        "apiKey": "${MINIMAX_API_KEY}",
+        "api": "anthropic-messages",
+        "authHeader": true,
+        "models": [
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 15,
+              "output": 60,
+              "cacheRead": 2,
+              "cacheWrite": 10
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "moonshot": {
+        "baseUrl": "https://api.moonshot.cn/v1",
+        "apiKey": "${MOONSHOT_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "kimi-k2-0905-preview",
+            "name": "Kimi K2 0905 Preview",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 256000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "kimi-k2.5",
+            "name": "Kimi K2.5",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 256000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "google": {
+        "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+        "apiKey": "${GEMINI_API_KEY}",
+        "api": "google-generative-ai",
+        "models": [
+          {
+            "id": "gemini-2.5-pro",
+            "name": "Gemini 2.5 Pro",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "gemini-2.5-flash",
+            "name": "Gemini 2.5 Flash",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "gemini-1.5-flash",
+            "name": "Gemini 1.5 Flash",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "minimax-cn": {
+        "baseUrl": "https://api.minimaxi.com/anthropic",
+        "api": "anthropic-messages",
+        "models": [
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 15,
+              "output": 60,
+              "cacheRead": 2,
+              "cacheWrite": 10
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "minimax-cn/MiniMax-M2.5",
+        "fallbacks": []
+      },
+      "imageModel": {
+        "primary": "google/gemini-3-flash-preview",
+        "fallbacks": [
+          "google/gemini-3-pro-preview"
+        ]
+      },
+      "models": {
+        "google/gemini-3-pro-preview": {
+          "alias": "gemini-3-pro"
+        },
+        "google/gemini-2.5-pro": {
+          "alias": "gemini-2.5-pro"
+        },
+        "moonshot/kimi-k2-0905-preview": {
+          "alias": "Kimi-k2"
+        },
+        "google/gemini-2.5-flash": {
+          "alias": "gemini-2.5-flash"
+        },
+        "google/gemini-3-flash-preview": {
+          "alias": "gemini-3-flash"
+        },
+        "moonshot/kimi-k2.5": {
+          "alias": "kimi-k2.5"
+        },
+        "google/gemini-2.5-flash-lite": {
+          "alias": "gemini-2.5-flash-ite"
+        },
+        "google/gemini-2.0-flash-lite": {
+          "alias": "gemini-2.0-flash-lite"
+        },
+        "minimax/MiniMax-M2.5": {
+          "alias": "Minimax"
+        },
+        "minimax/MiniMax-M2.1": {
+          "alias": "Minimax"
+        },
+        "minimax-cn/MiniMax-M2.5": {
+          "alias": "Minimax"
+        }
+      },
+      "workspace": "/home/xing/.openclaw/workspace",
+      "memorySearch": {
+        "enabled": true,
+        "sources": [
+          "memory",
+          "sessions"
+        ],
+        "experimental": {
+          "sessionMemory": true
+        },
+        "provider": "gemini",
+        "remote": {
+          "apiKey": "${GEMINI_API_KEY}"
+        },
+        "fallback": "gemini",
+        "model": "gemini-embedding-001",
+        "store": {
+          "vector": {
+            "enabled": true,
+            "extensionPath": "/home/xing/node_modules/sqlite-vec-linux-x64/vec0.so"
+          }
+        },
+        "query": {
+          "hybrid": {
+            "enabled": true,
+            "vectorWeight": 0.7,
+            "textWeight": 0.3,
+            "candidateMultiplier": 4
+          }
+        },
+        "cache": {
+          "enabled": true
+        }
+      },
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "1h"
+      },
+      "compaction": {
+        "mode": "default",
+        "memoryFlush": {
+          "enabled": true
+        }
+      },
+      "heartbeat": {
+        "every": "1h",
+        "model": "minimax/MiniMax-M2.5",
+        "includeReasoning": false,
+        "target": "discord",
+        "to": "channel:1469849142556627059"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8,
+        "archiveAfterMinutes": 60,
+        "model": "minimax/MiniMax-M2.5"
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "default": false,
+        "name": "Main Assistant",
+        "workspace": "/home/xing/.openclaw/workspace",
+        "model": {
+          "primary": "minimax/MiniMax-M2.5"
+        },
+        "sandbox": {
+          "mode": "off"
+        }
+      },
+      {
+        "id": "freelancer",
+        "name": "freelancer",
+        "workspace": "/home/xing/.openclaw/workspace-freelancer",
+        "agentDir": "/home/xing/.openclaw/agents/freelancer/agent",
+        "model": {
+          "primary": "minimax/MiniMax-M2.5"
+        },
+        "sandbox": {
+          "mode": "off"
+        }
+      },
+      {
+        "id": "routine-runner",
+        "default": true,
+        "name": "routine-runner",
+        "workspace": "/home/xing/.openclaw/workspace-routine-runner",
+        "agentDir": "/home/xing/.openclaw/agents/routine-runner/agent",
+        "model": {
+          "primary": "minimax/MiniMax-M2.5"
+        },
+        "heartbeat": {
+          "every": "1h"
+        },
+        "sandbox": {
+          "mode": "off"
+        }
+      }
+    ]
+  },
+  "tools": {
+    "web": {
+      "search": {
+        "enabled": true,
+        "provider": "brave",
+        "apiKey": "${BRAVE_API_KEY}"
+      },
+      "fetch": {
+        "enabled": true
+      }
+    },
+    "message": {
+      "crossContext": {
+        "allowWithinProvider": true,
+        "allowAcrossProviders": true,
+        "marker": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "freelancer",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1469849179743584481"
+        }
+      }
+    },
+    {
+      "agentId": "routine-runner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1469849142556627059"
+        }
+      }
+    }
+  ],
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "cron": {
+    "enabled": true
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        },
+        "bootstrap-extra-files": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "web": {
+    "enabled": true
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "streaming": "off"
+    },
+    "discord": {
+      "enabled": true,
+      "commands": {
+        "native": true,
+        "nativeSkills": true
+      },
+      "configWrites": true,
+      "token": "${DISCORD_BOT_TOKEN}",
+      "allowBots": true,
+      "groupPolicy": "open",
+      "streaming": "off",
+      "actions": {
+        "reactions": true,
+        "stickers": true,
+        "emojiUploads": true,
+        "stickerUploads": true,
+        "polls": true,
+        "permissions": true,
+        "messages": true,
+        "threads": true,
+        "pins": true,
+        "search": true,
+        "memberInfo": true,
+        "roleInfo": true,
+        "roles": true,
+        "channelInfo": true,
+        "voiceStatus": true,
+        "events": true,
+        "moderation": true,
+        "channels": true,
+        "presence": true
+      },
+      "dmPolicy": "pairing",
+      "allowFrom": [
+        "599781214622318615"
+      ],
+      "dm": {
+        "enabled": true,
+        "groupEnabled": true
+      },
+      "guilds": {
+        "*": {
+          "channels": {
+            "*": {
+              "allow": true,
+              "skills": [
+                "*"
+              ]
+            },
+            "1469849142556627059": {
+              "allow": true,
+              "requireMention": false
+            },
+            "1469849179743584481": {
+              "allow": true,
+              "requireMention": false
+            }
+          }
+        }
+      },
+      "heartbeat": {
+        "showOk": true,
+        "showAlerts": true,
+        "useIndicator": true
+      },
+      "execApprovals": {
+        "enabled": false
+      },
+      "intents": {
+        "presence": true,
+        "guildMembers": true
+      }
+    }
+  },
+  "talk": {
+    "apiKey": "${TALK_API_KEY}"
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "${OPENCLAW_GATEWAY_TOKEN}"
+    },
+    "tailscale": {
+      "mode": "serve",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    },
+    "entries": {
+      "goplaces": {
+        "enabled": true,
+        "apiKey": "${GOOGLE_MAP_API}"
+      },
+      "local-places": {
+        "enabled": true,
+        "apiKey": "${GOOGLE_MAP_API}"
+      },
+      "nano-banana-pro": {
+        "enabled": true,
+        "apiKey": "${GEMINI_API_KEY}"
+      },
+      "notion": {
+        "enabled": true,
+        "apiKey": "${NOTION_API_KEY}"
+      },
+      "sag": {
+        "enabled": true,
+        "apiKey": "${SAG_API_KEY}"
+      }
+    }
+  },
+  "plugins": {
+    "enabled": true,
+    "allow": [
+      "discord",
+      "google-gemini-cli-auth",
+      "memory-core",
+      "telegram",
+      "memory-lancedb-pro"
+    ],
+    "load": {
+      "paths": [
+        "/home/xing/.openclaw/workspace/plugins/memory-lancedb-pro"
+      ]
+    },
+    "slots": {
+      "memory": "memory-lancedb-pro"
+    },
+    "entries": {
+      "discord": {
+        "enabled": true
+      },
+      "google-gemini-cli-auth": {
+        "enabled": true
+      },
+      "memory-core": {
+        "enabled": false
+      },
+      "memory-lancedb-pro": {
+        "enabled": true,
+        "config": {
+          "embedding": {
+            "apiKey": "${JINA_API_KEY}",
+            "model": "jina-embeddings-v5-text-small",
+            "baseURL": "https://api.jina.ai/v1",
+            "dimensions": 1024,
+            "taskQuery": "retrieval.query",
+            "taskPassage": "retrieval.passage",
+            "normalized": true
+          },
+          "dbPath": "~/.openclaw/memory/lancedb-pro",
+          "autoCapture": true,
+          "autoRecall": true,
+          "retrieval": {
+            "mode": "hybrid",
+            "vectorWeight": 0.7,
+            "bm25Weight": 0.3,
+            "minScore": 0.3,
+            "rerank": "cross-encoder",
+            "rerankApiKey": "${JINA_API_KEY}",
+            "rerankModel": "jina-reranker-v2-base-multilingual",
+            "candidatePoolSize": 20,
+            "recencyHalfLifeDays": 14,
+            "recencyWeight": 0.1,
+            "filterNoise": true,
+            "lengthNormAnchor": 500,
+            "hardMinScore": 0.35,
+            "timeDecayHalfLifeDays": 60
+          },
+          "enableManagementTools": false,
+          "scopes": {
+            "default": "global",
+            "definitions": {
+              "global": {
+                "description": "共享知识库"
+              },
+              "agent:routine-runner": {
+                "description": "routine-runner agent私有"
+              },
+              "agent:freelancer": {
+                "description": "freelancer agent私有"
+              }
+            },
+            "agentAccess": {
+              "main": [
+                "global"
+              ],
+              "routine-runner": [
+                "global",
+                "agent:routine-runner"
+              ],
+              "freelancer": [
+                "global",
+                "agent:freelancer"
+              ]
+            }
+          },
+          "sessionMemory": {
+            "enabled": false,
+            "messageCount": 15
+          }
+        }
+      }
+    }
+  }
+}

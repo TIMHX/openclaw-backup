@@ -1,0 +1,25 @@
+#!/bin/bash
+# Giphy search CLI wrapper
+
+ENV_FILE="/home/xing/.openclaw/workspace/.env"
+
+if [ -z "$GIPHY_API_KEY" ]; then
+    if [ -f "$ENV_FILE" ]; then
+        set -a
+        source <(grep -v '^#' "$ENV_FILE" | sed 's/^/export /')
+        set +a
+    fi
+fi
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [ -z "$GIPHY_API_KEY" ]; then
+  echo "Error: GIPHY_API_KEY not set"
+  echo "Get a free key at: https://developers.giphy.com/dashboard/"
+  exit 1
+fi
+
+QUERY="$1"
+MAX="${2:-5}"
+
+node "$SCRIPT_DIR/search.js" "$QUERY" "$MAX"

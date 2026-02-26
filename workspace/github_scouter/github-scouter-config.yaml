@@ -1,0 +1,7 @@
+notion:
+  # Parent database ID (知识中心)
+  parent_db_id: "2f855a34-9949-8020-83b5-cc37c2f54df5"
+  # Results database ID (for YouTube scouter compatibility)
+  results_db_id: "2f855a34-9949-8020-83b5-cc37c2f54df5"
+  # Category for submitted items
+  category: "Github"

@@ -1,0 +1,146 @@
+notion:
+  # Channel database - stores channel IDs to monitor
+  channel_db_id: "2ff55a34-9949-8001-9654-e5e4461ee6a7"
+  # Results database - where video recommendations are submitted
+  results_db_id: "2f855a34-9949-8020-83b5-cc37c2f54df5"
+  # Log database - stores run logs with timestamps and status
+  # Actual database ID: 2ff55a34-9949-8035-9624-e61d02f7de77
+  log_db_id: "2ff55a34-9949-8035-9624-e61d02f7de77"
+  # Output settings
+  category: "视频类"
+  goal_name_property: "Goal Name"
+
+fallback:
+  global_fallback: true
+  log_failures: true
+  min_sources_required: 1
+  scrape_fallback: true
+
+filtering:
+  max_age_days: 120
+  min_duration_minutes: 5
+  skip_patterns:
+  - shorts
+  - '#shorts'
+
+output:
+  max_videos_per_channel: 3
+  max_videos_per_search: 5
+  top_videos_to_submit: 20
+  videos_path: youtube-scouter-videos.json
+
+quality_terms:
+  duration_terms:
+  - hour
+  - hours
+  - minutes
+  - full course
+  - complete
+  - comprehensive
+  high_value_terms:
+  - explained
+  - tutorial
+  - deep dive
+  - lecture
+  - course
+  - complete guide
+  - masterclass
+  - math
+  - theory
+  - intuition
+  - implementation
+  - research
+  - code
+  - algorithm
+  - optimization
+  - transformer
+  - neural network
+  - machine learning
+  low_effort_terms:
+  - subscribe
+  - like and
+  - comment below
+  - challenge
+  - tier list
+  - react to
+  - vlog
+  - daily
+  - news
+  - wrapped
+  medium_terms:
+  - guide
+  - introduction
+  - advanced
+  - practical
+  - tips
+  - tricks
+  - overview
+  - demo
+
+schedule:
+  hour: 9
+  minute: 30
+  timezone: UTC
+
+scoring:
+  duration_bonus: 1.0
+  fallback_penalty: -0.2
+  high_value_bonus: 2.0
+  long_description_bonus: 1.0
+  long_description_threshold: 300
+  low_effort_penalty: 5.0
+  medium_bonus: 0.5
+  medium_description_bonus: 0.5
+  medium_description_threshold: 150
+  rss_bonus: 0.5
+  scrape_penalty: -0.5
+  search_penalty: 0.0
+
+sources:
+  rss:
+    enabled: true
+  search:
+    enabled: true
+    max_results_per_topic: 3
+    published_after_days: 0
+    quota_reserve: 5
+    topics:
+      # --- LLMs & TRANSFORMERS ---
+      - "latest LLM research paper breakdown 2026"
+      - "Transformer architecture state of the art 2026"
+      - "Liquid Neural Networks vs Transformers"
+      - "LLM quantization and optimization techniques"
+
+      # --- AGENTIC AI & WORKFLOWS ---
+      - "Agentic AI framework tutorial 2026"
+      - "Multi-agent systems orchestration workflow"
+      - "AI agents for autonomous programming"
+      - "AutoGPT and BabyAGI evolution 2026"
+
+      # --- ROBOTICS & EMBODIED AI ---
+      - "Humanoid robot advancements 2026"
+      - "End-to-end learning for robotics"
+      - "Physical AI and World Models"
+      - "Reinforcement learning for robot dexterity"
+
+      # --- DEEP LEARNING & RESEARCH ---
+      - "State Space Models (SSM) and Mamba architecture"
+      - "Multimodal AI research news"
+      - "Neuro-symbolic AI breakthroughs"
+      - "Diffusion models latest paper review"
+
+      # --- MATH, STATS & CS ---
+      - "Advanced mathematics for machine learning 2026"
+      - "AI-generated mathematical proofs"
+      - "Quantum computing in AI research"
+      - "Topological data analysis for deep learning"
+
+      # --- SELF-DRIVE & COMPUTER VISION ---
+      - "Autonomous driving end-to-end neural networks"
+      - "Real-time 3D scene reconstruction CVPR 2026"
+      - "Vision Transformers (ViT) latest benchmarks"
+
+      # --- FRONTIER TOPICS ---
+      - "AI consciousness and computational neuroscience"
+      - "AGI safety and alignment research 2026"
+      - "Biology-inspired AI architectures"

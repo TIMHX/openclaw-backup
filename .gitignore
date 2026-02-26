@@ -1,0 +1,67 @@
+# Machine-specific settings
+*.local.json
+*.local.*
+
+# Lock files
+*.lock
+lock.json
+
+# Cache directories
+cache/
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# Temporary files
+*.tmp
+*.log
+*.swp
+*~
+.DS_Store
+
+# Backup files
+*.bak
+*.tar.gz
+*.zip
+
+# Git history for large files (if using git-lfs)
+.git/lfs/
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace
+
+.env
+.env.*
+*.pem
+*.key
+
+agents/
+credentials/
+cron/runs/
+data/
+delivery-queue/
+devices/
+extensions/
+identity/
+logs/
+media/
+memory/
+plugins/
+
+workspace/memory/
+workspace/config/
+workspace/USER.md
+
+workspace-freelancer/memory/
+workspace-freelancer/USER.md
+workspace-freelancer/config
+workspace-freelancer/Results
+
+workspace-routine-runner/memory/
+workspace-routine-runner/USER.md
+workspace-routine-runner/config
+
+exec-approvals.json

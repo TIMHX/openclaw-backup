@@ -1,0 +1,281 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "b295a2f0-f305-439f-b905-ead8405d3a8a",
+      "agentID": "routine-runner",
+      "name": "youtube-scouter-daily",
+      "enabled": true,
+      "createdAtMs": 1770017027720,
+      "updatedAtMs": 1772028326413,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * *",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "cd /home/xing/.openclaw/workspace/youtube_scouter && doppler run -- ./.venv/bin/python3 youtube_scouter.py 2>&1 && echo \"[$(date +'%m/%d/%Y %H:%M')] STATUS: SUCCESS\" || echo \"[$(date +'%m/%d/%Y %H:%M')] STATUS: FAILED\""
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:1475608007357497484"
+      },
+      "state": {
+        "nextRunAtMs": 1772114400000,
+        "lastRunAtMs": 1772028000012,
+        "lastStatus": "ok",
+        "lastDurationMs": 326401,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered"
+      },
+      "agentId": "routine-runner"
+    },
+    {
+      "id": "e9b8584e-3f12-416d-86e7-2e80b9e79f78",
+      "name": "daily-openclaw-backup",
+      "enabled": true,
+      "createdAtMs": 1770181817389,
+      "updatedAtMs": 1772035258855,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 11 * * *",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Daily OpenClaw backup check - run git add, commit, and push if there are changes"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:1475608007357497484"
+      },
+      "state": {
+        "nextRunAtMs": 1772121600000,
+        "lastRunAtMs": 1772035200019,
+        "lastStatus": "ok",
+        "lastDurationMs": 58836,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDeliveryStatus": "delivered",
+        "lastDelivered": true
+      },
+      "agentId": "routine-runner"
+    },
+    {
+      "id": "7b21227a-27e0-4a74-a4d7-237daddccffc",
+      "agentId": "routine-runner",
+      "name": "water-reminder-weekday",
+      "enabled": true,
+      "createdAtMs": 1771075180248,
+      "updatedAtMs": 1772082048332,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 0,8,10,12,14,16,18,20,22 * * 1-5",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Remind your human to drink water"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:1475608007357497484"
+      },
+      "state": {
+        "nextRunAtMs": 1772110800000,
+        "lastRunAtMs": 1772082000014,
+        "lastStatus": "error",
+        "lastDurationMs": 48318,
+        "consecutiveErrors": 1,
+        "lastRunStatus": "error",
+        "lastDeliveryStatus": "delivered",
+        "lastDelivered": true,
+        "lastError": "⚠️ ✉️ Message failed"
+      }
+    },
+    {
+      "id": "cfd8f46c-00ff-4cc0-b8f2-75a9dfe042fe",
+      "agentId": "routine-runner",
+      "name": "water-reminder-weekend",
+      "enabled": true,
+      "createdAtMs": 1771075185444,
+      "updatedAtMs": 1771815638159,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 0,10,12,14,16,18,20,22 * * 0,6",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Remind your human to drink water"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:1475608007357497484"
+      },
+      "state": {
+        "nextRunAtMs": 1772254800000,
+        "lastRunAtMs": 1771815600018,
+        "lastStatus": "error",
+        "lastDurationMs": 38141,
+        "consecutiveErrors": 12,
+        "lastError": "cron announce delivery failed"
+      }
+    },
+    {
+      "id": "4078a8e0-4281-441d-8ac1-8d87c4011b7b",
+      "agentId": "routine-runner",
+      "name": "github-scouter-daily",
+      "enabled": true,
+      "createdAtMs": 1771492390766,
+      "updatedAtMs": 1772031749433,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 * * *",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "cd /home/xing/.openclaw/workspace/github_scouter && doppler run -- python3 github_scouter.py 2>&1 && echo \"[$(date +'%m/%d/%Y %H:%M')] STATUS: SUCCESS\" || echo \"[$(date +'%m/%d/%Y %H:%M')] STATUS: FAILED\""
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:1475608007357497484"
+      },
+      "state": {
+        "nextRunAtMs": 1772118000000,
+        "lastRunAtMs": 1772031686998,
+        "lastStatus": "ok",
+        "lastDurationMs": 62435,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered"
+      }
+    },
+    {
+      "id": "f88a7701-a1fd-4b47-816d-5405c4f99726",
+      "agentId": "routine-runner",
+      "name": "daily-summary",
+      "enabled": true,
+      "createdAtMs": 1771833485184,
+      "updatedAtMs": 1772085884970,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行每日总结任务：\n1. 读取 session 日志: ~/.openclaw/agents/routine-runner/sessions/ 中今日修改的 .jsonl 文件\n2. 提取关键事件\n3. 先 read memory/YYYY-MM-DD.md 获取当前内容，然后追加 Key Events\n4. 检查是否有知识需记录到 topics，如果有先用 read 读取目标文件确认内容后再 edit",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:1475608007357497484"
+      },
+      "state": {
+        "nextRunAtMs": 1772164800000,
+        "lastRunAtMs": 1772085729845,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 155125,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
+      }
+    },
+    {
+      "id": "e319bae7-dd79-4ae0-8293-ea83fa679245",
+      "agentId": "routine-runner",
+      "name": "weather-alert",
+      "enabled": true,
+      "createdAtMs": 1771860129930,
+      "updatedAtMs": 1772053287457,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8,12,16 * * *",
+        "tz": "America/New_York",
+        "staggerMs": 300000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行 NWS 天气预警检查：运行 python3 ~/.openclaw/workspace-routine-runner/scripts/weather-alert.py 并读取结果",
+        "timeoutSeconds": 60
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:1475608007357497484"
+      },
+      "state": {
+        "nextRunAtMs": 1772110859586,
+        "lastRunAtMs": 1772053259597,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 27860,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
+      }
+    },
+    {
+      "id": "20a4d549-5878-4b90-a3df-a73a7bab20c0",
+      "agentId": "routine-runner",
+      "name": "openclaw-release-checker",
+      "enabled": true,
+      "createdAtMs": 1771894771950,
+      "updatedAtMs": 1772031784262,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 * * *",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行 OpenClaw release 检查：运行 bash ~/.openclaw/workspace-routine-runner/scripts/check-openclaw-release.sh，如果输出包含 \"New OpenClaw release\" 则使用 message tool 发送到 Discord channel 1475608007357497484（使用 OpenClaw 原生消息，不使用 Zapier）",
+        "timeoutSeconds": 60
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:1475608007357497484"
+      },
+      "state": {
+        "nextRunAtMs": 1772118000000,
+        "lastRunAtMs": 1772031749433,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 34829,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
+      }
+    }
+  ]
+}
