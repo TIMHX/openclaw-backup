@@ -1,10 +1,10 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.2.26",
-    "lastTouchedAt": "2026-02-27T03:24:15.145Z"
+    "lastTouchedAt": "2026-02-27T05:32:46.240Z"
   },
   "wizard": {
-    "lastRunAt": "2026-02-27T03:07:23.726Z",
+    "lastRunAt": "2026-02-27T05:26:00.429Z",
     "lastRunVersion": "2026.2.26",
     "lastRunCommand": "onboard",
     "lastRunMode": "local"
@@ -15,17 +15,13 @@
   },
   "secrets": {
     "providers": {
-      "dopper": {
+      "default": {
         "source": "env"
       }
     }
   },
   "auth": {
     "profiles": {
-      "minimax:default": {
-        "provider": "minimax",
-        "mode": "api_key"
-      },
       "google:default": {
         "provider": "google",
         "mode": "api_key"
@@ -43,35 +39,11 @@
   "models": {
     "mode": "merge",
     "providers": {
-      "minimax": {
-        "baseUrl": "https://api.minimaxi.com/anthropic",
-        "apiKey": "${MINIMAX_API_KEY}",
-        "api": "anthropic-messages",
-        "authHeader": true,
-        "models": [
-          {
-            "id": "MiniMax-M2.5",
-            "name": "MiniMax M2.5",
-            "reasoning": false,
-            "input": [
-              "text"
-            ],
-            "cost": {
-              "input": 15,
-              "output": 60,
-              "cacheRead": 2,
-              "cacheWrite": 10
-            },
-            "contextWindow": 200000,
-            "maxTokens": 8192
-          }
-        ]
-      },
       "moonshot": {
         "baseUrl": "https://api.moonshot.cn/v1",
         "apiKey": {
           "source": "env",
-          "provider": "dopper",
+          "provider": "default",
           "id": "MOONSHOT_API_KEY"
         },
         "api": "openai-completions",
@@ -114,7 +86,7 @@
         "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
         "apiKey": {
           "source": "env",
-          "provider": "dopper",
+          "provider": "default",
           "id": "GEMINI_API_KEY"
         },
         "api": "google-generative-ai",
@@ -173,7 +145,7 @@
         "baseUrl": "https://api.minimaxi.com/anthropic",
         "apiKey": {
           "source": "env",
-          "provider": "dopper",
+          "provider": "default",
           "id": "MINIMAX_API_KEY"
         },
         "api": "anthropic-messages",
@@ -403,7 +375,12 @@
     "dmScope": "per-channel-peer"
   },
   "cron": {
-    "enabled": true
+    "enabled": true,
+    "sessionRetention": "7d",
+    "runLog": {
+      "maxBytes": "5mb",
+      "keepLines": 3000
+    }
   },
   "hooks": {
     "internal": {
@@ -531,23 +508,43 @@
     "entries": {
       "goplaces": {
         "enabled": true,
-        "apiKey": "${GOOGLE_MAP_API}"
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "GOOGLE_MAP_API"
+        }
       },
       "local-places": {
         "enabled": true,
-        "apiKey": "${GOOGLE_MAP_API}"
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "GOOGLE_MAP_API"
+        }
       },
       "nano-banana-pro": {
         "enabled": true,
-        "apiKey": "${GEMINI_API_KEY}"
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "GEMINI_API_KEY"
+        }
       },
       "notion": {
         "enabled": true,
-        "apiKey": "${NOTION_API_KEY}"
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "NOTION_API_KEY"
+        }
       },
       "sag": {
         "enabled": true,
-        "apiKey": "${SAG_API_KEY}"
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "SAG_API_KEY"
+        }
       }
     }
   },

@@ -69,7 +69,8 @@
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
+        "lastDelivered": true,
+        "runningAtMs": 1772173462291
       },
       "agentId": "routine-runner"
     },
@@ -79,7 +80,7 @@
       "name": "water-reminder-weekday",
       "enabled": true,
       "createdAtMs": 1771075180248,
-      "updatedAtMs": 1772154120258,
+      "updatedAtMs": 1772168476148,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,8,10,12,14,16,18,20,22 * * 1-5",
@@ -99,13 +100,15 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772168400000,
-        "lastRunAtMs": 1772154000029,
+        "nextRunAtMs": 1772197200000,
+        "lastRunAtMs": 1772168400037,
         "lastStatus": "error",
-        "lastDurationMs": 120229,
-        "consecutiveErrors": 3,
+        "lastDurationMs": 76111,
+        "consecutiveErrors": 4,
         "lastRunStatus": "error",
-        "lastDeliveryStatus": "unknown"
+        "lastDeliveryStatus": "delivered",
+        "lastError": "⚠️ ✉️ Message failed",
+        "lastDelivered": true
       }
     },
     {
@@ -183,7 +186,7 @@
       "name": "daily-summary",
       "enabled": true,
       "createdAtMs": 1771833485184,
-      "updatedAtMs": 1772144606185,
+      "updatedAtMs": 1772172929816,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -204,10 +207,10 @@
       },
       "state": {
         "nextRunAtMs": 1772251200000,
-        "lastRunAtMs": 1772085729845,
+        "lastRunAtMs": 1772172788715,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 155125,
+        "lastDurationMs": 126244,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -219,7 +222,7 @@
       "name": "weather-alert",
       "enabled": true,
       "createdAtMs": 1771860129930,
-      "updatedAtMs": 1772144611403,
+      "updatedAtMs": 1772173327030,
       "schedule": {
         "kind": "cron",
         "expr": "0 8,12,16 * * *",
@@ -241,10 +244,10 @@
       },
       "state": {
         "nextRunAtMs": 1772197259586,
-        "lastRunAtMs": 1772139712032,
+        "lastRunAtMs": 1772173288701,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 23967,
+        "lastDurationMs": 38329,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
