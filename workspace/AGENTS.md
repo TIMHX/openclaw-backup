@@ -54,16 +54,7 @@ Before performing operations:
 3. Apply the knowledge
 
 **Topic files:**
-- `system-config.md` — Doppler, environment variables
-- `google-services.md` — gog, calendar setup
-- `notion.md` — Notion integration
-- `cron-jobs.md` — Cron configuration
-- `projects.md` — Project-specific notes
-- `troubleshooting.md` — Common errors
-- `node-setup.md` — Node pairing
-- `service-and-skills.md` — External services
-- `browser-automation.md` — Browser control
-- `config-lessons.md` — OpenClaw config
+- Run `ls memory/topics/` to see current topics (dynamically changes)
 
 ### 📝 Flexible Knowledge Recording
 
@@ -292,7 +283,8 @@ Periodically (every few days), use a heartbeat to:
 
 1. Review and update relevant topic files in `memory/topics/`
 2. Add new lessons learned to appropriate topic
-3. Notify user to decide whether to remove outdated info that's no longer relevant
+3. Read all the topics to identify duplication and outdated information
+4. Notify user to decide whether to edit/remove duplicated or outdated info that's no longer relevant
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 

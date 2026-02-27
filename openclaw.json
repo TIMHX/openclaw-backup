@@ -1,11 +1,11 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.2.25",
-    "lastTouchedAt": "2026-02-26T06:37:46.286Z"
+    "lastTouchedVersion": "2026.2.26",
+    "lastTouchedAt": "2026-02-27T04:06:22.646Z"
   },
   "wizard": {
-    "lastRunAt": "2026-02-26T06:37:46.136Z",
-    "lastRunVersion": "2026.2.25",
+    "lastRunAt": "2026-02-27T04:01:59.782Z",
+    "lastRunVersion": "2026.2.26",
     "lastRunCommand": "onboard",
     "lastRunMode": "local"
   },
@@ -13,6 +13,7 @@
     "channel": "stable",
     "checkOnStart": true
   },
+  "secrets": {},
   "auth": {
     "profiles": {
       "minimax:default": {
@@ -62,7 +63,11 @@
       },
       "moonshot": {
         "baseUrl": "https://api.moonshot.cn/v1",
-        "apiKey": "${MOONSHOT_API_KEY}",
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "MOONSHOT_API_KEY"
+        },
         "api": "openai-completions",
         "models": [
           {
@@ -101,7 +106,11 @@
       },
       "google": {
         "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
-        "apiKey": "${GEMINI_API_KEY}",
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "GEMINI_API_KEY"
+        },
         "api": "google-generative-ai",
         "models": [
           {
@@ -156,7 +165,13 @@
       },
       "minimax-cn": {
         "baseUrl": "https://api.minimaxi.com/anthropic",
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "MINIMAX_API_KEY"
+        },
         "api": "anthropic-messages",
+        "authHeader": true,
         "models": [
           {
             "id": "MiniMax-M2.5",
@@ -382,7 +397,12 @@
     "dmScope": "per-channel-peer"
   },
   "cron": {
-    "enabled": true
+    "enabled": true,
+    "sessionRetention": "7d",
+    "runLog": {
+      "maxBytes": "5mb",
+      "keepLines": 3000
+    }
   },
   "hooks": {
     "internal": {
@@ -510,23 +530,43 @@
     "entries": {
       "goplaces": {
         "enabled": true,
-        "apiKey": "${GOOGLE_MAP_API}"
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "GOOGLE_MAP_API"
+        }
       },
       "local-places": {
         "enabled": true,
-        "apiKey": "${GOOGLE_MAP_API}"
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "GOOGLE_MAP_API"
+        }
       },
       "nano-banana-pro": {
         "enabled": true,
-        "apiKey": "${GEMINI_API_KEY}"
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "GEMINI_API_KEY"
+        }
       },
       "notion": {
         "enabled": true,
-        "apiKey": "${NOTION_API_KEY}"
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "NOTION_API_KEY"
+        }
       },
       "sag": {
         "enabled": true,
-        "apiKey": "${SAG_API_KEY}"
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "SAG_API_KEY"
+        }
       }
     }
   },

@@ -7,7 +7,7 @@
       "name": "youtube-scouter-daily",
       "enabled": true,
       "createdAtMs": 1770017027720,
-      "updatedAtMs": 1772114567233,
+      "updatedAtMs": 1772144616048,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * *",
@@ -22,7 +22,8 @@
       "delivery": {
         "mode": "announce",
         "channel": "discord",
-        "to": "channel:1475608007357497484"
+        "to": "channel:1475608007357497484",
+        "bestEffort": true
       },
       "state": {
         "nextRunAtMs": 1772200800000,
@@ -41,7 +42,7 @@
       "name": "daily-openclaw-backup",
       "enabled": true,
       "createdAtMs": 1770181817389,
-      "updatedAtMs": 1772096590180,
+      "updatedAtMs": 1772144631443,
       "schedule": {
         "kind": "cron",
         "expr": "0 11 * * *",
@@ -57,18 +58,18 @@
       "delivery": {
         "mode": "announce",
         "channel": "discord",
-        "to": "channel:1475608007357497484"
+        "to": "channel:1475608007357497484",
+        "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772121600000,
-        "lastRunAtMs": 1772035200019,
+        "nextRunAtMs": 1772208000000,
+        "lastRunAtMs": 1772121600015,
         "lastStatus": "ok",
-        "lastDurationMs": 58836,
+        "lastDurationMs": 44118,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
-        "lastDelivered": true,
-        "runningAtMs": 1772121600012
+        "lastDelivered": true
       },
       "agentId": "routine-runner"
     },
@@ -78,7 +79,7 @@
       "name": "water-reminder-weekday",
       "enabled": true,
       "createdAtMs": 1771075180248,
-      "updatedAtMs": 1772118048541,
+      "updatedAtMs": 1772154120258,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,8,10,12,14,16,18,20,22 * * 1-5",
@@ -88,22 +89,23 @@
       "wakeMode": "next-heartbeat",
       "payload": {
         "kind": "agentTurn",
-        "message": "Remind your human to drink water"
+        "message": "执行喝水提醒：\n1. 尝试发送喝水提醒消息\n2. 如果失败（\"Message failed\" 或 \"target\" 相关错误），重试最多 3 次，每次间隔 5 秒\n3. 如果 3 次重试都失败，跳过本次提醒并输出 \"SKIP: 喝水提醒发送失败（已重试 3 次）\"\n4. 如果成功，输出 \"✅ 喝水提醒已发送\"",
+        "timeoutSeconds": 120
       },
       "delivery": {
         "mode": "announce",
         "channel": "discord",
-        "to": "channel:1475608007357497484"
+        "to": "channel:1475608007357497484",
+        "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772125200000,
-        "lastRunAtMs": 1772118000017,
-        "lastStatus": "ok",
-        "lastDurationMs": 48524,
-        "consecutiveErrors": 0,
-        "lastRunStatus": "ok",
-        "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
+        "nextRunAtMs": 1772168400000,
+        "lastRunAtMs": 1772154000029,
+        "lastStatus": "error",
+        "lastDurationMs": 120229,
+        "consecutiveErrors": 3,
+        "lastRunStatus": "error",
+        "lastDeliveryStatus": "unknown"
       }
     },
     {
@@ -112,7 +114,7 @@
       "name": "water-reminder-weekend",
       "enabled": true,
       "createdAtMs": 1771075185444,
-      "updatedAtMs": 1771815638159,
+      "updatedAtMs": 1772144638093,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,10,12,14,16,18,20,22 * * 0,6",
@@ -122,12 +124,14 @@
       "wakeMode": "next-heartbeat",
       "payload": {
         "kind": "agentTurn",
-        "message": "Remind your human to drink water"
+        "message": "执行喝水提醒：\n1. 尝试发送喝水提醒消息\n2. 如果失败（\"Message failed\" 或 \"target\" 相关错误），重试最多 3 次，每次间隔 5 秒\n3. 如果 3 次重试都失败，跳过本次提醒并输出 \"SKIP: 喝水提醒发送失败（已重试 3 次）\"\n4. 如果成功，输出 \"✅ 喝水提醒已发送\"",
+        "timeoutSeconds": 120
       },
       "delivery": {
         "mode": "announce",
         "channel": "discord",
-        "to": "channel:1475608007357497484"
+        "to": "channel:1475608007357497484",
+        "bestEffort": true
       },
       "state": {
         "nextRunAtMs": 1772254800000,
@@ -144,7 +148,7 @@
       "name": "github-scouter-daily",
       "enabled": true,
       "createdAtMs": 1771492390766,
-      "updatedAtMs": 1772118114201,
+      "updatedAtMs": 1772144626513,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -159,7 +163,8 @@
       "delivery": {
         "mode": "announce",
         "channel": "discord",
-        "to": "channel:1475608007357497484"
+        "to": "channel:1475608007357497484",
+        "bestEffort": true
       },
       "state": {
         "nextRunAtMs": 1772204400000,
@@ -178,7 +183,7 @@
       "name": "daily-summary",
       "enabled": true,
       "createdAtMs": 1771833485184,
-      "updatedAtMs": 1772085884970,
+      "updatedAtMs": 1772144606185,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -194,10 +199,11 @@
       "delivery": {
         "mode": "announce",
         "channel": "discord",
-        "to": "channel:1475608007357497484"
+        "to": "channel:1475608007357497484",
+        "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772164800000,
+        "nextRunAtMs": 1772251200000,
         "lastRunAtMs": 1772085729845,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
@@ -213,7 +219,7 @@
       "name": "weather-alert",
       "enabled": true,
       "createdAtMs": 1771860129930,
-      "updatedAtMs": 1772110919322,
+      "updatedAtMs": 1772144611403,
       "schedule": {
         "kind": "cron",
         "expr": "0 8,12,16 * * *",
@@ -230,14 +236,15 @@
       "delivery": {
         "mode": "announce",
         "channel": "discord",
-        "to": "channel:1475608007357497484"
+        "to": "channel:1475608007357497484",
+        "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772125259586,
-        "lastRunAtMs": 1772110886982,
+        "nextRunAtMs": 1772197259586,
+        "lastRunAtMs": 1772139712032,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 32340,
+        "lastDurationMs": 23967,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -249,7 +256,7 @@
       "name": "openclaw-release-checker",
       "enabled": true,
       "createdAtMs": 1771894771950,
-      "updatedAtMs": 1772118167023,
+      "updatedAtMs": 1772144622150,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -265,7 +272,8 @@
       "delivery": {
         "mode": "announce",
         "channel": "discord",
-        "to": "channel:1475608007357497484"
+        "to": "channel:1475608007357497484",
+        "bestEffort": true
       },
       "state": {
         "nextRunAtMs": 1772204400000,

@@ -1,17 +1,24 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.2.23",
-    "lastTouchedAt": "2026-02-25T01:54:48.358Z"
+    "lastTouchedVersion": "2026.2.26",
+    "lastTouchedAt": "2026-02-27T03:31:32.614Z"
   },
   "wizard": {
-    "lastRunAt": "2026-02-25T01:54:48.273Z",
-    "lastRunVersion": "2026.2.23",
+    "lastRunAt": "2026-02-27T03:07:23.726Z",
+    "lastRunVersion": "2026.2.26",
     "lastRunCommand": "onboard",
     "lastRunMode": "local"
   },
   "update": {
     "channel": "stable",
     "checkOnStart": true
+  },
+  "secrets": {
+    "providers": {
+      "dopper": {
+        "source": "env"
+      }
+    }
   },
   "auth": {
     "profiles": {
@@ -62,7 +69,11 @@
       },
       "moonshot": {
         "baseUrl": "https://api.moonshot.cn/v1",
-        "apiKey": "${MOONSHOT_API_KEY}",
+        "apiKey": {
+          "source": "env",
+          "provider": "dopper",
+          "id": "MOONSHOT_API_KEY"
+        },
         "api": "openai-completions",
         "models": [
           {
@@ -101,7 +112,11 @@
       },
       "google": {
         "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
-        "apiKey": "${GEMINI_API_KEY}",
+        "apiKey": {
+          "source": "env",
+          "provider": "dopper",
+          "id": "GEMINI_API_KEY"
+        },
         "api": "google-generative-ai",
         "models": [
           {
@@ -157,6 +172,7 @@
       "minimax-cn": {
         "baseUrl": "https://api.minimaxi.com/anthropic",
         "api": "anthropic-messages",
+        "authHeader": true,
         "models": [
           {
             "id": "MiniMax-M2.5",
@@ -532,9 +548,6 @@
   },
   "plugins": {
     "enabled": true,
-    "load": {
-      "paths": ["/home/xing/.openclaw/workspace/plugins/memory-lancedb-pro"]
-    },
     "allow": [
       "discord",
       "google-gemini-cli-auth",
@@ -542,6 +555,14 @@
       "telegram",
       "memory-lancedb-pro"
     ],
+    "load": {
+      "paths": [
+        "/home/xing/.openclaw/workspace/plugins/memory-lancedb-pro"
+      ]
+    },
+    "slots": {
+      "memory": "memory-lancedb-pro"
+    },
     "entries": {
       "discord": {
         "enabled": true
@@ -583,29 +604,40 @@
             "hardMinScore": 0.35,
             "timeDecayHalfLifeDays": 60
           },
-            "enableManagementTools": false,
-            "scopes": {
-              "default": "global",
-              "definitions": {
-                "global": { "description": "共享知识库" },
-                "agent:routine-runner": { "description": "routine-runner agent私有" },
-                "agent:freelancer": { "description": "freelancer agent私有" }
+          "enableManagementTools": false,
+          "scopes": {
+            "default": "global",
+            "definitions": {
+              "global": {
+                "description": "共享知识库"
               },
-              "agentAccess": {
-                "main": ["global"],
-                "routine-runner": ["global", "agent:routine-runner"],
-                "freelancer": ["global", "agent:freelancer"]
+              "agent:routine-runner": {
+                "description": "routine-runner agent私有"
+              },
+              "agent:freelancer": {
+                "description": "freelancer agent私有"
               }
             },
-            "sessionMemory": {
-              "enabled": false,
-              "messageCount": 15
+            "agentAccess": {
+              "main": [
+                "global"
+              ],
+              "routine-runner": [
+                "global",
+                "agent:routine-runner"
+              ],
+              "freelancer": [
+                "global",
+                "agent:freelancer"
+              ]
             }
+          },
+          "sessionMemory": {
+            "enabled": false,
+            "messageCount": 15
+          }
         }
       }
-    },
-    "slots": {
-      "memory": "memory-lancedb-pro"
     }
   }
 }
