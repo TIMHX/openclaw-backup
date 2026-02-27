@@ -42,7 +42,7 @@
       "name": "daily-openclaw-backup",
       "enabled": true,
       "createdAtMs": 1770181817389,
-      "updatedAtMs": 1772173550167,
+      "updatedAtMs": 1772208049049,
       "schedule": {
         "kind": "cron",
         "expr": "0 11 * * *",
@@ -62,15 +62,14 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772208000000,
-        "lastRunAtMs": 1772173527338,
+        "nextRunAtMs": 1772294400000,
+        "lastRunAtMs": 1772208000014,
         "lastStatus": "ok",
-        "lastDurationMs": 22829,
+        "lastDurationMs": 49035,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
-        "lastDelivered": true,
-        "runningAtMs": 1772208000009
+        "lastDelivered": true
       },
       "agentId": "routine-runner"
     },
@@ -80,7 +79,7 @@
       "name": "water-reminder-weekday",
       "enabled": true,
       "createdAtMs": 1771075180248,
-      "updatedAtMs": 1772204482008,
+      "updatedAtMs": 1772211684201,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,8,10,12,14,16,18,20,22 * * 1-5",
@@ -100,10 +99,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772211600000,
-        "lastRunAtMs": 1772204400013,
+        "nextRunAtMs": 1772218800000,
+        "lastRunAtMs": 1772211600019,
         "lastStatus": "ok",
-        "lastDurationMs": 81995,
+        "lastDurationMs": 84182,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
@@ -221,7 +220,7 @@
       "name": "weather-alert",
       "enabled": true,
       "createdAtMs": 1771860129930,
-      "updatedAtMs": 1772197369824,
+      "updatedAtMs": 1772211702265,
       "schedule": {
         "kind": "cron",
         "expr": "0 8,12,16 * * *",
@@ -242,11 +241,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772211659586,
-        "lastRunAtMs": 1772197320158,
+        "nextRunAtMs": 1772226059586,
+        "lastRunAtMs": 1772211684481,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 49666,
+        "lastDurationMs": 17784,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true

@@ -1,10 +1,10 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.2.26",
-    "lastTouchedAt": "2026-02-27T05:48:12.909Z"
+    "lastTouchedAt": "2026-02-27T05:48:26.475Z"
   },
   "wizard": {
-    "lastRunAt": "2026-02-27T05:26:00.429Z",
+    "lastRunAt": "2026-02-27T05:48:26.368Z",
     "lastRunVersion": "2026.2.26",
     "lastRunCommand": "onboard",
     "lastRunMode": "local"
@@ -22,14 +22,6 @@
   },
   "auth": {
     "profiles": {
-      "google:default": {
-        "provider": "google",
-        "mode": "api_key"
-      },
-      "moonshot:default": {
-        "provider": "moonshot",
-        "mode": "api_key"
-      },
       "minimax-cn:default": {
         "provider": "minimax-cn",
         "mode": "api_key"
@@ -39,108 +31,6 @@
   "models": {
     "mode": "merge",
     "providers": {
-      "moonshot": {
-        "baseUrl": "https://api.moonshot.cn/v1",
-        "apiKey": {
-          "source": "env",
-          "provider": "default",
-          "id": "MOONSHOT_API_KEY"
-        },
-        "api": "openai-completions",
-        "models": [
-          {
-            "id": "kimi-k2-0905-preview",
-            "name": "Kimi K2 0905 Preview",
-            "reasoning": false,
-            "input": [
-              "text"
-            ],
-            "cost": {
-              "input": 0,
-              "output": 0,
-              "cacheRead": 0,
-              "cacheWrite": 0
-            },
-            "contextWindow": 256000,
-            "maxTokens": 8192
-          },
-          {
-            "id": "kimi-k2.5",
-            "name": "Kimi K2.5",
-            "reasoning": false,
-            "input": [
-              "text"
-            ],
-            "cost": {
-              "input": 0,
-              "output": 0,
-              "cacheRead": 0,
-              "cacheWrite": 0
-            },
-            "contextWindow": 256000,
-            "maxTokens": 8192
-          }
-        ]
-      },
-      "google": {
-        "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
-        "apiKey": {
-          "source": "env",
-          "provider": "default",
-          "id": "GEMINI_API_KEY"
-        },
-        "api": "google-generative-ai",
-        "models": [
-          {
-            "id": "gemini-2.5-pro",
-            "name": "Gemini 2.5 Pro",
-            "reasoning": false,
-            "input": [
-              "text"
-            ],
-            "cost": {
-              "input": 0,
-              "output": 0,
-              "cacheRead": 0,
-              "cacheWrite": 0
-            },
-            "contextWindow": 200000,
-            "maxTokens": 8192
-          },
-          {
-            "id": "gemini-2.5-flash",
-            "name": "Gemini 2.5 Flash",
-            "reasoning": false,
-            "input": [
-              "text"
-            ],
-            "cost": {
-              "input": 0,
-              "output": 0,
-              "cacheRead": 0,
-              "cacheWrite": 0
-            },
-            "contextWindow": 200000,
-            "maxTokens": 8192
-          },
-          {
-            "id": "gemini-1.5-flash",
-            "name": "Gemini 1.5 Flash",
-            "reasoning": false,
-            "input": [
-              "text"
-            ],
-            "cost": {
-              "input": 0,
-              "output": 0,
-              "cacheRead": 0,
-              "cacheWrite": 0
-            },
-            "contextWindow": 200000,
-            "maxTokens": 8192
-          }
-        ]
-      },
       "minimax-cn": {
         "baseUrl": "https://api.minimaxi.com/anthropic",
         "api": "anthropic-messages",
@@ -179,36 +69,6 @@
         ]
       },
       "models": {
-        "google/gemini-3-pro-preview": {
-          "alias": "gemini-3-pro"
-        },
-        "google/gemini-2.5-pro": {
-          "alias": "gemini-2.5-pro"
-        },
-        "moonshot/kimi-k2-0905-preview": {
-          "alias": "Kimi-k2"
-        },
-        "google/gemini-2.5-flash": {
-          "alias": "gemini-2.5-flash"
-        },
-        "google/gemini-3-flash-preview": {
-          "alias": "gemini-3-flash"
-        },
-        "moonshot/kimi-k2.5": {
-          "alias": "kimi-k2.5"
-        },
-        "google/gemini-2.5-flash-lite": {
-          "alias": "gemini-2.5-flash-ite"
-        },
-        "google/gemini-2.0-flash-lite": {
-          "alias": "gemini-2.0-flash-lite"
-        },
-        "minimax/MiniMax-M2.5": {
-          "alias": "Minimax"
-        },
-        "minimax/MiniMax-M2.1": {
-          "alias": "Minimax"
-        },
         "minimax-cn/MiniMax-M2.5": {
           "alias": "Minimax"
         }
@@ -278,7 +138,7 @@
         "name": "Main Assistant",
         "workspace": "/home/xing/.openclaw/workspace",
         "model": {
-          "primary": "minimax/MiniMax-M2.5"
+          "primary": "minimax-cn/MiniMax-M2.5"
         },
         "sandbox": {
           "mode": "off"
@@ -290,7 +150,7 @@
         "workspace": "/home/xing/.openclaw/workspace-freelancer",
         "agentDir": "/home/xing/.openclaw/agents/freelancer/agent",
         "model": {
-          "primary": "minimax/MiniMax-M2.5"
+          "primary": "minimax-cn/MiniMax-M2.5"
         },
         "sandbox": {
           "mode": "off"
@@ -303,7 +163,7 @@
         "workspace": "/home/xing/.openclaw/workspace-routine-runner",
         "agentDir": "/home/xing/.openclaw/agents/routine-runner/agent",
         "model": {
-          "primary": "minimax/MiniMax-M2.5"
+          "primary": "minimax-cn/MiniMax-M2.5"
         },
         "heartbeat": {
           "every": "1h"

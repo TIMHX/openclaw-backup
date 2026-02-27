@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.2.26",
-    "lastTouchedAt": "2026-02-27T06:03:09.628Z"
+    "lastTouchedAt": "2026-02-27T17:24:33.109Z"
   },
   "wizard": {
     "lastRunAt": "2026-02-27T06:03:09.438Z",
@@ -193,6 +193,9 @@
           "enabled": true
         }
       }
+    },
+    "exec": {
+      "security": "full"
     }
   },
   "bindings": [
