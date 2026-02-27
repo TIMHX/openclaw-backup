@@ -42,7 +42,7 @@
       "name": "daily-openclaw-backup",
       "enabled": true,
       "createdAtMs": 1770181817389,
-      "updatedAtMs": 1772144631443,
+      "updatedAtMs": 1772173526813,
       "schedule": {
         "kind": "cron",
         "expr": "0 11 * * *",
@@ -63,14 +63,14 @@
       },
       "state": {
         "nextRunAtMs": 1772208000000,
-        "lastRunAtMs": 1772121600015,
+        "lastRunAtMs": 1772173462291,
         "lastStatus": "ok",
-        "lastDurationMs": 44118,
+        "lastDurationMs": 64522,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
         "lastDelivered": true,
-        "runningAtMs": 1772173462291
+        "runningAtMs": 1772173527338
       },
       "agentId": "routine-runner"
     },
