@@ -7,7 +7,7 @@
       "name": "youtube-scouter-daily",
       "enabled": true,
       "createdAtMs": 1770017027720,
-      "updatedAtMs": 1772201044234,
+      "updatedAtMs": 1772287373127,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * *",
@@ -26,10 +26,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772287200000,
-        "lastRunAtMs": 1772200800012,
+        "nextRunAtMs": 1772373600000,
+        "lastRunAtMs": 1772287200018,
         "lastStatus": "ok",
-        "lastDurationMs": 244222,
+        "lastDurationMs": 173109,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDelivered": true,
@@ -69,7 +69,8 @@
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
+        "lastDelivered": true,
+        "runningAtMs": 1772294400007
       },
       "agentId": "routine-runner"
     },
@@ -79,7 +80,7 @@
       "name": "water-reminder-weekday",
       "enabled": true,
       "createdAtMs": 1771075180248,
-      "updatedAtMs": 1772211684201,
+      "updatedAtMs": 1772247626062,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,8,10,12,14,16,18,20,22 * * 1-5",
@@ -99,14 +100,15 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772218800000,
-        "lastRunAtMs": 1772211600019,
-        "lastStatus": "ok",
-        "lastDurationMs": 84182,
-        "consecutiveErrors": 0,
-        "lastRunStatus": "ok",
+        "nextRunAtMs": 1772427600000,
+        "lastRunAtMs": 1772247600013,
+        "lastStatus": "error",
+        "lastDurationMs": 26049,
+        "consecutiveErrors": 5,
+        "lastRunStatus": "error",
         "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
+        "lastDelivered": true,
+        "lastError": "⚠️ ✉️ Message failed"
       }
     },
     {
@@ -115,7 +117,7 @@
       "name": "water-reminder-weekend",
       "enabled": true,
       "createdAtMs": 1771075185444,
-      "updatedAtMs": 1772144638093,
+      "updatedAtMs": 1772290920071,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,10,12,14,16,18,20,22 * * 0,6",
@@ -135,12 +137,14 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772254800000,
-        "lastRunAtMs": 1771815600018,
+        "nextRunAtMs": 1772298000000,
+        "lastRunAtMs": 1772290800012,
         "lastStatus": "error",
-        "lastDurationMs": 38141,
-        "consecutiveErrors": 12,
-        "lastError": "cron announce delivery failed"
+        "lastDurationMs": 120059,
+        "consecutiveErrors": 14,
+        "lastRunStatus": "error",
+        "lastDeliveryStatus": "unknown",
+        "lastError": "cron: job execution timed out"
       }
     },
     {
@@ -149,7 +153,7 @@
       "name": "github-scouter-daily",
       "enabled": true,
       "createdAtMs": 1771492390766,
-      "updatedAtMs": 1772204538939,
+      "updatedAtMs": 1772290986638,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -168,10 +172,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772290800000,
-        "lastRunAtMs": 1772204482008,
+        "nextRunAtMs": 1772377200000,
+        "lastRunAtMs": 1772290920071,
         "lastStatus": "ok",
-        "lastDurationMs": 56931,
+        "lastDurationMs": 66567,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDelivered": true,
@@ -184,7 +188,7 @@
       "name": "daily-summary",
       "enabled": true,
       "createdAtMs": 1771833485184,
-      "updatedAtMs": 1772172929816,
+      "updatedAtMs": 1772255827320,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -194,7 +198,7 @@
       "wakeMode": "next-heartbeat",
       "payload": {
         "kind": "agentTurn",
-        "message": "执行每日总结任务：\n1. 读取 session 日志: ~/.openclaw/agents/routine-runner/sessions/ 中今日修改的 .jsonl 文件\n2. 提取关键事件\n3. 先 read memory/YYYY-MM-DD.md 获取当前内容，然后追加 Key Events\n4. 检查是否有知识需记录到 topics，如果有先用 read 读取目标文件确认内容后再 edit",
+        "message": "执行每日总结任务：\n1. 读取 session 日志: ~/.openclaw/agents/routine-runner/sessions/ 中今日修改的 .jsonl 文件\n2. 提取关键事件\n3. 先 read memory/YYYY-MM-DD.md 获取当前内容，然后追加 Key Events\n4. 检查是否有知识需记录到 topics，如果有先用 read 读取目标文件确认内容后再 edit\n5. [Knowledge Maintenance] 每天一次：\n   - 读取 memory/topics/ 目录下所有 .md 文件\n   - 检查重复或过时信息\n   - 如有需要更新或删除的内容，直接修改，无需询问用户\n   - 如果无需更新则跳过",
         "timeoutSeconds": 300
       },
       "delivery": {
@@ -204,11 +208,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772251200000,
-        "lastRunAtMs": 1772172788715,
+        "nextRunAtMs": 1772337600000,
+        "lastRunAtMs": 1772251200009,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 126244,
+        "lastDurationMs": 258640,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -220,7 +224,7 @@
       "name": "weather-alert",
       "enabled": true,
       "createdAtMs": 1771860129930,
-      "updatedAtMs": 1772211702265,
+      "updatedAtMs": 1772283719609,
       "schedule": {
         "kind": "cron",
         "expr": "0 8,12,16 * * *",
@@ -241,14 +245,14 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772226059586,
-        "lastRunAtMs": 1772211684481,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 17784,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0,
-        "lastDelivered": true
+        "nextRunAtMs": 1772298059586,
+        "lastRunAtMs": 1772283659600,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 60009,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1,
+        "lastError": "cron: job execution timed out"
       }
     },
     {
@@ -257,7 +261,7 @@
       "name": "openclaw-release-checker",
       "enabled": true,
       "createdAtMs": 1771894771950,
-      "updatedAtMs": 1772204556968,
+      "updatedAtMs": 1772290994357,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -277,14 +281,14 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772290800000,
-        "lastRunAtMs": 1772204538939,
+        "nextRunAtMs": 1772377200000,
+        "lastRunAtMs": 1772290986638,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 18029,
-        "lastDeliveryStatus": "delivered",
+        "lastDurationMs": 7719,
+        "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
-        "lastDelivered": true
+        "lastDelivered": false
       }
     }
   ]
