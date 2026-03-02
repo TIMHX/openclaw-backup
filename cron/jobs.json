@@ -7,7 +7,7 @@
       "name": "youtube-scouter-daily",
       "enabled": true,
       "createdAtMs": 1770017027720,
-      "updatedAtMs": 1772374224859,
+      "updatedAtMs": 1772460282971,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * *",
@@ -26,10 +26,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772460000000,
-        "lastRunAtMs": 1772373600012,
+        "nextRunAtMs": 1772546400000,
+        "lastRunAtMs": 1772460000015,
         "lastStatus": "ok",
-        "lastDurationMs": 624847,
+        "lastDurationMs": 282956,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDelivered": true,
@@ -68,7 +68,8 @@
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
+        "lastDelivered": true,
+        "runningAtMs": 1772467200012
       },
       "agentId": "routine-runner"
     },
@@ -78,7 +79,7 @@
       "name": "water-reminder-weekday",
       "enabled": true,
       "createdAtMs": 1771075180248,
-      "updatedAtMs": 1772427678997,
+      "updatedAtMs": 1772463720085,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,8,10,12,14,16,18,20,22 * * 1-5",
@@ -98,14 +99,14 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772456400000,
-        "lastRunAtMs": 1772427600026,
-        "lastStatus": "ok",
-        "lastDurationMs": 78971,
-        "consecutiveErrors": 0,
-        "lastRunStatus": "ok",
-        "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
+        "nextRunAtMs": 1772470800000,
+        "lastRunAtMs": 1772463600018,
+        "lastStatus": "error",
+        "lastDurationMs": 120067,
+        "consecutiveErrors": 2,
+        "lastRunStatus": "error",
+        "lastDeliveryStatus": "unknown",
+        "lastError": "cron: job execution timed out"
       }
     },
     {
@@ -151,7 +152,7 @@
       "name": "github-scouter-daily",
       "enabled": true,
       "createdAtMs": 1771492390766,
-      "updatedAtMs": 1772377364923,
+      "updatedAtMs": 1772463793318,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -170,10 +171,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772463600000,
-        "lastRunAtMs": 1772377276390,
+        "nextRunAtMs": 1772550000000,
+        "lastRunAtMs": 1772463720086,
         "lastStatus": "ok",
-        "lastDurationMs": 88533,
+        "lastDurationMs": 73232,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDelivered": true,
@@ -222,7 +223,7 @@
       "name": "weather-alert",
       "enabled": true,
       "createdAtMs": 1771860129930,
-      "updatedAtMs": 1772398908946,
+      "updatedAtMs": 1772456519211,
       "schedule": {
         "kind": "cron",
         "expr": "0 8,12,16 * * *",
@@ -243,11 +244,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772456459586,
-        "lastRunAtMs": 1772398886841,
+        "nextRunAtMs": 1772470859586,
+        "lastRunAtMs": 1772456493348,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 22105,
+        "lastDurationMs": 25863,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -259,7 +260,7 @@
       "name": "openclaw-release-checker",
       "enabled": true,
       "createdAtMs": 1771894771950,
-      "updatedAtMs": 1772377387126,
+      "updatedAtMs": 1772463812351,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -279,11 +280,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772463600000,
-        "lastRunAtMs": 1772377364923,
+        "nextRunAtMs": 1772550000000,
+        "lastRunAtMs": 1772463793318,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 22203,
+        "lastDurationMs": 19033,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
