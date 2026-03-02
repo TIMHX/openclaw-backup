@@ -3,7 +3,7 @@
   "jobs": [
     {
       "id": "b295a2f0-f305-439f-b905-ead8405d3a8a",
-      "agentID": "routine-runner",
+      "agentId": "routine-runner",
       "name": "youtube-scouter-daily",
       "enabled": true,
       "createdAtMs": 1770017027720,
@@ -34,15 +34,14 @@
         "lastRunStatus": "ok",
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
-      },
-      "agentId": "routine-runner"
+      }
     },
     {
       "id": "e9b8584e-3f12-416d-86e7-2e80b9e79f78",
       "name": "daily-openclaw-backup",
       "enabled": true,
       "createdAtMs": 1770181817389,
-      "updatedAtMs": 1772294434282,
+      "updatedAtMs": 1772380844475,
       "schedule": {
         "kind": "cron",
         "expr": "0 11 * * *",
@@ -62,25 +61,24 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772380800000,
-        "lastRunAtMs": 1772294400010,
+        "nextRunAtMs": 1772467200000,
+        "lastRunAtMs": 1772380800014,
         "lastStatus": "ok",
-        "lastDurationMs": 34272,
+        "lastDurationMs": 44461,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
-        "lastDelivered": true,
-        "runningAtMs": 1772380800011
+        "lastDelivered": true
       },
       "agentId": "routine-runner"
     },
     {
       "id": "7b21227a-27e0-4a74-a4d7-237daddccffc",
-      "agentId": "routine-runner",
+      "agentId": "cron-runner",
       "name": "water-reminder-weekday",
       "enabled": true,
       "createdAtMs": 1771075180248,
-      "updatedAtMs": 1772247626062,
+      "updatedAtMs": 1772427678997,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,8,10,12,14,16,18,20,22 * * 1-5",
@@ -100,24 +98,23 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772427600000,
-        "lastRunAtMs": 1772247600013,
-        "lastStatus": "error",
-        "lastDurationMs": 26049,
-        "consecutiveErrors": 5,
-        "lastRunStatus": "error",
+        "nextRunAtMs": 1772456400000,
+        "lastRunAtMs": 1772427600026,
+        "lastStatus": "ok",
+        "lastDurationMs": 78971,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
-        "lastDelivered": true,
-        "lastError": "⚠️ ✉️ Message failed"
+        "lastDelivered": true
       }
     },
     {
       "id": "cfd8f46c-00ff-4cc0-b8f2-75a9dfe042fe",
-      "agentId": "routine-runner",
+      "agentId": "cron-runner",
       "name": "water-reminder-weekend",
       "enabled": true,
       "createdAtMs": 1771075185444,
-      "updatedAtMs": 1772377276390,
+      "updatedAtMs": 1772420485711,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,10,12,14,16,18,20,22 * * 0,6",
@@ -137,20 +134,20 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772384400000,
-        "lastRunAtMs": 1772377200011,
+        "nextRunAtMs": 1772859600000,
+        "lastRunAtMs": 1772420400014,
         "lastStatus": "error",
-        "lastDurationMs": 76379,
-        "consecutiveErrors": 4,
+        "lastDurationMs": 85697,
+        "consecutiveErrors": 2,
         "lastRunStatus": "error",
         "lastDeliveryStatus": "delivered",
-        "lastError": "⚠️ ✉️ Message failed",
-        "lastDelivered": true
+        "lastDelivered": true,
+        "lastError": "⚠️ ✉️ Message failed"
       }
     },
     {
       "id": "4078a8e0-4281-441d-8ac1-8d87c4011b7b",
-      "agentId": "routine-runner",
+      "agentId": "cron-runner",
       "name": "github-scouter-daily",
       "enabled": true,
       "createdAtMs": 1771492390766,
@@ -185,11 +182,11 @@
     },
     {
       "id": "f88a7701-a1fd-4b47-816d-5405c4f99726",
-      "agentId": "routine-runner",
+      "agentId": "cron-runner",
       "name": "daily-summary",
       "enabled": true,
       "createdAtMs": 1771833485184,
-      "updatedAtMs": 1772337874014,
+      "updatedAtMs": 1772424163254,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -209,11 +206,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772424000000,
-        "lastRunAtMs": 1772337600010,
+        "nextRunAtMs": 1772510400000,
+        "lastRunAtMs": 1772424000010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 274004,
+        "lastDurationMs": 163244,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -221,11 +218,11 @@
     },
     {
       "id": "e319bae7-dd79-4ae0-8293-ea83fa679245",
-      "agentId": "routine-runner",
+      "agentId": "cron-runner",
       "name": "weather-alert",
       "enabled": true,
       "createdAtMs": 1771860129930,
-      "updatedAtMs": 1772370091295,
+      "updatedAtMs": 1772398908946,
       "schedule": {
         "kind": "cron",
         "expr": "0 8,12,16 * * *",
@@ -246,11 +243,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772384459586,
-        "lastRunAtMs": 1772370059599,
+        "nextRunAtMs": 1772456459586,
+        "lastRunAtMs": 1772398886841,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 31696,
+        "lastDurationMs": 22105,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -258,7 +255,7 @@
     },
     {
       "id": "20a4d549-5878-4b90-a3df-a73a7bab20c0",
-      "agentId": "routine-runner",
+      "agentId": "cron-runner",
       "name": "openclaw-release-checker",
       "enabled": true,
       "createdAtMs": 1771894771950,
@@ -290,6 +287,43 @@
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
+      }
+    },
+    {
+      "id": "e826c4be-cb5c-4942-96a1-0cc09a906785",
+      "agentId": "memory-distiller",
+      "name": "jsonl-memory-distill",
+      "enabled": true,
+      "createdAtMs": 1772425717231,
+      "updatedAtMs": 1772433359748,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 */12 * * *",
+        "tz": "America/New_York",
+        "staggerMs": 300000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "run jsonl memory distill\n\nGoal: Distill ONLY new content from OpenClaw session JSONL tails into high-quality LanceDB memories.\n\nHard rules:\n- Incremental only: exec the extractor. Do NOT scan full history.\n- If extractor returns action=noop: stop immediately.\n- Store only reusable memories (rules, pitfalls, decisions, preferences, stable facts). Skip routine chatter.\n- Each memory: idiomatic English + final line `Keywords (zh): ...` (3-8 short phrases).\n- Keep each memory < 500 chars and atomic.\n- Caps: <= 3 memories per agent per run; <= 3 global per run.\n- Scope:\n  - broadly reusable -> global\n  - agent-specific -> agent:<agentId>\n\nWorkflow:\n1) exec: python3 .openclaw/workspace/plugins/memory-lancedb-pro/scripts/jsonl_distill.py run\n2) Determine batch file (created/pending)\n3) memory_store(...) for selected memories\n4) exec: python3 <PLUGIN_DIR>/scripts/jsonl_distill.py commit --batch-file <batchFile>",
+        "timeoutSeconds": 420
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:1475608007357497484",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1772470887771,
+        "lastRunAtMs": 1772433317290,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 42458,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
       }
     }
   ]

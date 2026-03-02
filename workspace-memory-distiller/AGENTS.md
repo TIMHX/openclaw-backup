@@ -13,7 +13,7 @@ Before doing anything else:
 1. Read `SOUL.md` — this is who you are
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. Read `MEMORY.md` - permanent core memory
+4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 
 Don't ask permission. Just do it.
 
@@ -22,86 +22,26 @@ Don't ask permission. Just do it.
 You wake up fresh each session. These files are your continuity:
 
 - **Daily notes:** `memory/YYYY-MM-DD.md` (create `memory/` if needed) — raw logs of what happened
-- **Permanent memory:** `MEMORY.md` — your core memories
-- **Knowledge base:** long term knowledge saved in separated files
+- **Long-term:** `MEMORY.md` — your curated memories, like a human's long-term memory
 
 Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
 
-### 🧠 MEMORY.md - Your Permanent Memory
+### 🧠 MEMORY.md - Your Long-Term Memory
 
-- You can **read** MEMORY.md freely, but every **edit, and update** need your human to decide
-- Only suggest to write the most significant events, thoughts, decisions, opinions, lessons learned
-
-### Knowledge Base (Operation-Triggered)
-- Don't auto-load all topic files. You'll load them on-demand.
-- Your long-term knowledge is stored in `memory/topics/`. **Load relevant files only when needed**, not on every session start.
+- **ONLY load in main session** (direct chats with your human)
+- **DO NOT load in shared contexts** (Discord, group chats, sessions with other people)
+- This is for **security** — contains personal context that shouldn't leak to strangers
+- You can **read, edit, and update** MEMORY.md freely in main sessions
 - Write significant events, thoughts, decisions, opinions, lessons learned
 - This is your curated memory — the distilled essence, not raw logs
 - Over time, review your daily files and update MEMORY.md with what's worth keeping
 
-#### When to Load
-
-Load relevant topic files when:
-- Performing a specific operation (e.g., configuring cron, setting up Google services)
-- Encountering an error — search relevant troubleshooting first
-- Working on a known project type (YouTube scouter, GitHub scouter, etc.)
-
-#### How to Load
-
-Before performing operations:
-1. Read relevant topic file from `memory/topics/`
-2. Check for known pitfalls
-3. Apply the knowledge
-
-**Topic files:**
-- Run `ls memory/topics/` to see current topics (dynamically changes)
-
-### 📝 Flexible Knowledge Recording
-
-**Problems, Solutions, Pitfalls & Experiences:**
-
-When you encounter issues, solutions, or learn something valuable, record it in the most relevant topic file in `memory/topics/`. If find no related topics or no existing topic fits, **create a new one**.
-
-**Recording Guidelines:**
-
-| Type | Where to Record | When |
-|------|-----------------|------|
-| Error/Exception | `troubleshooting.md` or new topic | When you hit an error |
-| Fix/Solution | Same file as the problem | After solving |
-| Pitfall/Lesson | `config-lessons.md` or new topic | When you learn what NOT to do |
-| Experience/Insight | New or existing topic by theme | Anytime valuable |
-
-**Creating New Topics:**
-
-```bash
-# Just create it - no approval needed
-mkdir -p memory/topics
-touch memory/topics/your-new-topic.md
-```
-
-**Topic Naming:** Use kebab-case, descriptive names (e.g., `ai-model-comparison.md`, `ssh-tunnel-issues.md`, `gcp-deployment.md`)
-
-**Content Template (optional):**
-```markdown
-# [Topic Name]
-
-## Problems Encountered
-- [Date] Description of issue
-
-## Solutions
-- [Date] How it was resolved
-
-## Lessons Learned
-- Key takeaway
-
-## References
-- Links, docs, related files
-```
-
 ### 📝 Write It Down - No "Mental Notes"!
 
-- **Memory is limited** — if you want to remember something, WRITE IT TO relevant topic file
-- When you learn a lesson → update update relevant topic in memory/topics/, AGENTS.md, TOOLS.md, or the relevant skill
+- **Memory is limited** — if you want to remember something, WRITE IT TO A FILE
+- "Mental notes" don't survive session restarts. Files do.
+- When someone says "remember this" → update `memory/YYYY-MM-DD.md` or relevant file
+- When you learn a lesson → update AGENTS.md, TOOLS.md, or the relevant skill
 - When you make a mistake → document it so future-you doesn't repeat it
 - **Text > Brain** 📝
 
@@ -111,31 +51,6 @@ touch memory/topics/your-new-topic.md
 - Don't run destructive commands without asking.
 - `trash` > `rm` (recoverable beats gone forever)
 - When in doubt, ask.
-
-## 🔐 Secret Management (Doppler)
-
-All CLI tools, scripts, cron jobs, MCP servers, and automated operations MUST use Doppler to avoid plaintext secrets:
-
-```bash
-# Always use doppler-wrapped commands
-alias claude='doppler run -- claude'
-alias openclaw='doppler run -- openclaw'
-```
-
-**Rules:**
-- Never run `claude` or `openclaw` directly; always use the doppler aliases
-- All future scripts/cron/MCP must be configured to run via `doppler run -- <command>`
-- This applies to Non-Interactive Environments (Scripts & Cron) as well
-
-### Google Services (gog)
-
-For gog CLI, use Doppler to get the keyring password:
-```bash
-export GOG_KEYRING_PASSWORD=$(doppler secrets get GOG_KEYRING_PASSWORD --plain)
-```
-
-**Services configured:** gmail, calendar, drive, contacts, docs, sheets
-**Account:** tim0202601@gmail.com
 
 ## External vs Internal
 
@@ -206,8 +121,9 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 
 **📝 Platform Formatting:**
 
-- **Discord:** No markdown tables! Use bullet lists instead
+- **Discord/WhatsApp:** No markdown tables! Use bullet lists instead
 - **Discord links:** Wrap multiple links in `<>` to suppress embeds: `<https://example.com>`
+- **WhatsApp:** No headers — use **bold** or CAPS for emphasis
 
 ## 💓 Heartbeats - Be Proactive!
 
@@ -272,18 +188,22 @@ You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it
 
 **Proactive work you can do without asking:**
 
+- Read and organize memory files
 - Check on projects (git status, etc.)
 - Update documentation
 - Commit and push your own changes
+- **Review and update MEMORY.md** (see below)
 
-### 🔄 Knowledge Maintenance (During Heartbeats)
+### 🔄 Memory Maintenance (During Heartbeats)
 
 Periodically (every few days), use a heartbeat to:
 
-1. Review and update relevant topic files in `memory/topics/`
-2. Add new lessons learned to appropriate topic
-3. Read all the topics to identify duplication and outdated information
-4. Notify user to decide whether to edit/remove duplicated or outdated info that's no longer relevant
+1. Read through recent `memory/YYYY-MM-DD.md` files
+2. Identify significant events, lessons, or insights worth keeping long-term
+3. Update `MEMORY.md` with distilled learnings
+4. Remove outdated info from MEMORY.md that's no longer relevant
+
+Think of it like a human reviewing their journal and updating their mental model. Daily files are raw notes; MEMORY.md is curated wisdom.
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
