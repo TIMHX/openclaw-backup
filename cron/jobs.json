@@ -7,7 +7,7 @@
       "name": "youtube-scouter-daily",
       "enabled": true,
       "createdAtMs": 1770017027720,
-      "updatedAtMs": 1772633136546,
+      "updatedAtMs": 1772721619967,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * *",
@@ -17,7 +17,8 @@
       "wakeMode": "next-heartbeat",
       "payload": {
         "kind": "agentTurn",
-        "message": "cd /home/xing/.openclaw/workspace/youtube_scouter && doppler run -- ./.venv/bin/python3 youtube_scouter.py 2>&1 && echo \"[$(date +'%m/%d/%Y %H:%M')] STATUS: SUCCESS\" || echo \"[$(date +'%m/%d/%Y %H:%M')] STATUS: FAILED\""
+        "message": "cd /home/xing/.openclaw/workspace/youtube_scouter && doppler run -- ./.venv/bin/python3 youtube_scouter.py 2>&1 && echo \"[$(date +'%m/%d/%Y %H:%M')] STATUS: SUCCESS\" || echo \"[$(date +'%m/%d/%Y %H:%M')] STATUS: FAILED\"",
+        "timeoutSeconds": 420
       },
       "delivery": {
         "mode": "announce",
@@ -26,14 +27,14 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772719200000,
-        "lastRunAtMs": 1772632800014,
+        "nextRunAtMs": 1772805600000,
+        "lastRunAtMs": 1772720990506,
         "lastStatus": "ok",
-        "lastDurationMs": 336532,
+        "lastDurationMs": 629461,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
-        "lastDelivered": true,
-        "lastDeliveryStatus": "delivered"
+        "lastDeliveryStatus": "delivered",
+        "lastDelivered": true
       }
     },
     {
@@ -41,7 +42,7 @@
       "name": "daily-openclaw-backup",
       "enabled": true,
       "createdAtMs": 1770181817389,
-      "updatedAtMs": 1772553693126,
+      "updatedAtMs": 1772640120084,
       "schedule": {
         "kind": "cron",
         "expr": "0 11 * * *",
@@ -61,15 +62,14 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772640000000,
-        "lastRunAtMs": 1772553600014,
-        "lastStatus": "ok",
-        "lastDurationMs": 93112,
-        "consecutiveErrors": 0,
-        "lastRunStatus": "ok",
-        "lastDeliveryStatus": "delivered",
-        "lastDelivered": true,
-        "runningAtMs": 1772640000014
+        "nextRunAtMs": 1772726400000,
+        "lastRunAtMs": 1772640000018,
+        "lastStatus": "error",
+        "lastDurationMs": 120066,
+        "consecutiveErrors": 1,
+        "lastRunStatus": "error",
+        "lastDeliveryStatus": "unknown",
+        "runningAtMs": 1772726400009
       },
       "agentId": "routine-runner"
     },
@@ -79,7 +79,7 @@
       "name": "water-reminder-weekday",
       "enabled": true,
       "createdAtMs": 1771075180248,
-      "updatedAtMs": 1772636423641,
+      "updatedAtMs": 1772722835856,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,8,10,12,14,16,18,20,22 * * 1-5",
@@ -99,10 +99,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772643600000,
-        "lastRunAtMs": 1772636400013,
+        "nextRunAtMs": 1772730000000,
+        "lastRunAtMs": 1772722800016,
         "lastStatus": "ok",
-        "lastDurationMs": 23628,
+        "lastDurationMs": 35840,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
@@ -152,7 +152,7 @@
       "name": "github-scouter-daily",
       "enabled": true,
       "createdAtMs": 1771492390766,
-      "updatedAtMs": 1772636501667,
+      "updatedAtMs": 1772722924007,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -171,10 +171,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772722800000,
-        "lastRunAtMs": 1772636423641,
+        "nextRunAtMs": 1772809200000,
+        "lastRunAtMs": 1772722835856,
         "lastStatus": "ok",
-        "lastDurationMs": 78026,
+        "lastDurationMs": 88151,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDelivered": true,
@@ -187,7 +187,7 @@
       "name": "daily-summary",
       "enabled": true,
       "createdAtMs": 1771833485184,
-      "updatedAtMs": 1772597037919,
+      "updatedAtMs": 1772687395944,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -207,11 +207,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772683200000,
-        "lastRunAtMs": 1772596800016,
+        "nextRunAtMs": 1772769600000,
+        "lastRunAtMs": 1772687296955,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 237903,
+        "lastDurationMs": 98989,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -223,7 +223,7 @@
       "name": "weather-alert",
       "enabled": true,
       "createdAtMs": 1771860129930,
-      "updatedAtMs": 1772629319682,
+      "updatedAtMs": 1772715719641,
       "schedule": {
         "kind": "cron",
         "expr": "0 8,12,16 * * *",
@@ -244,13 +244,13 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772643659586,
-        "lastRunAtMs": 1772629259597,
+        "nextRunAtMs": 1772730059586,
+        "lastRunAtMs": 1772715659602,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 60085,
+        "lastDurationMs": 60039,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 1,
+        "consecutiveErrors": 4,
         "lastError": "cron: job execution timed out"
       }
     },
@@ -260,7 +260,7 @@
       "name": "openclaw-release-checker",
       "enabled": true,
       "createdAtMs": 1771894771950,
-      "updatedAtMs": 1772636527553,
+      "updatedAtMs": 1772722943084,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -280,11 +280,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772722800000,
-        "lastRunAtMs": 1772636501667,
+        "nextRunAtMs": 1772809200000,
+        "lastRunAtMs": 1772722924007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 25886,
+        "lastDurationMs": 19077,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -296,7 +296,7 @@
       "name": "jsonl-memory-distill",
       "enabled": true,
       "createdAtMs": 1772425717231,
-      "updatedAtMs": 1772600528682,
+      "updatedAtMs": 1772687432771,
       "schedule": {
         "kind": "cron",
         "expr": "0 */12 * * *",
@@ -317,11 +317,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1772643687771,
-        "lastRunAtMs": 1772600487900,
+        "nextRunAtMs": 1772730087771,
+        "lastRunAtMs": 1772687395944,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 40782,
+        "lastDurationMs": 36827,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
