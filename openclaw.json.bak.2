@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.2.26",
-    "lastTouchedAt": "2026-02-27T06:03:09.628Z"
+    "lastTouchedAt": "2026-03-01T23:40:01.829Z"
   },
   "wizard": {
     "lastRunAt": "2026-02-27T06:03:09.438Z",
@@ -171,6 +171,15 @@
         "sandbox": {
           "mode": "off"
         }
+      },
+      {
+        "id": "memory-distiller",
+        "name": "memory-distiller",
+        "workspace": "/home/xing/.openclaw/workspace-memory-distiller",
+        "agentDir": "/home/xing/.openclaw/agents/memory-distiller/agent",
+        "model": {
+          "primary": "minimax-cn/MiniMax-M2.5"
+        }
       }
     ]
   },
@@ -193,6 +202,9 @@
           "enabled": true
         }
       }
+    },
+    "exec": {
+      "security": "full"
     }
   },
   "bindings": [
