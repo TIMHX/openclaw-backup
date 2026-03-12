@@ -7,7 +7,7 @@
       "name": "youtube-scouter-daily",
       "enabled": true,
       "createdAtMs": 1770017027720,
-      "updatedAtMs": 1773234171127,
+      "updatedAtMs": 1773320587986,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * *",
@@ -27,10 +27,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773320400000,
-        "lastRunAtMs": 1773234000035,
+        "nextRunAtMs": 1773406800000,
+        "lastRunAtMs": 1773320400033,
         "lastStatus": "ok",
-        "lastDurationMs": 171092,
+        "lastDurationMs": 187953,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
@@ -42,7 +42,7 @@
       "name": "daily-openclaw-backup",
       "enabled": true,
       "createdAtMs": 1770181817389,
-      "updatedAtMs": 1773155100007,
+      "updatedAtMs": 1773241324961,
       "schedule": {
         "kind": "cron",
         "expr": "0 11 * * *",
@@ -62,15 +62,15 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773241200000,
-        "lastRunAtMs": 1773154800023,
+        "nextRunAtMs": 1773327600000,
+        "lastRunAtMs": 1773241200035,
         "lastStatus": "ok",
-        "lastDurationMs": 299984,
+        "lastDurationMs": 124926,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
         "lastDelivered": true,
-        "runningAtMs": 1773241200010
+        "runningAtMs": 1773327600008
       },
       "agentId": "routine-runner"
     },
@@ -80,7 +80,7 @@
       "name": "water-reminder-weekday",
       "enabled": true,
       "createdAtMs": 1771075180248,
-      "updatedAtMs": 1773237660077,
+      "updatedAtMs": 1773324060075,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,8,10,12,14,16,18,20,22 * * 1-5",
@@ -100,11 +100,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773244800000,
-        "lastRunAtMs": 1773237600069,
+        "nextRunAtMs": 1773331200000,
+        "lastRunAtMs": 1773324000028,
         "lastStatus": "error",
-        "lastDurationMs": 60008,
-        "consecutiveErrors": 4,
+        "lastDurationMs": 60047,
+        "consecutiveErrors": 7,
         "lastRunStatus": "error",
         "lastDeliveryStatus": "unknown",
         "lastError": "cron: job execution timed out"
@@ -152,7 +152,7 @@
       "name": "github-scouter-daily",
       "enabled": true,
       "createdAtMs": 1771492390766,
-      "updatedAtMs": 1773237736274,
+      "updatedAtMs": 1773324190635,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -171,10 +171,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773324000000,
-        "lastRunAtMs": 1773237660077,
+        "nextRunAtMs": 1773410400000,
+        "lastRunAtMs": 1773324060076,
         "lastStatus": "ok",
-        "lastDurationMs": 76197,
+        "lastDurationMs": 130559,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDelivered": true,
@@ -187,7 +187,7 @@
       "name": "daily-summary",
       "enabled": true,
       "createdAtMs": 1771833485184,
-      "updatedAtMs": 1773198167790,
+      "updatedAtMs": 1773284588826,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -207,11 +207,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773284400000,
-        "lastRunAtMs": 1773198000072,
+        "nextRunAtMs": 1773370800000,
+        "lastRunAtMs": 1773284400038,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 167718,
+        "lastDurationMs": 188788,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -223,7 +223,7 @@
       "name": "weather-alert",
       "enabled": true,
       "createdAtMs": 1771860129930,
-      "updatedAtMs": 1773230522143,
+      "updatedAtMs": 1773316922540,
       "schedule": {
         "kind": "cron",
         "expr": "0 8,12,16 * * *",
@@ -244,13 +244,13 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773244859586,
-        "lastRunAtMs": 1773230462090,
+        "nextRunAtMs": 1773331259586,
+        "lastRunAtMs": 1773316862480,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 60053,
+        "lastDurationMs": 60060,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 8,
+        "consecutiveErrors": 11,
         "lastError": "cron: job execution timed out"
       }
     },
@@ -260,7 +260,7 @@
       "name": "openclaw-release-checker",
       "enabled": true,
       "createdAtMs": 1771894771950,
-      "updatedAtMs": 1773237749654,
+      "updatedAtMs": 1773324247149,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -280,11 +280,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773324000000,
-        "lastRunAtMs": 1773237736274,
+        "nextRunAtMs": 1773410400000,
+        "lastRunAtMs": 1773324190635,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 13380,
+        "lastDurationMs": 56514,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -296,7 +296,7 @@
       "name": "jsonl-memory-distill",
       "enabled": true,
       "createdAtMs": 1772425717231,
-      "updatedAtMs": 1773201747140,
+      "updatedAtMs": 1773288185015,
       "schedule": {
         "kind": "cron",
         "expr": "0 */12 * * *",
@@ -317,11 +317,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773244887771,
-        "lastRunAtMs": 1773201687797,
+        "nextRunAtMs": 1773331287771,
+        "lastRunAtMs": 1773288087796,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 59343,
+        "lastDurationMs": 97219,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
