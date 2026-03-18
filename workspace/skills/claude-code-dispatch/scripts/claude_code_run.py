@@ -11,13 +11,17 @@ Why this wrapper exists:
 - CI / exec environments are often non-interactive.
 
 Docs:
-- Headless: https://code.claude.com/docs/en/headless
+- Headless (Agent SDK): https://code.claude.com/docs/en/headless
 - Agent Teams: https://code.claude.com/docs/en/agent-teams
+- Subagents: https://code.claude.com/docs/en/sub-agents
+- Hooks: https://code.claude.com/docs/en/hooks
+- CLI Reference: https://code.claude.com/docs/en/cli-reference
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import shlex
 import subprocess
@@ -25,7 +29,7 @@ import sys
 import time
 from pathlib import Path
 
-DEFAULT_CLAUDE = os.environ.get("CLAUDE_CODE_BIN", "claude")
+DEFAULT_CLAUDE = os.environ.get("CLAUDE_CODE_BIN", "/home/ubuntu/.local/bin/claude")
 
 
 def which(name: str) -> str | None:
@@ -55,11 +59,21 @@ def build_headless_cmd(args: argparse.Namespace) -> list[str]:
     if args.permission_mode:
         cmd += ["--permission-mode", args.permission_mode]
 
-    if args.prompt is not None:
+    # For short prompts, pass inline. For long ones, caller will pipe via stdin.
+    if args.prompt is not None and len(args.prompt) <= 1500:
         cmd += ["-p", args.prompt]
+    elif args.prompt is not None:
+        # Long prompt — use stdin pipe mode: claude -p - (reads from stdin)
+        cmd += ["-p", "-"]
 
     if args.allowedTools:
         cmd += ["--allowedTools", args.allowedTools]
+
+    if args.disallowedTools:
+        cmd += ["--disallowedTools", args.disallowedTools]
+
+    if args.tools:
+        cmd += ["--tools", args.tools]
 
     if args.output_format:
         cmd += ["--output-format", args.output_format]
@@ -70,8 +84,14 @@ def build_headless_cmd(args: argparse.Namespace) -> list[str]:
     if args.append_system_prompt:
         cmd += ["--append-system-prompt", args.append_system_prompt]
 
+    if args.append_system_prompt_file:
+        cmd += ["--append-system-prompt-file", args.append_system_prompt_file]
+
     if args.system_prompt:
         cmd += ["--system-prompt", args.system_prompt]
+
+    if args.system_prompt_file:
+        cmd += ["--system-prompt-file", args.system_prompt_file]
 
     if args.continue_latest:
         cmd.append("--continue")
@@ -82,6 +102,43 @@ def build_headless_cmd(args: argparse.Namespace) -> list[str]:
     # Agent Teams support
     if args.teammate_mode:
         cmd += ["--teammate-mode", args.teammate_mode]
+
+    # Dynamic subagent definitions via JSON
+    if args.agents_json:
+        cmd += ["--agents", args.agents_json]
+
+    # Cost & turn controls
+    if args.max_budget_usd is not None:
+        cmd += ["--max-budget-usd", str(args.max_budget_usd)]
+
+    if args.max_turns is not None:
+        cmd += ["--max-turns", str(args.max_turns)]
+
+    if args.fallback_model:
+        cmd += ["--fallback-model", args.fallback_model]
+
+    # Git worktree isolation
+    if args.worktree:
+        cmd += ["--worktree", args.worktree]
+
+    # Session persistence
+    if args.no_session_persistence:
+        cmd.append("--no-session-persistence")
+
+    # MCP config
+    if args.mcp_config:
+        cmd += ["--mcp-config", args.mcp_config]
+
+    # Verbose / debug
+    if args.verbose:
+        cmd.append("--verbose")
+
+    if args.debug:
+        cmd += ["--debug", args.debug] if args.debug != "all" else ["--debug"]
+
+    # Model override
+    if args.model:
+        cmd += ["--model", args.model]
 
     if args.extra:
         cmd += args.extra
@@ -97,16 +154,37 @@ def build_agent_teams_env(args: argparse.Namespace) -> dict[str, str]:
     return env
 
 
-def run_with_pty(cmd: list[str], cwd: str | None, env: dict[str, str] | None = None) -> int:
+def run_with_pty(cmd: list[str], cwd: str | None, env: dict[str, str] | None = None, stdin_text: str | None = None) -> int:
     cmd_str = " ".join(shlex.quote(c) for c in cmd)
 
     script_bin = which("script")
-    if not script_bin:
-        proc = subprocess.run(cmd, cwd=cwd, text=True, env=env)
-        return proc.returncode
 
-    proc = subprocess.run([script_bin, "-q", "-c", cmd_str, "/dev/null"], cwd=cwd, text=True, env=env)
-    return proc.returncode
+    if stdin_text:
+        # For long prompts: pipe via stdin instead of CLI args.
+        # Write prompt to a temp file, then use shell redirection with script(1).
+        import tempfile
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".txt", delete=False, prefix="claude-prompt-") as f:
+            f.write(stdin_text)
+            prompt_path = f.name
+        try:
+            shell_cmd = f"cat {shlex.quote(prompt_path)} | {cmd_str}"
+            if script_bin:
+                proc = subprocess.run([script_bin, "-q", "-c", shell_cmd, "/dev/null"], cwd=cwd, text=True, env=env)
+            else:
+                proc = subprocess.run(["bash", "-c", shell_cmd], cwd=cwd, text=True, env=env)
+            return proc.returncode
+        finally:
+            try:
+                os.unlink(prompt_path)
+            except OSError:
+                pass
+    else:
+        if not script_bin:
+            proc = subprocess.run(cmd, cwd=cwd, text=True, env=env)
+            return proc.returncode
+
+        proc = subprocess.run([script_bin, "-q", "-c", cmd_str, "/dev/null"], cwd=cwd, text=True, env=env)
+        return proc.returncode
 
 
 def tmux_cmd(socket_path: str, *args: str) -> list[str]:
@@ -162,10 +240,18 @@ def run_interactive_tmux(args: argparse.Namespace) -> int:
         claude_parts += ["--permission-mode", args.permission_mode]
     if args.allowedTools:
         claude_parts += ["--allowedTools", args.allowedTools]
+    if args.disallowedTools:
+        claude_parts += ["--disallowedTools", args.disallowedTools]
+    if args.tools:
+        claude_parts += ["--tools", args.tools]
     if args.append_system_prompt:
         claude_parts += ["--append-system-prompt", args.append_system_prompt]
+    if args.append_system_prompt_file:
+        claude_parts += ["--append-system-prompt-file", args.append_system_prompt_file]
     if args.system_prompt:
         claude_parts += ["--system-prompt", args.system_prompt]
+    if args.system_prompt_file:
+        claude_parts += ["--system-prompt-file", args.system_prompt_file]
     if args.continue_latest:
         claude_parts.append("--continue")
     if args.resume:
@@ -173,6 +259,28 @@ def run_interactive_tmux(args: argparse.Namespace) -> int:
     # Agent Teams teammate mode
     if args.teammate_mode:
         claude_parts += ["--teammate-mode", args.teammate_mode]
+    # Dynamic subagents
+    if args.agents_json:
+        claude_parts += ["--agents", args.agents_json]
+    # Cost & turn controls
+    if args.max_budget_usd is not None:
+        claude_parts += ["--max-budget-usd", str(args.max_budget_usd)]
+    if args.max_turns is not None:
+        claude_parts += ["--max-turns", str(args.max_turns)]
+    if args.fallback_model:
+        claude_parts += ["--fallback-model", args.fallback_model]
+    # Git worktree
+    if args.worktree:
+        claude_parts += ["--worktree", args.worktree]
+    # Verbose
+    if args.verbose:
+        claude_parts.append("--verbose")
+    # Model
+    if args.model:
+        claude_parts += ["--model", args.model]
+    # MCP config
+    if args.mcp_config:
+        claude_parts += ["--mcp-config", args.mcp_config]
     if args.extra:
         claude_parts += args.extra
 
@@ -216,6 +324,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Run Claude Code reliably (headless or interactive via tmux)")
 
     ap.add_argument("-p", "--prompt", help="Prompt text. In headless mode this is passed via -p. In interactive mode it is sent as keystrokes.")
+    ap.add_argument("--prompt-file", dest="prompt_file", help="Read prompt from file (avoids shell escaping issues with long/complex prompts).")
     ap.add_argument(
         "--mode",
         choices=["auto", "headless", "interactive"],
@@ -223,30 +332,40 @@ def main() -> int:
         help="Execution mode. auto switches to interactive when prompt contains slash commands (lines starting with '/').",
     )
 
+    # Permission & tool control
     ap.add_argument(
         "--permission-mode",
         default=None,
         help=(
             "Claude Code permission mode (passed through to `claude --permission-mode`). "
-            "Common values include: plan, acceptEdits, dontAsk, bypassPermissions, default."
+            "Common values: plan, acceptEdits, dontAsk, bypassPermissions, default."
         ),
     )
+    ap.add_argument("--allowedTools", dest="allowedTools", help="Tools that execute without prompting for permission")
+    ap.add_argument("--disallowedTools", dest="disallowedTools", help="Tools removed from model context (cannot be used)")
+    ap.add_argument("--tools", dest="tools", help="Restrict which built-in tools Claude can use")
 
-    ap.add_argument("--allowedTools", dest="allowedTools", help="Allowed tools allowlist string")
+    # Output format
     ap.add_argument("--output-format", dest="output_format", choices=["text", "json", "stream-json"], help="Output format (headless)")
     ap.add_argument("--json-schema", dest="json_schema", help="JSON schema (string) when using --output-format json")
 
+    # System prompt
     ap.add_argument("--append-system-prompt", dest="append_system_prompt", help="Append to Claude Code default system prompt")
-    ap.add_argument("--system-prompt", dest="system_prompt", help="Replace system prompt")
+    ap.add_argument("--append-system-prompt-file", dest="append_system_prompt_file", help="Append system prompt from file")
+    ap.add_argument("--system-prompt", dest="system_prompt", help="Replace system prompt entirely")
+    ap.add_argument("--system-prompt-file", dest="system_prompt_file", help="Replace system prompt from file")
 
+    # Session management
     ap.add_argument("--continue", dest="continue_latest", action="store_true", help="Continue the most recent session")
     ap.add_argument("--resume", help="Resume a specific session ID")
+    ap.add_argument("--no-session-persistence", dest="no_session_persistence", action="store_true",
+                     help="Don't save session to disk (one-off tasks, print mode only)")
 
     # Agent Teams options
     ap.add_argument(
         "--agent-teams",
         action="store_true",
-        help="Enable Agent Teams (sets CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1). Allows spawning multiple coordinated Claude Code instances.",
+        help="Enable Agent Teams (sets CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1).",
     )
     ap.add_argument(
         "--teammate-mode",
@@ -255,16 +374,74 @@ def main() -> int:
         help="Agent Teams display mode. auto (default) uses in-process; tmux creates split panes.",
     )
 
+    # Dynamic subagent definitions (new)
+    ap.add_argument(
+        "--agents-json",
+        dest="agents_json",
+        default=None,
+        help='Define custom subagents via JSON string, e.g. \'{"reviewer":{"description":"...","prompt":"..."}}\'',
+    )
+
+    # Cost & turn controls (new)
+    ap.add_argument(
+        "--max-budget-usd",
+        dest="max_budget_usd",
+        type=float,
+        default=None,
+        help="Maximum dollar amount to spend on API calls before stopping (print mode only).",
+    )
+    ap.add_argument(
+        "--max-turns",
+        dest="max_turns",
+        type=int,
+        default=None,
+        help="Limit the number of agentic turns (print mode only).",
+    )
+    ap.add_argument(
+        "--fallback-model",
+        dest="fallback_model",
+        default=None,
+        help="Automatic fallback model when default is overloaded (print mode only).",
+    )
+
+    # Git worktree isolation (new)
+    ap.add_argument(
+        "--worktree", "-w",
+        dest="worktree",
+        default=None,
+        help="Run in an isolated git worktree at <repo>/.claude/worktrees/<name>.",
+    )
+
+    # MCP config (new)
+    ap.add_argument(
+        "--mcp-config",
+        dest="mcp_config",
+        default=None,
+        help="Load MCP servers from JSON file or string.",
+    )
+
+    # Model override (new)
+    ap.add_argument(
+        "--model",
+        default=None,
+        help="Model override for this session (e.g. sonnet, opus, haiku, or full model name).",
+    )
+
+    # Verbose / debug (new)
+    ap.add_argument("--verbose", action="store_true", help="Enable verbose logging")
+    ap.add_argument("--debug", nargs="?", const="all", default=None, help="Enable debug mode with optional category filter")
+
+    # Claude binary path
     ap.add_argument(
         "--claude-bin",
         default=DEFAULT_CLAUDE,
         help=f"Path to claude binary (default: {DEFAULT_CLAUDE}). You can also set CLAUDE_CODE_BIN.",
     )
-
     ap.add_argument("--cwd", help="Working directory to run claude in (defaults to current directory)")
 
+    # tmux options (interactive mode)
     ap.add_argument("--tmux-session", default="cc", help="tmux session name (interactive mode)")
-    ap.add_argument("--tmux-socket-dir", default=None, help="tmux socket dir (defaults to $CLAWDBOT_TMUX_SOCKET_DIR or /tmp)")
+    ap.add_argument("--tmux-socket-dir", default=None, help="tmux socket dir")
     ap.add_argument("--tmux-socket-name", default="claude-code.sock", help="tmux socket file name")
     ap.add_argument("--interactive-wait-s", type=int, default=0, help="Wait N seconds then print a tmux output snapshot")
     ap.add_argument("--interactive-send-delay-ms", type=int, default=800, help="Delay between sending lines in interactive mode")
@@ -272,6 +449,14 @@ def main() -> int:
     ap.add_argument("extra", nargs=argparse.REMAINDER, help="Extra args after --")
 
     args = ap.parse_args()
+
+    # --prompt-file takes precedence over -p
+    if args.prompt_file:
+        pf = Path(args.prompt_file)
+        if not pf.exists():
+            print(f"Prompt file not found: {args.prompt_file}", file=sys.stderr)
+            return 2
+        args.prompt = pf.read_text(encoding="utf-8").strip()
 
     extra = args.extra
     if extra and extra[0] == "--":
@@ -292,7 +477,9 @@ def main() -> int:
 
     cmd = build_headless_cmd(args)
     env = build_agent_teams_env(args)
-    return run_with_pty(cmd, cwd=args.cwd, env=env)
+    # For long prompts (>1500 chars), pipe via stdin instead of CLI args
+    stdin_text = args.prompt if (args.prompt and len(args.prompt) > 1500) else None
+    return run_with_pty(cmd, cwd=args.cwd, env=env, stdin_text=stdin_text)
 
 
 if __name__ == "__main__":
