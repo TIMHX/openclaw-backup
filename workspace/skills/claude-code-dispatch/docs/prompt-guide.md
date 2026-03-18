@@ -1,92 +1,201 @@
-# Prompt Guide for Agent Teams
+# Prompt Guide for Claude Code Dispatch
 
-## Good Prompt Structure
+Best practices and examples for writing effective dispatch prompts.
 
-```
-[Task description — what to build]
+## Principles
 
-[Tech stack]
+1. **Be specific** — Describe the exact outcome, not just the general idea
+2. **Include acceptance criteria** — What does "done" look like?
+3. **Mention test requirements** — Claude Code works best when told to verify its work
+4. **Reference existing code** — Point to files/patterns to follow
+5. **Set boundaries** — What should NOT be changed
 
-[Quality requirements]
-- Run and verify output
-- Write tests, all must pass
-- Handle errors/edge cases
+## Basic Examples
 
-[Project structure (optional)]
-```
-
-## Example: Good
-
-```
-Build a GitHub Trending CLI tool:
-
-Tech stack: Python 3.10+, requests, beautifulsoup4, Click
-
-Features:
-1. Scrape GitHub Trending page
-2. Filter by language (--language python)
-3. Filter by time range (--since daily/weekly/monthly)
-4. Output in JSON and Table formats
-
-Quality requirements:
-1. Run a demo to verify output
-2. pytest tests (≥5 test cases)
-3. Add timeout and retry for network requests
-4. Handle parsing failures gracefully
-
-Project structure:
-├── gh_trending/
-│   ├── cli.py
-│   ├── scraper.py
-│   └── formatter.py
-├── tests/
-│   └── test_scraper.py
-├── requirements.txt
-└── README.md
+### Build a feature
+```bash
+nohup bash scripts/dispatch.sh \
+  -p "Build a REST API for user management with FastAPI:
+- CRUD endpoints: POST/GET/PUT/DELETE /api/users
+- SQLite database with SQLAlchemy
+- Pydantic models for request/response validation
+- Write tests with pytest, run them, fix any failures
+- Add a README with setup instructions" \
+  -n "user-api" \
+  --permission-mode bypassPermissions \
+  --workdir /home/ubuntu/projects/user-api \
+  > /tmp/dispatch-user-api.log 2>&1 &
 ```
 
-## Example: Bad
-
-```
-# ❌ Too vague
-Write a scraper
-
-# ❌ No quality requirements
-Write an API
-
-# ❌ No tech stack
-Build a TODO app
-```
-
-## Advanced Prompt Techniques
-
-### Force Test Coverage
-```
-Test requirements:
-- Coverage >= 80%
-- Normal paths + error paths
-- Mock all external dependencies
+### Fix a bug
+```bash
+nohup bash scripts/dispatch.sh \
+  -p "Fix the authentication timeout bug:
+- Error: 'Token expired' after 5 minutes even with remember-me checked
+- Look at src/auth/token.ts and src/middleware/auth.ts
+- The refresh token logic seems to not extend the session
+- Write a regression test before fixing
+- Run the full test suite after" \
+  -n "fix-auth-timeout" \
+  --permission-mode bypassPermissions \
+  --workdir /home/ubuntu/projects/my-app \
+  > /tmp/dispatch-fix.log 2>&1 &
 ```
 
-### Force Code Style
-```
-Code standards:
-- All functions have docstrings
-- Use type hints
-- ruff check with zero lint errors
-```
-
-### Force Specific Architecture
-```
-Architecture requirements:
-- Layered design (controller / service / repository)
-- Dependency injection
-- Configuration via environment variables
+### Code review
+```bash
+nohup bash scripts/dispatch.sh \
+  -p "Review the codebase for security issues:
+- Focus on: input validation, SQL injection, XSS, auth bypass
+- Check all API endpoints in src/routes/
+- Report findings as a markdown file at SECURITY_REVIEW.md
+- Include severity (critical/high/medium/low) and fix suggestions" \
+  -n "security-review" \
+  --permission-mode plan \
+  --workdir /home/ubuntu/projects/my-app \
+  > /tmp/dispatch-review.log 2>&1 &
 ```
 
-## Token Efficiency Tips
+## Advanced Examples
 
-- Be specific about what you want — vague prompts waste exploration tokens
-- Include project structure — reduces Lead's planning overhead
-- Specify tech stack — prevents framework selection debate
-- Set clear "done" criteria — prevents over-engineering
+### With cost control
+```bash
+nohup bash scripts/dispatch.sh \
+  -p "Refactor the database layer to use connection pooling" \
+  -n "db-refactor" \
+  --max-budget-usd 5.00 \
+  --max-turns 50 \
+  --permission-mode bypassPermissions \
+  --workdir /home/ubuntu/projects/my-app \
+  > /tmp/dispatch-refactor.log 2>&1 &
+```
+
+### With fallback model
+```bash
+nohup bash scripts/dispatch.sh \
+  -p "Add comprehensive error handling to all API endpoints" \
+  -n "error-handling" \
+  --model opus \
+  --fallback-model sonnet \
+  --permission-mode bypassPermissions \
+  --workdir /home/ubuntu/projects/my-app \
+  > /tmp/dispatch-errors.log 2>&1 &
+```
+
+### With Agent Teams (structured subagents)
+```bash
+nohup bash scripts/dispatch.sh \
+  -p "Build a full-stack todo app with React frontend and Express backend" \
+  -n "todo-app" \
+  --agent-teams \
+  --teammate-mode in-process \
+  --permission-mode bypassPermissions \
+  --workdir /home/ubuntu/projects/todo-app \
+  > /tmp/dispatch-todo.log 2>&1 &
+```
+
+### With custom subagents
+```bash
+nohup bash scripts/dispatch.sh \
+  -p "Build a CLI tool for file encryption" \
+  -n "encrypt-cli" \
+  --agents-json '{
+    "security-reviewer": {
+      "description": "Reviews code for cryptographic correctness and security best practices",
+      "prompt": "You are a security expert. Review all crypto implementations for correctness, timing attacks, key management issues, and OWASP compliance.",
+      "tools": ["Read", "Grep", "Glob", "Bash"],
+      "model": "opus"
+    },
+    "testing-agent": {
+      "description": "Writes and runs comprehensive tests",
+      "prompt": "You are a testing specialist. Write unit tests, integration tests, and edge case tests. Always run tests after writing them.",
+      "tools": ["Read", "Edit", "Write", "Bash", "Glob", "Grep"],
+      "model": "sonnet"
+    }
+  }' \
+  --agent-teams \
+  --permission-mode bypassPermissions \
+  --workdir /home/ubuntu/projects/encrypt-cli \
+  > /tmp/dispatch-encrypt.log 2>&1 &
+```
+
+### With git worktree isolation
+```bash
+nohup bash scripts/dispatch.sh \
+  -p "Implement the new dashboard feature from the spec in docs/dashboard-spec.md" \
+  -n "dashboard-feature" \
+  --worktree dashboard-feature \
+  --permission-mode bypassPermissions \
+  --workdir /home/ubuntu/projects/my-app \
+  > /tmp/dispatch-dashboard.log 2>&1 &
+```
+
+### With MCP servers
+```bash
+nohup bash scripts/dispatch.sh \
+  -p "Read the Jira tickets tagged 'sprint-42' and implement the highest priority one" \
+  -n "jira-sprint42" \
+  --mcp-config ./mcp-servers.json \
+  --permission-mode bypassPermissions \
+  --workdir /home/ubuntu/projects/my-app \
+  > /tmp/dispatch-jira.log 2>&1 &
+```
+
+### With system prompt customization
+```bash
+nohup bash scripts/dispatch.sh \
+  -p "Refactor the codebase to follow our style guide" \
+  -n "style-refactor" \
+  --append-system-prompt "Always use TypeScript strict mode. Prefer functional patterns. Use Bun instead of npm." \
+  --permission-mode bypassPermissions \
+  --workdir /home/ubuntu/projects/my-app \
+  > /tmp/dispatch-style.log 2>&1 &
+```
+
+### With system prompt from file
+```bash
+# Create a reusable prompt file
+cat > /tmp/team-conventions.txt << 'EOF'
+Follow these team conventions:
+- Use Bun, not npm
+- All functions must have JSDoc comments
+- Use zod for runtime validation
+- Error messages must be user-friendly
+- Run bun test before marking as done
+EOF
+
+nohup bash scripts/dispatch.sh \
+  -p "Add input validation to all API routes" \
+  -n "validation" \
+  --append-system-prompt-file /tmp/team-conventions.txt \
+  --permission-mode bypassPermissions \
+  --workdir /home/ubuntu/projects/my-app \
+  > /tmp/dispatch-validation.log 2>&1 &
+```
+
+## Tips
+
+### Prompt length
+- Short prompts (<1500 chars): passed as CLI args
+- Long prompts: automatically piped via stdin
+- Very complex prompts: use `--prompt-file` for reliability
+
+### Agent Teams vs single agent
+- **Single agent**: Simple tasks, bug fixes, code review
+- **Agent Teams**: Multi-module features, full-stack work, tasks needing parallel exploration
+- Agent Teams use significantly more tokens — use `--max-budget-usd` to cap costs
+
+### Permission modes
+| Mode | When to use |
+|------|-------------|
+| `bypassPermissions` | Trusted tasks, background dispatch (most common for dispatch) |
+| `plan` | Read-only analysis, code review, security audit |
+| `acceptEdits` | Allow file edits but prompt for shell commands |
+| `default` | Interactive use (not recommended for dispatch) |
+
+### Model selection
+- **Default (inherit)**: Uses whatever Claude Code is configured with
+- **`--model opus`**: Complex architecture, multi-file refactors
+- **`--model sonnet`**: Standard tasks, good balance of speed/quality
+- **`--model haiku`**: Simple fixes, formatting, quick lookups
+- **`--fallback-model sonnet`**: Auto-fallback when primary model is overloaded
