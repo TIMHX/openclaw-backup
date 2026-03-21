@@ -1,11 +1,11 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.2.26",
-    "lastTouchedAt": "2026-03-01T23:40:01.829Z"
+    "lastTouchedVersion": "2026.3.7",
+    "lastTouchedAt": "2026-03-09T07:53:22.584Z"
   },
   "wizard": {
-    "lastRunAt": "2026-02-27T06:03:09.438Z",
-    "lastRunVersion": "2026.2.26",
+    "lastRunAt": "2026-03-09T07:53:22.332Z",
+    "lastRunVersion": "2026.3.7",
     "lastRunCommand": "onboard",
     "lastRunMode": "local"
   },
@@ -139,9 +139,6 @@
         "workspace": "/home/xing/.openclaw/workspace",
         "model": {
           "primary": "minimax-cn/MiniMax-M2.5"
-        },
-        "sandbox": {
-          "mode": "off"
         }
       },
       {
@@ -151,9 +148,6 @@
         "agentDir": "/home/xing/.openclaw/agents/freelancer/agent",
         "model": {
           "primary": "minimax-cn/MiniMax-M2.5"
-        },
-        "sandbox": {
-          "mode": "off"
         }
       },
       {
@@ -162,15 +156,7 @@
         "name": "routine-runner",
         "workspace": "/home/xing/.openclaw/workspace-routine-runner",
         "agentDir": "/home/xing/.openclaw/agents/routine-runner/agent",
-        "model": {
-          "primary": "minimax-cn/MiniMax-M2.5"
-        },
-        "heartbeat": {
-          "every": "1h"
-        },
-        "sandbox": {
-          "mode": "off"
-        }
+        "model": "minimax-cn/MiniMax-M2.5"
       },
       {
         "id": "memory-distiller",
@@ -180,10 +166,21 @@
         "model": {
           "primary": "minimax-cn/MiniMax-M2.5"
         }
+      },
+      {
+        "id": "cron-runner",
+        "name": "cron-runner",
+        "workspace": "/home/xing/.openclaw/workspace-cron-runner",
+        "agentDir": "/home/xing/.openclaw/agents/cron-runner/agent",
+        "model": "minimax-cn/MiniMax-M2.5",
+        "heartbeat": {
+          "every": "1h"
+        }
       }
     ]
   },
   "tools": {
+    "profile": "coding",
     "web": {
       "search": {
         "enabled": true,
@@ -225,6 +222,16 @@
         "peer": {
           "kind": "channel",
           "id": "1469849142556627059"
+        }
+      }
+    },
+    {
+      "agentId": "cron-runner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "1475608007357497484"
         }
       }
     }
@@ -334,6 +341,10 @@
             "1469849179743584481": {
               "allow": true,
               "requireMention": false
+            },
+            "1475608007357497484": {
+              "allow": true,
+              "requireMention": false
             }
           }
         }
@@ -359,9 +370,18 @@
     "port": 18789,
     "mode": "local",
     "bind": "loopback",
+    "controlUi": {
+      "allowedOrigins": [
+        "https://racknerd-c3b1d83.taild6514b.ts.net"
+      ]
+    },
     "auth": {
       "mode": "token",
-      "token": "${OPENCLAW_GATEWAY_TOKEN}"
+      "token": {
+        "source": "env",
+        "provider": "default",
+        "id": "OPENCLAW_GATEWAY_TOKEN"
+      }
     },
     "tailscale": {
       "mode": "serve",
@@ -485,6 +505,9 @@
               },
               "agent:freelancer": {
                 "description": "freelancer agent私有"
+              },
+              "agent:cron-runner": {
+                "description": "cron-runner私有"
               }
             },
             "agentAccess": {
@@ -495,8 +518,10 @@
                 "global",
                 "agent:routine-runner"
               ],
+              "cron-runner": [
+                "agent:cron-runner"
+              ],
               "freelancer": [
-                "global",
                 "agent:freelancer"
               ]
             }

@@ -1,12 +1,12 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.7",
-    "lastTouchedAt": "2026-03-09T07:53:22.584Z"
+    "lastTouchedVersion": "2026.3.13",
+    "lastTouchedAt": "2026-03-21T21:12:55.389Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-09T07:53:22.332Z",
-    "lastRunVersion": "2026.3.7",
-    "lastRunCommand": "onboard",
+    "lastRunAt": "2026-03-21T21:12:55.118Z",
+    "lastRunVersion": "2026.3.13",
+    "lastRunCommand": "configure",
     "lastRunMode": "local"
   },
   "update": {
@@ -24,6 +24,10 @@
     "profiles": {
       "minimax-cn:default": {
         "provider": "minimax-cn",
+        "mode": "api_key"
+      },
+      "minimax:cn": {
+        "provider": "minimax",
         "mode": "api_key"
       }
     }
@@ -53,13 +57,36 @@
             "maxTokens": 8192
           }
         ]
+      },
+      "minimax": {
+        "baseUrl": "https://api.minimaxi.com/anthropic",
+        "api": "anthropic-messages",
+        "authHeader": true,
+        "models": [
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
       }
     }
   },
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax-cn/MiniMax-M2.5",
+        "primary": "minimax/MiniMax-M2.5",
         "fallbacks": []
       },
       "imageModel": {
@@ -69,9 +96,7 @@
         ]
       },
       "models": {
-        "minimax-cn/MiniMax-M2.5": {
-          "alias": "Minimax"
-        }
+        "minimax/MiniMax-M2.7": {}
       },
       "workspace": "/home/xing/.openclaw/workspace",
       "memorySearch": {
@@ -529,6 +554,11 @@
           "sessionMemory": {
             "enabled": false,
             "messageCount": 15
+          },
+          "sessionStrategy": "memoryReflection",
+          "mdMirror": {
+            "enabled": true,
+            "dir": "memory-md"
           }
         }
       }
