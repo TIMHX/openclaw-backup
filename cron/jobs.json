@@ -115,7 +115,7 @@
       "name": "water-reminder-weekend",
       "enabled": true,
       "createdAtMs": 1771075185444,
-      "updatedAtMs": 1774123260050,
+      "updatedAtMs": 1774130748367,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,10,12,14,16,18,20,22 * * 0,6",
@@ -135,14 +135,14 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774130400000,
-        "lastRunAtMs": 1774123200041,
-        "lastStatus": "error",
-        "lastDurationMs": 60009,
-        "consecutiveErrors": 6,
-        "lastRunStatus": "error",
-        "lastDeliveryStatus": "unknown",
-        "lastError": "cron: job execution timed out"
+        "nextRunAtMs": 1774137600000,
+        "lastRunAtMs": 1774130735875,
+        "lastStatus": "ok",
+        "lastDurationMs": 12492,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDeliveryStatus": "delivered",
+        "lastDelivered": true
       }
     },
     {

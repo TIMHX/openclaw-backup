@@ -41,8 +41,8 @@
         "authHeader": true,
         "models": [
           {
-            "id": "MiniMax-M2.5",
-            "name": "MiniMax M2.5",
+            "id": "MiniMax-M2.7",
+            "name": "MiniMax M2.7",
             "reasoning": true,
             "input": [
               "text"
@@ -64,8 +64,8 @@
         "authHeader": true,
         "models": [
           {
-            "id": "MiniMax-M2.5",
-            "name": "MiniMax M2.5",
+            "id": "MiniMax-M2.7",
+            "name": "MiniMax M2.7",
             "reasoning": true,
             "input": [
               "text"
@@ -86,7 +86,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax/MiniMax-M2.5",
+        "primary": "minimax/MiniMax-M2.7",
         "fallbacks": []
       },
       "imageModel": {
@@ -144,7 +144,7 @@
       },
       "heartbeat": {
         "every": "1h",
-        "model": "minimax/MiniMax-M2.5",
+        "model": "minimax/MiniMax-M2.7",
         "includeReasoning": false,
         "target": "discord",
         "to": "channel:1469849142556627059"
@@ -153,7 +153,7 @@
       "subagents": {
         "maxConcurrent": 8,
         "archiveAfterMinutes": 60,
-        "model": "minimax/MiniMax-M2.5"
+        "model": "minimax/MiniMax-M2.7"
       }
     },
     "list": [
@@ -163,7 +163,7 @@
         "name": "Main Assistant",
         "workspace": "/home/xing/.openclaw/workspace",
         "model": {
-          "primary": "minimax-cn/MiniMax-M2.5"
+          "primary": "minimax-cn/MiniMax-M2.7"
         }
       },
       {
@@ -172,7 +172,7 @@
         "workspace": "/home/xing/.openclaw/workspace-freelancer",
         "agentDir": "/home/xing/.openclaw/agents/freelancer/agent",
         "model": {
-          "primary": "minimax-cn/MiniMax-M2.5"
+          "primary": "minimax-cn/MiniMax-M2.7"
         }
       },
       {
@@ -181,7 +181,7 @@
         "name": "routine-runner",
         "workspace": "/home/xing/.openclaw/workspace-routine-runner",
         "agentDir": "/home/xing/.openclaw/agents/routine-runner/agent",
-        "model": "minimax-cn/MiniMax-M2.5"
+        "model": "minimax-cn/MiniMax-M2.7"
       },
       {
         "id": "memory-distiller",
@@ -189,7 +189,7 @@
         "workspace": "/home/xing/.openclaw/workspace-memory-distiller",
         "agentDir": "/home/xing/.openclaw/agents/memory-distiller/agent",
         "model": {
-          "primary": "minimax-cn/MiniMax-M2.5"
+          "primary": "minimax-cn/MiniMax-M2.7"
         }
       },
       {
@@ -197,7 +197,7 @@
         "name": "cron-runner",
         "workspace": "/home/xing/.openclaw/workspace-cron-runner",
         "agentDir": "/home/xing/.openclaw/agents/cron-runner/agent",
-        "model": "minimax-cn/MiniMax-M2.5",
+        "model": "minimax-cn/MiniMax-M2.7",
         "heartbeat": {
           "every": "1h"
         }
