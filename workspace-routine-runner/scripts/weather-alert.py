@@ -218,14 +218,39 @@ def check_wttr_alerts():
     
     return alerts
 
-def save_alerts(nws_alerts, wttr_alerts):
+def save_alerts(nws_alerts, wttr_alerts, weather_data=None):
     """Save alerts to file"""
-    if not nws_alerts and not wttr_alerts:
-        print("No weather alerts found")
-        return
+    msg = "🌤️ **NJ Weather Report** 🌤️\n\n"
     
-    msg = "🌤️ **Weather Alert** 🌤️\n\n"
+    # Always include current weather if available
+    if weather_data:
+        try:
+            current = weather_data.get("current_condition", [{}])[0]
+            temp_f = int(current.get("temp_F", 0))
+            temp_c = int(current.get("temp_C", 0))
+            humidity = current.get("humidity", "0")
+            wind_mph = current.get("windspeedMiles", "0")
+            
+            weatherDesc_list = current.get("weatherDesc", [])
+            weatherDesc = weatherDesc_list[0].get("value", "") if weatherDesc_list else "N/A"
+            
+            # Get feels like
+            try:
+                feelslike_f = int(current.get("FeelsLikeF", "0"))
+            except:
+                feelslike_f = temp_f
+            
+            msg += "📊 **Current Conditions (Trenton, NJ)**\n"
+            msg += f"• Temperature: {temp_f}°F ({temp_c}°C)\n"
+            msg += f"• Feels Like: {feelslike_f}°F\n"
+            msg += f"• Humidity: {humidity}%\n"
+            msg += f"• Wind: {wind_mph} mph\n"
+            msg += f"• Conditions: {weatherDesc}\n"
+            msg += "\n"
+        except Exception as e:
+            print(f"Error parsing current weather: {e}")
     
+    # NWS alerts
     if nws_alerts:
         msg += "⚠️ **NWS Severe Alerts**\n"
         for alert in nws_alerts:
@@ -235,12 +260,17 @@ def save_alerts(nws_alerts, wttr_alerts):
                 msg += f"  {alert['headline'][:100]}\n"
             msg += "\n"
     
+    # wttr.in alerts
     if wttr_alerts:
         msg += "📡 **Local Weather Alerts (wttr.in)**\n"
         for alert in wttr_alerts:
             msg += f"• **{alert['event']}**\n"
             msg += f"  {alert.get('description', '')}\n"
             msg += "\n"
+    
+    # No alerts case
+    if not nws_alerts and not wttr_alerts:
+        msg += "✅ No active weather alerts.\n"
     
     with open("/tmp/nws-weather-alert.txt", "w") as f:
         f.write(msg)
@@ -250,6 +280,10 @@ def save_alerts(nws_alerts, wttr_alerts):
 def main():
     print(f"[{datetime.now()}] Checking weather alerts...")
     
+    # Fetch wttr.in weather data first (for current conditions)
+    print("  [wttr.in] Fetching current weather...")
+    weather_data = get_wttr_weather()
+    
     # Channel 1: NWS severe alerts
     print("  [NWS] Checking severe weather alerts...")
     nws_alerts = get_nws_alerts()
@@ -257,11 +291,11 @@ def main():
         print(f"  -> Found {len(nws_alerts)} NWS alerts")
     
     # Channel 2: wttr.in precipitation/temp/wind
-    print("  [wttr.in] Checking local weather...")
+    print("  [wttr.in] Checking local weather alerts...")
     wttr_alerts = check_wttr_alerts()
     
-    # Save combined alerts
-    save_alerts(nws_alerts, wttr_alerts)
+    # Save combined alerts (pass weather_data for current conditions)
+    save_alerts(nws_alerts, wttr_alerts, weather_data)
 
 if __name__ == "__main__":
     main()
