@@ -98,6 +98,27 @@ touch memory/topics/your-new-topic.md
 - Links, docs, related files
 ```
 
+### Memory-lanceDB
+#### Rule 1 — Dual-layer memory storage
+Every pitfall/lesson learned → IMMEDIATELY store TWO memories:
+- Technical layer: Pitfall: [symptom]. Cause: [root cause]. Fix: [solution]. Prevention: [how to avoid]
+  (category: fact, importance >= 0.8)
+- Principle layer: Decision principle ([tag]): [behavioral rule]. Trigger: [when]. Action: [what to do]
+  (category: decision, importance >= 0.85)
+
+#### Rule 2 — LanceDB hygiene
+Entries must be short and atomic (< 500 chars). No raw conversation summaries or duplicates.
+
+#### Rule 3 — Recall before retry
+On ANY tool failure, ALWAYS memory_recall with relevant keywords BEFORE retrying.
+
+#### Rule 4 — Confirm target codebase
+Confirm you are editing memory-lancedb-pro vs built-in memory-lancedb before changes.
+
+#### Rule 5 — Clear jiti cache after plugin code changes
+After modifying .ts files under plugins/, MUST run rm -rf /tmp/jiti/ BEFORE openclaw gateway restart.
+
+
 ### 📝 Write It Down - No "Mental Notes"!
 
 - **Memory is limited** — if you want to remember something, WRITE IT TO relevant topic file

@@ -1,11 +1,11 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.7",
-    "lastTouchedAt": "2026-03-09T07:52:01.818Z"
+    "lastTouchedVersion": "2026.3.13",
+    "lastTouchedAt": "2026-03-22T00:11:07.748Z"
   },
   "wizard": {
-    "lastRunAt": "2026-02-27T06:03:09.438Z",
-    "lastRunVersion": "2026.2.26",
+    "lastRunAt": "2026-03-22T00:11:07.574Z",
+    "lastRunVersion": "2026.3.13",
     "lastRunCommand": "onboard",
     "lastRunMode": "local"
   },
@@ -25,6 +25,10 @@
       "minimax-cn:default": {
         "provider": "minimax-cn",
         "mode": "api_key"
+      },
+      "minimax:cn": {
+        "provider": "minimax",
+        "mode": "api_key"
       }
     }
   },
@@ -37,8 +41,8 @@
         "authHeader": true,
         "models": [
           {
-            "id": "MiniMax-M2.5",
-            "name": "MiniMax M2.5",
+            "id": "MiniMax-M2.7",
+            "name": "MiniMax M2.7",
             "reasoning": true,
             "input": [
               "text"
@@ -53,13 +57,53 @@
             "maxTokens": 8192
           }
         ]
+      },
+      "minimax": {
+        "baseUrl": "https://api.minimaxi.com/anthropic",
+        "api": "anthropic-messages",
+        "authHeader": true,
+        "models": [
+          {
+            "id": "MiniMax-M2.7",
+            "name": "MiniMax M2.7",
+            "api": "anthropic-messages",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
       }
     }
   },
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax-cn/MiniMax-M2.5",
+        "primary": "minimax/MiniMax-M2.7",
         "fallbacks": []
       },
       "imageModel": {
@@ -69,7 +113,8 @@
         ]
       },
       "models": {
-        "minimax-cn/MiniMax-M2.5": {
+        "minimax/MiniMax-M2.7": {},
+        "minimax/MiniMax-M2.5": {
           "alias": "Minimax"
         }
       },
@@ -119,7 +164,7 @@
       },
       "heartbeat": {
         "every": "1h",
-        "model": "minimax/MiniMax-M2.5",
+        "model": "minimax/MiniMax-M2.7",
         "includeReasoning": false,
         "target": "discord",
         "to": "channel:1469849142556627059"
@@ -128,7 +173,7 @@
       "subagents": {
         "maxConcurrent": 8,
         "archiveAfterMinutes": 60,
-        "model": "minimax/MiniMax-M2.5"
+        "model": "minimax/MiniMax-M2.7"
       }
     },
     "list": [
@@ -138,7 +183,7 @@
         "name": "Main Assistant",
         "workspace": "/home/xing/.openclaw/workspace",
         "model": {
-          "primary": "minimax-cn/MiniMax-M2.5"
+          "primary": "minimax-cn/MiniMax-M2.7"
         }
       },
       {
@@ -147,7 +192,7 @@
         "workspace": "/home/xing/.openclaw/workspace-freelancer",
         "agentDir": "/home/xing/.openclaw/agents/freelancer/agent",
         "model": {
-          "primary": "minimax-cn/MiniMax-M2.5"
+          "primary": "minimax-cn/MiniMax-M2.7"
         }
       },
       {
@@ -156,7 +201,7 @@
         "name": "routine-runner",
         "workspace": "/home/xing/.openclaw/workspace-routine-runner",
         "agentDir": "/home/xing/.openclaw/agents/routine-runner/agent",
-        "model": "minimax-cn/MiniMax-M2.5"
+        "model": "minimax-cn/MiniMax-M2.7"
       },
       {
         "id": "memory-distiller",
@@ -164,7 +209,7 @@
         "workspace": "/home/xing/.openclaw/workspace-memory-distiller",
         "agentDir": "/home/xing/.openclaw/agents/memory-distiller/agent",
         "model": {
-          "primary": "minimax-cn/MiniMax-M2.5"
+          "primary": "minimax-cn/MiniMax-M2.7"
         }
       },
       {
@@ -172,7 +217,7 @@
         "name": "cron-runner",
         "workspace": "/home/xing/.openclaw/workspace-cron-runner",
         "agentDir": "/home/xing/.openclaw/agents/cron-runner/agent",
-        "model": "minimax-cn/MiniMax-M2.5",
+        "model": "minimax-cn/MiniMax-M2.7",
         "heartbeat": {
           "every": "1h"
         }
@@ -529,6 +574,11 @@
           "sessionMemory": {
             "enabled": false,
             "messageCount": 15
+          },
+          "sessionStrategy": "memoryReflection",
+          "mdMirror": {
+            "enabled": true,
+            "dir": "memory-md"
           }
         }
       }

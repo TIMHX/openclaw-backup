@@ -1,10 +1,10 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-21T21:12:55.389Z"
+    "lastTouchedAt": "2026-03-22T00:22:44.556Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-21T21:12:55.118Z",
+    "lastRunAt": "2026-03-22T00:22:44.287Z",
     "lastRunVersion": "2026.3.13",
     "lastRunCommand": "configure",
     "lastRunMode": "local"
@@ -66,6 +66,23 @@
           {
             "id": "MiniMax-M2.7",
             "name": "MiniMax M2.7",
+            "api": "anthropic-messages",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
             "reasoning": true,
             "input": [
               "text"
@@ -86,7 +103,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax/MiniMax-M2.7",
+        "primary": "minimax/MiniMax-M2.5",
         "fallbacks": []
       },
       "imageModel": {

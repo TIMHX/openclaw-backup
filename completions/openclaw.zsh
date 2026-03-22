@@ -11,7 +11,7 @@ _openclaw_root_completion() {
     "--profile[Use a named profile (isolates OPENCLAW_STATE_DIR/OPENCLAW_CONFIG_PATH under ~/.openclaw-<name>)]" \
     "--log-level[Global log level override for file + console (silent|fatal|error|warn|info|debug|trace)]" \
     "--no-color[Disable ANSI colors]" \
-    "1: :_values 'command' 'completion[Generate shell completion script]' 'setup[Initialize ~/.openclaw/openclaw.json and the agent workspace]' 'onboard[Interactive wizard to set up the gateway, workspace, and skills]' 'configure[Interactive setup wizard for credentials, channels, gateway, and agent defaults]' 'config[Non-interactive config helpers (get/set/unset/file/validate). Run without subcommand for the setup wizard.]' 'backup[Create and verify local backup archives for OpenClaw state]' 'doctor[Health checks + quick fixes for the gateway and channels]' 'dashboard[Open the Control UI with your current token]' 'reset[Reset local config/state (keeps the CLI installed)]' 'uninstall[Uninstall the gateway service + local data (CLI remains)]' 'message[Send, read, and manage messages and channel actions]' 'memory[Search, inspect, and reindex memory files]' 'agent[Run an agent turn via the Gateway (use --local for embedded)]' 'agents[Manage isolated agents (workspaces + auth + routing)]' 'status[Show channel health and recent session recipients]' 'health[Fetch health from the running gateway]' 'sessions[List stored conversation sessions]' 'browser[Manage OpenClaw'\''s dedicated browser (Chrome/Chromium)]' 'acp[Run an ACP bridge backed by the Gateway]' 'gateway[Run, inspect, and query the WebSocket Gateway]' 'daemon[Manage the Gateway service (launchd/systemd/schtasks)]' 'logs[Tail gateway file logs via RPC]' 'system[System tools (events, heartbeat, presence)]' 'models[Model discovery, scanning, and configuration]' 'approvals[Manage exec approvals (gateway or node host)]' 'nodes[Manage gateway-owned nodes (pairing, status, invoke, and media)]' 'devices[Device pairing and auth tokens]' 'node[Run and manage the headless node host service]' 'sandbox[Manage sandbox containers (Docker-based agent isolation)]' 'tui[Open a terminal UI connected to the Gateway]' 'cron[Manage cron jobs (via Gateway)]' 'dns[DNS helpers for wide-area discovery (Tailscale + CoreDNS)]' 'docs[Search the live OpenClaw docs]' 'hooks[Manage internal agent hooks]' 'webhooks[Webhook helpers and integrations]' 'qr[Generate an iOS pairing QR code and setup code]' 'clawbot[Legacy clawbot command aliases]' 'memory-pro[Enhanced memory management commands (LanceDB Pro)]' 'pairing[Secure DM pairing (approve inbound requests)]' 'plugins[Manage OpenClaw plugins and extensions]' 'channels[Manage connected chat channels and accounts]' 'directory[Lookup contact and group IDs (self, peers, groups) for supported chat channels]' 'security[Audit local config and state for common security foot-guns]' 'secrets[Secrets runtime controls]' 'skills[List and inspect available skills]' 'update[Update OpenClaw and inspect update channel status]'" \
+    "1: :_values 'command' 'completion[Generate shell completion script]' 'setup[Initialize ~/.openclaw/openclaw.json and the agent workspace]' 'onboard[Interactive wizard to set up the gateway, workspace, and skills]' 'configure[Interactive setup wizard for credentials, channels, gateway, and agent defaults]' 'config[Non-interactive config helpers (get/set/unset/file/validate). Run without subcommand for the setup wizard.]' 'backup[Create and verify local backup archives for OpenClaw state]' 'doctor[Health checks + quick fixes for the gateway and channels]' 'dashboard[Open the Control UI with your current token]' 'reset[Reset local config/state (keeps the CLI installed)]' 'uninstall[Uninstall the gateway service + local data (CLI remains)]' 'message[Send, read, and manage messages and channel actions]' 'memory[Search, inspect, and reindex memory files]' 'agent[Run an agent turn via the Gateway (use --local for embedded)]' 'agents[Manage isolated agents (workspaces + auth + routing)]' 'status[Show channel health and recent session recipients]' 'health[Fetch health from the running gateway]' 'sessions[List stored conversation sessions]' 'browser[Manage OpenClaw'\''s dedicated browser (Chrome/Chromium)]' 'acp[Run an ACP bridge backed by the Gateway]' 'gateway[Run, inspect, and query the WebSocket Gateway]' 'daemon[Manage the Gateway service (launchd/systemd/schtasks)]' 'logs[Tail gateway file logs via RPC]' 'system[System tools (events, heartbeat, presence)]' 'models[Model discovery, scanning, and configuration]' 'approvals[Manage exec approvals (gateway or node host)]' 'nodes[Manage gateway-owned nodes (pairing, status, invoke, and media)]' 'devices[Device pairing and auth tokens]' 'node[Run and manage the headless node host service]' 'sandbox[Manage sandbox containers (Docker-based agent isolation)]' 'tui[Open a terminal UI connected to the Gateway]' 'cron[Manage cron jobs (via Gateway)]' 'dns[DNS helpers for wide-area discovery (Tailscale + CoreDNS)]' 'docs[Search the live OpenClaw docs]' 'hooks[Manage internal agent hooks]' 'webhooks[Webhook helpers and integrations]' 'qr[Generate an iOS pairing QR code and setup code]' 'clawbot[Legacy clawbot command aliases]' 'memory-pro[Enhanced memory management commands (LanceDB Pro)]' 'reindex-fts[Rebuild the BM25 full-text search index]' 'pairing[Secure DM pairing (approve inbound requests)]' 'plugins[Manage OpenClaw plugins and extensions]' 'channels[Manage connected chat channels and accounts]' 'directory[Lookup contact and group IDs (self, peers, groups) for supported chat channels]' 'security[Audit local config and state for common security foot-guns]' 'secrets[Secrets runtime controls]' 'skills[List and inspect available skills]' 'update[Update OpenClaw and inspect update channel status]'" \
     "*::arg:->args"
 
   case $state in
@@ -55,6 +55,7 @@ _openclaw_root_completion() {
         (qr) _openclaw_qr ;;
         (clawbot) _openclaw_clawbot ;;
         (memory-pro) _openclaw_memory_pro ;;
+        (reindex-fts) _openclaw_reindex_fts ;;
         (pairing) _openclaw_pairing ;;
         (plugins) _openclaw_plugins ;;
         (channels) _openclaw_channels ;;
@@ -3407,6 +3408,47 @@ _openclaw_memory_pro_version() {
     
 }
 
+_openclaw_memory_pro_auth_login() {
+  _arguments -C \
+    "--config[OpenClaw config file to update]" \
+    "--provider[OAuth provider to use (openai-codex (OpenAI Codex))]" \
+    "--model[Override the model saved into llm.model]" \
+    "--oauth-path[OAuth file path (default: ~/.openclaw/.memory-lancedb-pro/oauth.json)]" \
+    "--timeout[OAuth callback timeout in seconds]" \
+    "--no-browser[Do not auto-open the browser; print the authorization URL only]"
+}
+
+_openclaw_memory_pro_auth_status() {
+  _arguments -C \
+    "--config[OpenClaw config file to inspect]"
+}
+
+_openclaw_memory_pro_auth_logout() {
+  _arguments -C \
+    "--config[OpenClaw config file to update]" \
+    "--oauth-path[OAuth file path to remove]"
+}
+
+_openclaw_memory_pro_auth() {
+  local -a commands
+  local -a options
+  
+  _arguments -C \
+     \
+    "1: :_values 'command' 'login[Authenticate with ChatGPT/Codex in a browser, save the plugin OAuth file, and switch this plugin to llm.auth=oauth]' 'status[Show the current OAuth configuration for this plugin]' 'logout[Delete the plugin OAuth file and switch this plugin back to llm.auth=api-key]'" \
+    "*::arg:->args"
+
+  case $state in
+    (args)
+      case $line[1] in
+        (login) _openclaw_memory_pro_auth_login ;;
+        (status) _openclaw_memory_pro_auth_status ;;
+        (logout) _openclaw_memory_pro_auth_logout ;;
+      esac
+      ;;
+  esac
+}
+
 _openclaw_memory_pro_list() {
   _arguments -C \
     "--scope[Filter by scope]" \
@@ -3465,6 +3507,15 @@ _openclaw_memory_pro_reembed() {
     "--force[Allow using the same source-db as the target dbPath (DANGEROUS)]"
 }
 
+_openclaw_memory_pro_upgrade() {
+  _arguments -C \
+    "--dry-run[Show upgrade statistics without modifying data]" \
+    "--batch-size[Number of memories per batch]" \
+    "--no-llm[Skip LLM calls; use simple text truncation for L0/L1]" \
+    "--limit[Maximum number of memories to upgrade]" \
+    "--scope[Only upgrade memories in this scope]"
+}
+
 _openclaw_memory_pro_migrate_check() {
   _arguments -C \
     "--source[Specific source database path]"
@@ -3509,13 +3560,14 @@ _openclaw_memory_pro() {
   
   _arguments -C \
      \
-    "1: :_values 'command' 'version[Print plugin version]' 'list[List memories with optional filtering]' 'search[Search memories using hybrid retrieval]' 'stats[Show memory statistics]' 'delete[Delete a specific memory by ID]' 'delete-bulk[Bulk delete memories with filters]' 'export[Export memories to JSON]' 'import[Import memories from JSON file]' 'reembed[Re-embed memories from a source LanceDB database into the current target database]' 'migrate[Migration utilities]'" \
+    "1: :_values 'command' 'version[Print plugin version]' 'auth[Manage OAuth authentication for smart-extraction LLM access]' 'list[List memories with optional filtering]' 'search[Search memories using hybrid retrieval]' 'stats[Show memory statistics]' 'delete[Delete a specific memory by ID]' 'delete-bulk[Bulk delete memories with filters]' 'export[Export memories to JSON]' 'import[Import memories from JSON file]' 'reembed[Re-embed memories from a source LanceDB database into the current target database]' 'upgrade[Upgrade legacy memories to new 6-category L0/L1/L2 smart memory format]' 'migrate[Migration utilities]'" \
     "*::arg:->args"
 
   case $state in
     (args)
       case $line[1] in
         (version) _openclaw_memory_pro_version ;;
+        (auth) _openclaw_memory_pro_auth ;;
         (list) _openclaw_memory_pro_list ;;
         (search) _openclaw_memory_pro_search ;;
         (stats) _openclaw_memory_pro_stats ;;
@@ -3524,10 +3576,16 @@ _openclaw_memory_pro() {
         (export) _openclaw_memory_pro_export ;;
         (import) _openclaw_memory_pro_import ;;
         (reembed) _openclaw_memory_pro_reembed ;;
+        (upgrade) _openclaw_memory_pro_upgrade ;;
         (migrate) _openclaw_memory_pro_migrate ;;
       esac
       ;;
   esac
+}
+
+_openclaw_reindex_fts() {
+  _arguments -C \
+    
 }
 
 _openclaw_pairing_list() {

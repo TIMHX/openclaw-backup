@@ -115,7 +115,7 @@
       "name": "water-reminder-weekend",
       "enabled": true,
       "createdAtMs": 1771075185444,
-      "updatedAtMs": 1774130748367,
+      "updatedAtMs": 1774138740234,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,10,12,14,16,18,20,22 * * 0,6",
@@ -135,10 +135,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774137600000,
-        "lastRunAtMs": 1774130735875,
+        "nextRunAtMs": 1774144800000,
+        "lastRunAtMs": 1774138724955,
         "lastStatus": "ok",
-        "lastDurationMs": 12492,
+        "lastDurationMs": 15279,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",

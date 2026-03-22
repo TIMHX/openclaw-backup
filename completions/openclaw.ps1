@@ -17,7 +17,7 @@ Register-ArgumentCompleter -Native -CommandName openclaw -ScriptBlock {
     
     # Root command
     if ($commandPath -eq "") {
-         $completions = @('completion','setup','onboard','configure','config','backup','doctor','dashboard','reset','uninstall','message','memory','agent','agents','status','health','sessions','browser','acp','gateway','daemon','logs','system','models','approvals','nodes','devices','node','sandbox','tui','cron','dns','docs','hooks','webhooks','qr','clawbot','memory-pro','pairing','plugins','channels','directory','security','secrets','skills','update', '-V,','--dev','--profile','--log-level','--no-color') 
+         $completions = @('completion','setup','onboard','configure','config','backup','doctor','dashboard','reset','uninstall','message','memory','agent','agents','status','health','sessions','browser','acp','gateway','daemon','logs','system','models','approvals','nodes','devices','node','sandbox','tui','cron','dns','docs','hooks','webhooks','qr','clawbot','memory-pro','reindex-fts','pairing','plugins','channels','directory','security','secrets','skills','update', '-V,','--dev','--profile','--log-level','--no-color') 
          $completions | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
             [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterName', $_)
          }
@@ -25,7 +25,7 @@ Register-ArgumentCompleter -Native -CommandName openclaw -ScriptBlock {
     
     
             if ($commandPath -eq 'openclaw') {
-                $completions = @('completion','setup','onboard','configure','config','backup','doctor','dashboard','reset','uninstall','message','memory','agent','agents','status','health','sessions','browser','acp','gateway','daemon','logs','system','models','approvals','nodes','devices','node','sandbox','tui','cron','dns','docs','hooks','webhooks','qr','clawbot','memory-pro','pairing','plugins','channels','directory','security','secrets','skills','update','-V','--dev','--profile','--log-level','--no-color')
+                $completions = @('completion','setup','onboard','configure','config','backup','doctor','dashboard','reset','uninstall','message','memory','agent','agents','status','health','sessions','browser','acp','gateway','daemon','logs','system','models','approvals','nodes','devices','node','sandbox','tui','cron','dns','docs','hooks','webhooks','qr','clawbot','memory-pro','reindex-fts','pairing','plugins','channels','directory','security','secrets','skills','update','-V','--dev','--profile','--log-level','--no-color')
                 $completions | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
                     [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterName', $_)
                 }
@@ -1824,7 +1824,35 @@ Register-ArgumentCompleter -Native -CommandName openclaw -ScriptBlock {
             }
 
             if ($commandPath -eq 'openclaw memory-pro') {
-                $completions = @('version','list','search','stats','delete','delete-bulk','export','import','reembed','migrate')
+                $completions = @('version','auth','list','search','stats','delete','delete-bulk','export','import','reembed','upgrade','migrate')
+                $completions | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
+                    [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterName', $_)
+                }
+            }
+
+            if ($commandPath -eq 'openclaw memory-pro auth') {
+                $completions = @('login','status','logout')
+                $completions | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
+                    [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterName', $_)
+                }
+            }
+
+            if ($commandPath -eq 'openclaw memory-pro auth login') {
+                $completions = @('--config','--provider','--model','--oauth-path','--timeout','--no-browser')
+                $completions | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
+                    [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterName', $_)
+                }
+            }
+
+            if ($commandPath -eq 'openclaw memory-pro auth status') {
+                $completions = @('--config')
+                $completions | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
+                    [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterName', $_)
+                }
+            }
+
+            if ($commandPath -eq 'openclaw memory-pro auth logout') {
+                $completions = @('--config','--oauth-path')
                 $completions | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
                     [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterName', $_)
                 }
@@ -1881,6 +1909,13 @@ Register-ArgumentCompleter -Native -CommandName openclaw -ScriptBlock {
 
             if ($commandPath -eq 'openclaw memory-pro reembed') {
                 $completions = @('--source-db','--batch-size','--limit','--dry-run','--skip-existing','--force')
+                $completions | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
+                    [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterName', $_)
+                }
+            }
+
+            if ($commandPath -eq 'openclaw memory-pro upgrade') {
+                $completions = @('--dry-run','--batch-size','--no-llm','--limit','--scope')
                 $completions | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
                     [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterName', $_)
                 }
