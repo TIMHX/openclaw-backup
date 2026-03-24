@@ -3,11 +3,11 @@
   "jobs": [
     {
       "id": "b295a2f0-f305-439f-b905-ead8405d3a8a",
-      "agentId": "routine-runner",
+      "agentId": "cron-runner",
       "name": "youtube-scouter-daily",
       "enabled": true,
       "createdAtMs": 1770017027720,
-      "updatedAtMs": 1774098179517,
+      "updatedAtMs": 1774184820074,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * *",
@@ -27,14 +27,14 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774184400000,
-        "lastRunAtMs": 1774098000036,
-        "lastStatus": "ok",
-        "lastDurationMs": 179481,
-        "consecutiveErrors": 0,
-        "lastRunStatus": "ok",
-        "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
+        "nextRunAtMs": 1774270800000,
+        "lastRunAtMs": 1774184400024,
+        "lastStatus": "error",
+        "lastDurationMs": 420050,
+        "consecutiveErrors": 1,
+        "lastRunStatus": "error",
+        "lastDeliveryStatus": "unknown",
+        "lastErrorReason": "timeout"
       }
     },
     {
@@ -62,7 +62,7 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774191600000,
+        "nextRunAtMs": 1774278000000,
         "lastRunAtMs": 1774105200038,
         "lastStatus": "ok",
         "lastDurationMs": 119738,
@@ -71,7 +71,7 @@
         "lastDeliveryStatus": "delivered",
         "lastDelivered": true
       },
-      "agentId": "routine-runner"
+      "agentId": "cron-runner"
     },
     {
       "id": "7b21227a-27e0-4a74-a4d7-237daddccffc",
@@ -106,7 +106,7 @@
         "consecutiveErrors": 3,
         "lastRunStatus": "error",
         "lastDeliveryStatus": "unknown",
-        "lastError": "cron: job execution timed out"
+        "runningAtMs": 1774312410159
       }
     },
     {
@@ -115,7 +115,7 @@
       "name": "water-reminder-weekend",
       "enabled": true,
       "createdAtMs": 1771075185444,
-      "updatedAtMs": 1774138740234,
+      "updatedAtMs": 1774188023710,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,10,12,14,16,18,20,22 * * 0,6",
@@ -135,14 +135,15 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774144800000,
-        "lastRunAtMs": 1774138724955,
+        "nextRunAtMs": 1774195200000,
+        "lastRunAtMs": 1774188000020,
         "lastStatus": "ok",
-        "lastDurationMs": 15279,
+        "lastDurationMs": 23690,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
+        "lastDelivered": true,
+        "runningAtMs": 1774312410159
       }
     },
     {
@@ -151,7 +152,7 @@
       "name": "github-scouter-daily",
       "enabled": true,
       "createdAtMs": 1771492390766,
-      "updatedAtMs": 1774101791218,
+      "updatedAtMs": 1774188111085,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -170,10 +171,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774188000000,
-        "lastRunAtMs": 1774101660045,
+        "nextRunAtMs": 1774274400000,
+        "lastRunAtMs": 1774188023710,
         "lastStatus": "ok",
-        "lastDurationMs": 131173,
+        "lastDurationMs": 87375,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDelivered": true,
@@ -186,7 +187,7 @@
       "name": "daily-summary",
       "enabled": true,
       "createdAtMs": 1771833485184,
-      "updatedAtMs": 1774062164292,
+      "updatedAtMs": 1774148572528,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -206,14 +207,15 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774148400000,
-        "lastRunAtMs": 1774062000030,
+        "nextRunAtMs": 1774234800000,
+        "lastRunAtMs": 1774148400026,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 164262,
+        "lastDurationMs": 172502,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
-        "lastDelivered": true
+        "lastDelivered": true,
+        "runningAtMs": 1774312410159
       }
     },
     {
@@ -222,7 +224,7 @@
       "name": "weather-alert",
       "enabled": true,
       "createdAtMs": 1771860129930,
-      "updatedAtMs": 1774123334189,
+      "updatedAtMs": 1774180962634,
       "schedule": {
         "kind": "cron",
         "expr": "0 8,12,16 * * *",
@@ -243,14 +245,15 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774180859586,
-        "lastRunAtMs": 1774123262150,
+        "nextRunAtMs": 1774195259586,
+        "lastRunAtMs": 1774180859600,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 72039,
+        "lastDurationMs": 103034,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
-        "lastDelivered": true
+        "lastDelivered": true,
+        "runningAtMs": 1774312410159
       }
     },
     {
@@ -259,7 +262,7 @@
       "name": "openclaw-release-checker",
       "enabled": true,
       "createdAtMs": 1771894771950,
-      "updatedAtMs": 1774101804837,
+      "updatedAtMs": 1774188121617,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -279,11 +282,11 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774188000000,
-        "lastRunAtMs": 1774101791218,
+        "nextRunAtMs": 1774274400000,
+        "lastRunAtMs": 1774188111085,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 13619,
+        "lastDurationMs": 10532,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -295,7 +298,7 @@
       "name": "jsonl-memory-distill",
       "enabled": true,
       "createdAtMs": 1772425717231,
-      "updatedAtMs": 1774109040430,
+      "updatedAtMs": 1774176335486,
       "schedule": {
         "kind": "cron",
         "expr": "0 */12 * * *",
@@ -316,119 +319,15 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774152087771,
-        "lastRunAtMs": 1774108964617,
+        "nextRunAtMs": 1774195287771,
+        "lastRunAtMs": 1774176307968,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 75813,
+        "lastDurationMs": 27518,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
-      }
-    },
-    {
-      "id": "e316eca3-a277-4aba-84f9-9edd51daeef5",
-      "agentId": "routine-runner",
-      "sessionKey": "agent:routine-runner:discord:channel:1469849142556627059",
-      "name": "cupertino-morning-weather",
-      "enabled": true,
-      "createdAtMs": 1773692774928,
-      "updatedAtMs": 1773932581153,
-      "schedule": {
-        "expr": "0 8 * * 1-4",
-        "kind": "cron",
-        "tz": "America/Los_Angeles"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "Check weather for Cupertino, CA using wttr.in. Report: temperature, humidity, conditions. If precipitation > 20% or temp < 10°C or > 35°C, add ⚠️ ALERT prefix.",
-        "thinking": "low"
-      },
-      "delivery": {
-        "channel": "1469849142556627059",
-        "mode": "announce"
-      },
-      "state": {
-        "nextRunAtMs": 1774278000000,
-        "lastRunAtMs": 1773932538684,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 42469,
-        "lastDelivered": true,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
-      }
-    },
-    {
-      "id": "0cf7b744-1979-46e4-ae94-c5f58ab2def6",
-      "agentId": "routine-runner",
-      "sessionKey": "agent:routine-runner:discord:channel:1469849142556627059",
-      "name": "cupertino-evening-weather",
-      "enabled": true,
-      "createdAtMs": 1773692775013,
-      "updatedAtMs": 1773968577830,
-      "schedule": {
-        "expr": "0 18 * * 1-4",
-        "kind": "cron",
-        "tz": "America/Los_Angeles"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "Check weather for Cupertino, CA using wttr.in. Report: temperature, humidity, conditions. If precipitation > 20% or temp < 10°C or > 35°C, add ⚠️ ALERT prefix.",
-        "thinking": "low"
-      },
-      "delivery": {
-        "channel": "1469849142556627059",
-        "mode": "announce"
-      },
-      "state": {
-        "nextRunAtMs": 1774314000000,
-        "lastRunAtMs": 1773968400050,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 177780,
-        "lastDelivered": true,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
-      }
-    },
-    {
-      "id": "83b1d08a-e51f-4df1-b728-e8dc37e8e6d3",
-      "agentId": "routine-runner",
-      "sessionKey": "agent:routine-runner:discord:channel:1469849142556627059",
-      "name": "cupertino-noon-weather",
-      "enabled": true,
-      "createdAtMs": 1773760172987,
-      "updatedAtMs": 1773946837947,
-      "schedule": {
-        "expr": "0 12 * * 1-4",
-        "kind": "cron",
-        "tz": "America/Los_Angeles"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "Check weather for Cupertino, CA using wttr.in. Report: temperature, humidity, conditions. If precipitation > 20% or temp < 10°C or > 35°C, add ⚠️ ALERT prefix.",
-        "thinking": "low"
-      },
-      "delivery": {
-        "channel": "1469849142556627059",
-        "mode": "announce"
-      },
-      "state": {
-        "nextRunAtMs": 1774292400000,
-        "lastRunAtMs": 1773946800048,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 37899,
-        "lastDelivered": true,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
+        "consecutiveErrors": 0,
+        "runningAtMs": 1774312410159
       }
     }
   ]

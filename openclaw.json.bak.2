@@ -1,10 +1,10 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-22T00:21:14.424Z"
+    "lastTouchedAt": "2026-03-23T08:32:33.003Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-22T00:21:14.172Z",
+    "lastRunAt": "2026-03-23T08:32:32.546Z",
     "lastRunVersion": "2026.3.13",
     "lastRunCommand": "configure",
     "lastRunMode": "local"
@@ -103,7 +103,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax/MiniMax-M2.5",
+        "primary": "minimax/MiniMax-M2.7",
         "fallbacks": []
       },
       "imageModel": {
@@ -113,7 +113,10 @@
         ]
       },
       "models": {
-        "minimax/MiniMax-M2.7": {}
+        "minimax/MiniMax-M2.7": {},
+        "minimax/MiniMax-M2.5": {
+          "alias": "Minimax"
+        }
       },
       "workspace": "/home/xing/.openclaw/workspace",
       "memorySearch": {
@@ -325,7 +328,7 @@
       "enabled": true,
       "dmPolicy": "pairing",
       "groupPolicy": "allowlist",
-      "streaming": "off"
+      "streaming": "partial"
     },
     "discord": {
       "enabled": true,
@@ -336,7 +339,7 @@
       "configWrites": true,
       "token": "${DISCORD_BOT_TOKEN}",
       "allowBots": true,
-      "groupPolicy": "open",
+      "groupPolicy": "allowlist",
       "streaming": "off",
       "actions": {
         "reactions": true,
@@ -368,25 +371,20 @@
         "groupEnabled": true
       },
       "guilds": {
-        "*": {
+        "1466253872312881154": {
+          "requireMention": false,
           "channels": {
-            "*": {
-              "allow": true,
-              "skills": [
-                "*"
-              ]
+            "1467794551723917520": {
+              "allow": true
             },
             "1469849142556627059": {
-              "allow": true,
-              "requireMention": false
+              "allow": true
             },
             "1469849179743584481": {
-              "allow": true,
-              "requireMention": false
+              "allow": true
             },
             "1475608007357497484": {
-              "allow": true,
-              "requireMention": false
+              "allow": true
             }
           }
         }
@@ -419,15 +417,19 @@
     },
     "auth": {
       "mode": "token",
+      "token": "f890fdaf03b873c0c3372c54bbc8fa33d6117e18f03d1b0c"
+    },
+    "tailscale": {
+      "mode": "serve",
+      "resetOnExit": false
+    },
+    "remote": {
+      "url": "ws://127.0.0.1:18789",
       "token": {
         "source": "env",
         "provider": "default",
         "id": "OPENCLAW_GATEWAY_TOKEN"
       }
-    },
-    "tailscale": {
-      "mode": "serve",
-      "resetOnExit": false
     }
   },
   "skills": {
@@ -481,7 +483,6 @@
     "enabled": true,
     "allow": [
       "discord",
-      "google-gemini-cli-auth",
       "memory-core",
       "telegram",
       "memory-lancedb-pro"
@@ -496,9 +497,6 @@
     },
     "entries": {
       "discord": {
-        "enabled": true
-      },
-      "google-gemini-cli-auth": {
         "enabled": true
       },
       "memory-core": {

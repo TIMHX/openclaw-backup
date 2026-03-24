@@ -1,12 +1,12 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-22T00:10:45.428Z"
+    "lastTouchedAt": "2026-03-23T08:17:07.947Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-21T23:46:11.850Z",
+    "lastRunAt": "2026-03-23T08:17:07.800Z",
     "lastRunVersion": "2026.3.13",
-    "lastRunCommand": "onboard",
+    "lastRunCommand": "configure",
     "lastRunMode": "local"
   },
   "update": {
@@ -324,12 +324,6 @@
     "enabled": true
   },
   "channels": {
-    "telegram": {
-      "enabled": true,
-      "dmPolicy": "pairing",
-      "groupPolicy": "allowlist",
-      "streaming": "off"
-    },
     "discord": {
       "enabled": true,
       "commands": {
@@ -339,7 +333,7 @@
       "configWrites": true,
       "token": "${DISCORD_BOT_TOKEN}",
       "allowBots": true,
-      "groupPolicy": "open",
+      "groupPolicy": "allowlist",
       "streaming": "off",
       "actions": {
         "reactions": true,
@@ -371,25 +365,20 @@
         "groupEnabled": true
       },
       "guilds": {
-        "*": {
+        "1466253872312881154": {
+          "requireMention": false,
           "channels": {
-            "*": {
-              "allow": true,
-              "skills": [
-                "*"
-              ]
+            "1467794551723917520": {
+              "allow": true
             },
             "1469849142556627059": {
-              "allow": true,
-              "requireMention": false
+              "allow": true
             },
             "1469849179743584481": {
-              "allow": true,
-              "requireMention": false
+              "allow": true
             },
             "1475608007357497484": {
-              "allow": true,
-              "requireMention": false
+              "allow": true
             }
           }
         }
@@ -422,15 +411,19 @@
     },
     "auth": {
       "mode": "token",
+      "token": "99f771f2df8acb29f682c33872fc2c7d58ce9963ef48588a"
+    },
+    "tailscale": {
+      "mode": "serve",
+      "resetOnExit": false
+    },
+    "remote": {
+      "url": "ws://127.0.0.1:18789",
       "token": {
         "source": "env",
         "provider": "default",
         "id": "OPENCLAW_GATEWAY_TOKEN"
       }
-    },
-    "tailscale": {
-      "mode": "serve",
-      "resetOnExit": false
     }
   },
   "skills": {
