@@ -64,3 +64,5 @@ workspace-routine-runner/USER.md
 workspace-routine-runner/config
 
 exec-approvals.json
+
+*.bak.[0-9]*

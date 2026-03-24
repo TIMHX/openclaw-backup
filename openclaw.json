@@ -121,39 +121,6 @@
         }
       },
       "workspace": "/home/xing/.openclaw/workspace",
-      "memorySearch": {
-        "enabled": true,
-        "sources": [
-          "memory",
-          "sessions"
-        ],
-        "experimental": {
-          "sessionMemory": true
-        },
-        "provider": "gemini",
-        "remote": {
-          "apiKey": "${GEMINI_API_KEY}"
-        },
-        "fallback": "gemini",
-        "model": "gemini-embedding-001",
-        "store": {
-          "vector": {
-            "enabled": true,
-            "extensionPath": "/home/xing/node_modules/sqlite-vec-linux-x64/vec0.so"
-          }
-        },
-        "query": {
-          "hybrid": {
-            "enabled": true,
-            "vectorWeight": 0.7,
-            "textWeight": 0.3,
-            "candidateMultiplier": 4
-          }
-        },
-        "cache": {
-          "enabled": true
-        }
-      },
       "contextPruning": {
         "mode": "cache-ttl",
         "ttl": "1h"
