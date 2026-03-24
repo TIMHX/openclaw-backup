@@ -4851,8 +4851,125 @@
       "pendingBatch": null,
       "lastSize": 29380,
       "updatedAtMs": 1774314694228
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/2aa839e2-370f-4e58-b8d1-c834c711fb0b.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573040,
+      "committed": 3830,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 3830,
+      "updatedAtMs": 1774324896259
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/83e9c9c0-6806-4208-acd1-ab3021512e68.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573034,
+      "committed": 2249,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 2249,
+      "updatedAtMs": 1774324896259
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/881ccc6b-4eed-4e19-877c-cdeb3dffec2d.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573038,
+      "committed": 19535,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 19535,
+      "updatedAtMs": 1774324896259
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/c9b502f1-1484-47f9-aff4-a5753519e0aa.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573037,
+      "committed": 6066,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 6066,
+      "updatedAtMs": 1774324896259
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/f1af62aa-9004-499c-bf57-2f96d65c2e03.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573042,
+      "committed": 2250,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 2250,
+      "updatedAtMs": 1774324896259
+    },
+    "/home/xing/.openclaw/agents/main/sessions/17ec470c-23ef-4c9f-ac3e-050b21010945.jsonl": {
+      "agentId": "main",
+      "inode": 918009,
+      "committed": 7154,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 7154,
+      "updatedAtMs": 1774324896259
+    },
+    "/home/xing/.openclaw/agents/main/sessions/2496dcae-0f3f-43cc-b8bc-613e86fda6b8.jsonl": {
+      "agentId": "main",
+      "inode": 918014,
+      "committed": 5594,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 5594,
+      "updatedAtMs": 1774324896259
+    },
+    "/home/xing/.openclaw/agents/main/sessions/28427741-4f78-4aa2-b080-dd52fb916ec0.jsonl": {
+      "agentId": "main",
+      "inode": 918010,
+      "committed": 22929,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 22929,
+      "updatedAtMs": 1774324896259
+    },
+    "/home/xing/.openclaw/agents/main/sessions/517a2b2e-026e-4d48-944c-4adf1b344b89.jsonl": {
+      "agentId": "main",
+      "inode": 918011,
+      "committed": 44526,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 44526,
+      "updatedAtMs": 1774324896259
+    },
+    "/home/xing/.openclaw/agents/main/sessions/71ee5fbf-44f4-42e8-bdb1-951170bfc1b2.jsonl": {
+      "agentId": "main",
+      "inode": 918012,
+      "committed": 5279,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 5279,
+      "updatedAtMs": 1774324896259
+    },
+    "/home/xing/.openclaw/agents/main/sessions/7f073e06-d91d-46f0-9c50-84dd0e1b565d.jsonl": {
+      "agentId": "main",
+      "inode": 917996,
+      "committed": 17638,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 17638,
+      "updatedAtMs": 1774324896259
+    },
+    "/home/xing/.openclaw/agents/main/sessions/84e88bcc-3b0e-4243-ac9c-abc9ee41f9f8.jsonl": {
+      "agentId": "main",
+      "inode": 918025,
+      "committed": 16920,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 16920,
+      "updatedAtMs": 1774324896259
+    },
+    "/home/xing/.openclaw/agents/routine-runner/sessions/5cfaff77-a580-449b-93c8-adc8e15058f3.jsonl": {
+      "agentId": "routine-runner",
+      "inode": 1573036,
+      "committed": 2651,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 2651,
+      "updatedAtMs": 1774324896259
     }
   },
   "createdAtMs": 1772409991778,
-  "updatedAtMs": 1774314694229
+  "updatedAtMs": 1774324896259
 }

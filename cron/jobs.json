@@ -7,7 +7,7 @@
       "name": "youtube-scouter-daily",
       "enabled": true,
       "createdAtMs": 1770017027720,
-      "updatedAtMs": 1774314959174,
+      "updatedAtMs": 1774357367722,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * *",
@@ -27,10 +27,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774357200000,
-        "lastRunAtMs": 1774314926443,
+        "nextRunAtMs": 1774443600000,
+        "lastRunAtMs": 1774357200011,
         "lastStatus": "ok",
-        "lastDurationMs": 32731,
+        "lastDurationMs": 167711,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
@@ -69,7 +69,8 @@
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
+        "lastDelivered": true,
+        "runningAtMs": 1774364400004
       },
       "agentId": "cron-runner"
     },
@@ -79,7 +80,7 @@
       "name": "water-reminder-weekday",
       "enabled": true,
       "createdAtMs": 1771075180248,
-      "updatedAtMs": 1774317660063,
+      "updatedAtMs": 1774361160246,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,8,10,12,14,16,18,20,22 * * 1-5",
@@ -90,7 +91,7 @@
       "payload": {
         "kind": "agentTurn",
         "message": "发送喝水提醒：\n直接输出以下消息（无需调用 message tool，cron delivery 会自动发送）：\n💧 喝水时间到！记得补充水分哦~\n\n如遇错误，输出 \"SKIP: 喝水提醒发送失败\"",
-        "timeoutSeconds": 60
+        "timeoutSeconds": 90
       },
       "delivery": {
         "mode": "announce",
@@ -99,15 +100,14 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774324800000,
-        "lastRunAtMs": 1774317600025,
-        "lastStatus": "error",
-        "lastDurationMs": 60038,
-        "consecutiveErrors": 1,
-        "lastRunStatus": "error",
-        "lastDeliveryStatus": "unknown",
-        "lastError": "cron: job execution timed out",
-        "lastErrorReason": "timeout"
+        "nextRunAtMs": 1774368000000,
+        "lastRunAtMs": 1774361148772,
+        "lastStatus": "ok",
+        "lastDurationMs": 11474,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDeliveryStatus": "delivered",
+        "lastDelivered": true
       }
     },
     {
@@ -116,7 +116,7 @@
       "name": "water-reminder-weekend",
       "enabled": true,
       "createdAtMs": 1771075185444,
-      "updatedAtMs": 1774314672591,
+      "updatedAtMs": 1774362007105,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,10,12,14,16,18,20,22 * * 0,6",
@@ -127,7 +127,7 @@
       "payload": {
         "kind": "agentTurn",
         "message": "发送喝水提醒：\n直接输出以下消息（无需调用 message tool，cron delivery 会自动发送）：\n💧 喝水时间到！记得补充水分哦~\n\n如遇错误，输出 \"SKIP: 喝水提醒发送失败\"",
-        "timeoutSeconds": 60
+        "timeoutSeconds": 90
       },
       "delivery": {
         "mode": "announce",
@@ -152,7 +152,7 @@
       "name": "github-scouter-daily",
       "enabled": true,
       "createdAtMs": 1771492390766,
-      "updatedAtMs": 1774315013742,
+      "updatedAtMs": 1774361058444,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -171,10 +171,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774360800000,
-        "lastRunAtMs": 1774314959174,
+        "nextRunAtMs": 1774447200000,
+        "lastRunAtMs": 1774360860045,
         "lastStatus": "ok",
-        "lastDurationMs": 54568,
+        "lastDurationMs": 198399,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDelivered": true,
@@ -223,7 +223,7 @@
       "name": "weather-alert",
       "enabled": true,
       "createdAtMs": 1771860129930,
-      "updatedAtMs": 1774314688925,
+      "updatedAtMs": 1774353782138,
       "schedule": {
         "kind": "cron",
         "expr": "0 8,12,16 * * *",
@@ -244,14 +244,15 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774353659586,
-        "lastRunAtMs": 1774314672591,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 16334,
-        "lastDeliveryStatus": "not-delivered",
-        "consecutiveErrors": 0,
-        "lastDelivered": false
+        "nextRunAtMs": 1774368059586,
+        "lastRunAtMs": 1774353662120,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 120018,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout"
       }
     },
     {
@@ -260,7 +261,7 @@
       "name": "openclaw-release-checker",
       "enabled": true,
       "createdAtMs": 1771894771950,
-      "updatedAtMs": 1774315073808,
+      "updatedAtMs": 1774361072837,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -280,15 +281,14 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774360800000,
-        "lastRunAtMs": 1774315013742,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 60066,
-        "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 1,
-        "lastError": "Error: cron: job execution timed out",
-        "lastErrorReason": "timeout"
+        "nextRunAtMs": 1774447200000,
+        "lastRunAtMs": 1774361058444,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 14393,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
       }
     },
     {
@@ -297,7 +297,7 @@
       "name": "jsonl-memory-distill",
       "enabled": true,
       "createdAtMs": 1772425717231,
-      "updatedAtMs": 1774314696661,
+      "updatedAtMs": 1774324968535,
       "schedule": {
         "kind": "cron",
         "expr": "0 */12 * * *",
@@ -318,13 +318,13 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774324887771,
-        "lastRunAtMs": 1774314688925,
+        "nextRunAtMs": 1774368087771,
+        "lastRunAtMs": 1774324887779,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 7736,
-        "lastDelivered": false,
-        "lastDeliveryStatus": "not-delivered",
+        "lastDurationMs": 80756,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
       }
     }
