@@ -66,3 +66,5 @@ workspace-routine-runner/config
 exec-approvals.json
 
 *.bak.[0-9]*
+
+openclaw.json

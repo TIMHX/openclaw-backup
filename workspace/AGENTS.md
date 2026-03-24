@@ -60,7 +60,7 @@ Before performing operations:
 
 **Problems, Solutions, Pitfalls & Experiences:**
 
-When you encounter issues, solutions, or learn something valuable, record it in the most relevant topic file in `memory/topics/`. If no existing topic fits, **create a new one**.
+When you encounter issues, solutions, or learn something valuable, record it in the most relevant topic file in `memory/topics/`. If find no related topics or no existing topic fits, **create a new one**.
 
 **Recording Guidelines:**
 
@@ -227,9 +227,8 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 
 **📝 Platform Formatting:**
 
-- **Discord/WhatsApp:** No markdown tables! Use bullet lists instead
+- **Discord:** No markdown tables! Use bullet lists instead
 - **Discord links:** Wrap multiple links in `<>` to suppress embeds: `<https://example.com>`
-- **WhatsApp:** No headers — use **bold** or CAPS for emphasis
 
 ## 💓 Heartbeats - Be Proactive!
 

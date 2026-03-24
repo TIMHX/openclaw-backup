@@ -7,7 +7,7 @@
       "name": "youtube-scouter-daily",
       "enabled": true,
       "createdAtMs": 1770017027720,
-      "updatedAtMs": 1774184820074,
+      "updatedAtMs": 1774314959174,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * *",
@@ -28,14 +28,13 @@
       },
       "state": {
         "nextRunAtMs": 1774357200000,
-        "lastRunAtMs": 1774184400024,
-        "lastStatus": "error",
-        "lastDurationMs": 420050,
-        "consecutiveErrors": 1,
-        "lastRunStatus": "error",
-        "lastDeliveryStatus": "unknown",
-        "lastErrorReason": "timeout",
-        "runningAtMs": 1774314926343
+        "lastRunAtMs": 1774314926443,
+        "lastStatus": "ok",
+        "lastDurationMs": 32731,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDeliveryStatus": "delivered",
+        "lastDelivered": true
       }
     },
     {
@@ -43,7 +42,7 @@
       "name": "daily-openclaw-backup",
       "enabled": true,
       "createdAtMs": 1770181817389,
-      "updatedAtMs": 1774105319776,
+      "updatedAtMs": 1774315122688,
       "schedule": {
         "kind": "cron",
         "expr": "0 11 * * *",
@@ -64,14 +63,13 @@
       },
       "state": {
         "nextRunAtMs": 1774364400000,
-        "lastRunAtMs": 1774105200038,
+        "lastRunAtMs": 1774315073808,
         "lastStatus": "ok",
-        "lastDurationMs": 119738,
+        "lastDurationMs": 48880,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
-        "lastDelivered": true,
-        "runningAtMs": 1774314926343
+        "lastDelivered": true
       },
       "agentId": "cron-runner"
     },
@@ -81,7 +79,7 @@
       "name": "water-reminder-weekday",
       "enabled": true,
       "createdAtMs": 1771075180248,
-      "updatedAtMs": 1774314747711,
+      "updatedAtMs": 1774317660063,
       "schedule": {
         "kind": "cron",
         "expr": "0 0,8,10,12,14,16,18,20,22 * * 1-5",
@@ -101,14 +99,15 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774317600000,
-        "lastRunAtMs": 1774314742952,
-        "lastStatus": "ok",
-        "lastDurationMs": 4759,
-        "consecutiveErrors": 0,
-        "lastRunStatus": "ok",
-        "lastDeliveryStatus": "not-delivered",
-        "lastDelivered": false
+        "nextRunAtMs": 1774324800000,
+        "lastRunAtMs": 1774317600025,
+        "lastStatus": "error",
+        "lastDurationMs": 60038,
+        "consecutiveErrors": 1,
+        "lastRunStatus": "error",
+        "lastDeliveryStatus": "unknown",
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout"
       }
     },
     {
@@ -153,7 +152,7 @@
       "name": "github-scouter-daily",
       "enabled": true,
       "createdAtMs": 1771492390766,
-      "updatedAtMs": 1774188111085,
+      "updatedAtMs": 1774315013742,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -173,14 +172,13 @@
       },
       "state": {
         "nextRunAtMs": 1774360800000,
-        "lastRunAtMs": 1774188023710,
+        "lastRunAtMs": 1774314959174,
         "lastStatus": "ok",
-        "lastDurationMs": 87375,
+        "lastDurationMs": 54568,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDelivered": true,
-        "lastDeliveryStatus": "delivered",
-        "runningAtMs": 1774314926343
+        "lastDeliveryStatus": "delivered"
       }
     },
     {
@@ -189,7 +187,7 @@
       "name": "daily-summary",
       "enabled": true,
       "createdAtMs": 1771833485184,
-      "updatedAtMs": 1774314742952,
+      "updatedAtMs": 1774322169604,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -199,7 +197,7 @@
       "wakeMode": "next-heartbeat",
       "payload": {
         "kind": "agentTurn",
-        "message": "执行每日总结任务：\n1. 读取 session 日志: ~/.openclaw/agents/routine-runner/sessions/ 中今日修改的 .jsonl 文件\n2. 提取关键事件\n3. 先 read memory/YYYY-MM-DD.md 获取当前内容，然后追加 Key Events\n4. 检查是否有知识需记录到 topics，如果有先用 read 读取目标文件确认内容后再 edit\n5. [Knowledge Maintenance] 每天一次：\n   - 读取 memory/topics/ 目录下所有 .md 文件\n   - 检查重复或过时信息\n   - 如有需要更新或删除的内容，直接修改，无需询问用户\n   - 如果无需更新则跳过",
+        "message": "执行每日总结任务：\n1. 读取 session 日志: ~/.openclaw/agents/cron-runner/sessions/ 中今日修改的 .jsonl 文件\n2. 提取关键事件\n3. 先 read memory/YYYY-MM-DD.md 获取当前内容，然后追加 Key Events\n4. 检查是否有知识需记录到 topics，如果有先用 read 读取目标文件确认内容后再 edit\n5. [Knowledge Maintenance] 每天一次：\n   - 读取 memory/topics/ 目录下所有 .md 文件\n   - 检查重复或过时信息\n   - 如有需要更新或删除的内容，直接修改，无需询问用户\n   - 如果无需更新则跳过",
         "timeoutSeconds": 300
       },
       "delivery": {
@@ -209,14 +207,14 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1774321200000,
-        "lastRunAtMs": 1774314696661,
+        "nextRunAtMs": 1774407600000,
+        "lastRunAtMs": 1774322122535,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 46291,
-        "lastDeliveryStatus": "not-delivered",
+        "lastDurationMs": 47069,
+        "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
-        "lastDelivered": false
+        "lastDelivered": true
       }
     },
     {
@@ -236,7 +234,7 @@
       "wakeMode": "next-heartbeat",
       "payload": {
         "kind": "agentTurn",
-        "message": "执行 NWS 天气预警检查：运行 python3 ~/.openclaw/workspace-routine-runner/scripts/weather-alert.py 并读取结果",
+        "message": "执行 NWS 天气预警检查：运行 python3 ~/.openclaw/workspace-cron-runner/scripts/weather-alert.py 并读取结果",
         "timeoutSeconds": 120
       },
       "delivery": {
@@ -262,7 +260,7 @@
       "name": "openclaw-release-checker",
       "enabled": true,
       "createdAtMs": 1771894771950,
-      "updatedAtMs": 1774188121617,
+      "updatedAtMs": 1774315073808,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *",
@@ -272,7 +270,7 @@
       "wakeMode": "next-heartbeat",
       "payload": {
         "kind": "agentTurn",
-        "message": "执行 OpenClaw release 检查：运行 bash ~/.openclaw/workspace-routine-runner/scripts/check-openclaw-release.sh，如果输出包含 \"New OpenClaw release\" 则使用 message tool 发送到 Discord channel 1475608007357497484（使用 OpenClaw 原生消息，不使用 Zapier）",
+        "message": "执行 OpenClaw release 检查：运行 bash ~/.openclaw/workspace-cron-runner/scripts/check-openclaw-release.sh，如果输出包含 \"New OpenClaw release\" 则使用 message tool 发送到 Discord channel 1475608007357497484（使用 OpenClaw 原生消息，不使用 Zapier）",
         "timeoutSeconds": 60
       },
       "delivery": {
@@ -283,14 +281,14 @@
       },
       "state": {
         "nextRunAtMs": 1774360800000,
-        "lastRunAtMs": 1774188111085,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 10532,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0,
-        "lastDelivered": true,
-        "runningAtMs": 1774314926343
+        "lastRunAtMs": 1774315013742,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 60066,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1,
+        "lastError": "Error: cron: job execution timed out",
+        "lastErrorReason": "timeout"
       }
     },
     {
