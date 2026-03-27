@@ -5669,6 +5669,146 @@
       "url": "https://www.youtube.com/watch?v=7zFqo1_Pr_4",
       "recommended_date": "2026-03-26",
       "topic": "DeepLearning.AI"
+    },
+    {
+      "video_id": "6lxC487hYdI",
+      "title": "Claude + Firecrawl Just Changed How We Browse the Internet Forever! (Tutorial)",
+      "url": "https://www.youtube.com/watch?v=6lxC487hYdI",
+      "recommended_date": "2026-03-27",
+      "topic": "Unknown-UCzGcYEr"
+    },
+    {
+      "video_id": "w_WDsqIWJPc",
+      "title": "Astro Crash Course #3 - Layouts",
+      "url": "https://www.youtube.com/watch?v=w_WDsqIWJPc",
+      "recommended_date": "2026-03-27",
+      "topic": "The Net Ninja"
+    },
+    {
+      "video_id": "-pdhkOAK67M",
+      "title": "Astro Crash Course #2 - Pages &amp; Routes",
+      "url": "https://www.youtube.com/watch?v=-pdhkOAK67M",
+      "recommended_date": "2026-03-27",
+      "topic": "The Net Ninja"
+    },
+    {
+      "video_id": "yUjfp2DlfCA",
+      "title": "What Codex Unlocks for Ryan Hendler, dev at me&amp;u",
+      "url": "https://www.youtube.com/watch?v=yUjfp2DlfCA",
+      "recommended_date": "2026-03-27",
+      "topic": "OpenAI"
+    },
+    {
+      "video_id": "4_P7R8Fjrg8",
+      "title": "What Codex Unlocks for Ryan Hendler, dev at me&amp;u",
+      "url": "https://www.youtube.com/watch?v=4_P7R8Fjrg8",
+      "recommended_date": "2026-03-27",
+      "topic": "OpenAI"
+    },
+    {
+      "video_id": "XL5bq8DRn64",
+      "title": "The Algorithm That Made Me Cry",
+      "url": "https://www.youtube.com/watch?v=XL5bq8DRn64",
+      "recommended_date": "2026-03-27",
+      "topic": "Two Minute Papers"
+    },
+    {
+      "video_id": "fFboNpWweyE",
+      "title": "ChatGPT Shopping | Research and compare products without all the tabs.",
+      "url": "https://www.youtube.com/watch?v=fFboNpWweyE",
+      "recommended_date": "2026-03-27",
+      "topic": "OpenAI"
+    },
+    {
+      "video_id": "KwLIkIxZqqk",
+      "title": "RAG is Dead? 🔥 Vectorless RAG Explained (No Embeddings, No Vector DB)",
+      "url": "https://www.youtube.com/watch?v=KwLIkIxZqqk",
+      "recommended_date": "2026-03-27",
+      "topic": "Saurabh Wabale "
+    },
+    {
+      "video_id": "MTbxweGWDjg",
+      "title": "03 RAGWire RAG Tutorial: Build a Private RAG Chatbot for Health Supplements with Ollama + Qdrant",
+      "url": "https://www.youtube.com/watch?v=MTbxweGWDjg",
+      "recommended_date": "2026-03-27",
+      "topic": "KGP Talkie"
+    },
+    {
+      "video_id": "Gq5VAlFfC3M",
+      "title": "Les 6 Niveaux de Maîtrise de Claude Code (tu es bloqué au 2 ?)",
+      "url": "https://www.youtube.com/watch?v=Gq5VAlFfC3M",
+      "recommended_date": "2026-03-27",
+      "topic": "Mike Codeur"
+    },
+    {
+      "video_id": "dycm8lTxESA",
+      "title": "AI Coding: Kyun aapka AI Code scale nahi ho raha? (The Single Agent Trap) #vibecoding",
+      "url": "https://www.youtube.com/watch?v=dycm8lTxESA",
+      "recommended_date": "2026-03-27",
+      "topic": "Lalit Official"
+    },
+    {
+      "video_id": "6i37HMP2J3E",
+      "title": "How to Create an Agent in Claude Code CLI: Build Custom AI Subagents for Faster Workflows 2026",
+      "url": "https://www.youtube.com/watch?v=6i37HMP2J3E",
+      "recommended_date": "2026-03-27",
+      "topic": "ProgrammingKnowledge2"
+    },
+    {
+      "video_id": "_j2Hq3CQ4ec",
+      "title": "AI Fixes Its Own Code?! 🤖 Self-Annealing Loop in Action",
+      "url": "https://www.youtube.com/watch?v=_j2Hq3CQ4ec",
+      "recommended_date": "2026-03-27",
+      "topic": "Travis Automates"
+    },
+    {
+      "video_id": "UNIH-qooQxQ",
+      "title": "The integration of Ollama into Visual Studio Code via GitHub Copilot Chat",
+      "url": "https://www.youtube.com/watch?v=UNIH-qooQxQ",
+      "recommended_date": "2026-03-27",
+      "topic": "Learn by Doing with Steven"
+    },
+    {
+      "video_id": "gx_gwB4cOSQ",
+      "title": "Agentic AI Explained. From Pilots to Production and Real ROI",
+      "url": "https://www.youtube.com/watch?v=gx_gwB4cOSQ",
+      "recommended_date": "2026-03-27",
+      "topic": "AI Future Leaders | AI Leadership & Upskilling"
+    },
+    {
+      "video_id": "qfMR2TccAJk",
+      "title": "Claude Code vs Copilot vs Cursor — which actually does more?",
+      "url": "https://www.youtube.com/watch?v=qfMR2TccAJk",
+      "recommended_date": "2026-03-27",
+      "topic": "Pavan Adhav"
+    },
+    {
+      "video_id": "wHIEqBh8qaM",
+      "title": "Weekends Math Classes for Olympiad Exam Preparation | IOQM | RMO | NMTC | Grade 3 - 12 | Abhay Sir",
+      "url": "https://www.youtube.com/watch?v=wHIEqBh8qaM",
+      "recommended_date": "2026-03-27",
+      "topic": "Vedantu Olympiad School"
+    },
+    {
+      "video_id": "y1r6CSDTrao",
+      "title": "Top Formula Based Maths Chapters for JEE Main 🔥 #study",
+      "url": "https://www.youtube.com/watch?v=y1r6CSDTrao",
+      "recommended_date": "2026-03-27",
+      "topic": " Vedemy: NEET & IIT-JEE"
+    },
+    {
+      "video_id": "6B1RTSezWpk",
+      "title": "10 YouTube Channels Every AI Learner Should Know #ai #freeresources #tutorial",
+      "url": "https://www.youtube.com/watch?v=6B1RTSezWpk",
+      "recommended_date": "2026-03-27",
+      "topic": "VGRTutorialsPoint"
+    },
+    {
+      "video_id": "Zm2IXXldL_U",
+      "title": "AI on the Edge LESSON 2: Raspberry Pi Operating System for Artificial Intelligence",
+      "url": "https://www.youtube.com/watch?v=Zm2IXXldL_U",
+      "recommended_date": "2026-03-27",
+      "topic": "Paul McWhorter"
     }
   ]
 }

@@ -4859,7 +4859,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 3830,
-      "updatedAtMs": 1774497694755
+      "updatedAtMs": 1774584259645
     },
     "/home/xing/.openclaw/agents/cron-runner/sessions/83e9c9c0-6806-4208-acd1-ab3021512e68.jsonl": {
       "agentId": "cron-runner",
@@ -4904,7 +4904,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 7154,
-      "updatedAtMs": 1774497694755
+      "updatedAtMs": 1774584259646
     },
     "/home/xing/.openclaw/agents/main/sessions/2496dcae-0f3f-43cc-b8bc-613e86fda6b8.jsonl": {
       "agentId": "main",
@@ -4913,7 +4913,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 145348,
-      "updatedAtMs": 1774497834264
+      "updatedAtMs": 1774540956786
     },
     "/home/xing/.openclaw/agents/main/sessions/28427741-4f78-4aa2-b080-dd52fb916ec0.jsonl": {
       "agentId": "main",
@@ -4922,7 +4922,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 22929,
-      "updatedAtMs": 1774497694758
+      "updatedAtMs": 1774584259646
     },
     "/home/xing/.openclaw/agents/main/sessions/517a2b2e-026e-4d48-944c-4adf1b344b89.jsonl": {
       "agentId": "main",
@@ -4931,7 +4931,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 44526,
-      "updatedAtMs": 1774497694758
+      "updatedAtMs": 1774584259646
     },
     "/home/xing/.openclaw/agents/main/sessions/71ee5fbf-44f4-42e8-bdb1-951170bfc1b2.jsonl": {
       "agentId": "main",
@@ -4940,7 +4940,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 5279,
-      "updatedAtMs": 1774497694758
+      "updatedAtMs": 1774584259646
     },
     "/home/xing/.openclaw/agents/main/sessions/7f073e06-d91d-46f0-9c50-84dd0e1b565d.jsonl": {
       "agentId": "main",
@@ -4949,7 +4949,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 17638,
-      "updatedAtMs": 1774497694758
+      "updatedAtMs": 1774584259646
     },
     "/home/xing/.openclaw/agents/main/sessions/84e88bcc-3b0e-4243-ac9c-abc9ee41f9f8.jsonl": {
       "agentId": "main",
@@ -4958,7 +4958,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 16920,
-      "updatedAtMs": 1774497694758
+      "updatedAtMs": 1774584259646
     },
     "/home/xing/.openclaw/agents/routine-runner/sessions/5cfaff77-a580-449b-93c8-adc8e15058f3.jsonl": {
       "agentId": "routine-runner",
@@ -4967,7 +4967,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 2651,
-      "updatedAtMs": 1774497694758
+      "updatedAtMs": 1774584259646
     },
     "/home/xing/.openclaw/agents/cron-runner/sessions/17d27c65-9690-4add-8f08-db4792f800b2.jsonl": {
       "agentId": "cron-runner",
@@ -5156,7 +5156,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 4383,
-      "updatedAtMs": 1774497694755
+      "updatedAtMs": 1774540956786
     },
     "/home/xing/.openclaw/agents/cron-runner/sessions/6b6e6f30-41c6-439b-a78e-f9ab02154d64.jsonl": {
       "agentId": "cron-runner",
@@ -5228,7 +5228,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 2672,
-      "updatedAtMs": 1774497694755
+      "updatedAtMs": 1774540956785
     },
     "/home/xing/.openclaw/agents/cron-runner/sessions/4086786f-3441-49b4-b995-00f9dad2278a.jsonl": {
       "agentId": "cron-runner",
@@ -5237,7 +5237,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 2337,
-      "updatedAtMs": 1774497694755
+      "updatedAtMs": 1774540956786
     },
     "/home/xing/.openclaw/agents/cron-runner/sessions/5b25c2da-0f86-4565-abe7-add3f4600df8.jsonl": {
       "agentId": "cron-runner",
@@ -5246,7 +5246,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 4332,
-      "updatedAtMs": 1774497694755
+      "updatedAtMs": 1774540956786
     },
     "/home/xing/.openclaw/agents/cron-runner/sessions/6a0ade2d-2417-47d9-939d-c4c534c7e50a.jsonl": {
       "agentId": "cron-runner",
@@ -5255,7 +5255,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 278410,
-      "updatedAtMs": 1774497694755
+      "updatedAtMs": 1774540956786
     },
     "/home/xing/.openclaw/agents/cron-runner/sessions/7d48a6f7-6da0-433f-b175-22dd443d047e.jsonl": {
       "agentId": "cron-runner",
@@ -5264,7 +5264,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 2468,
-      "updatedAtMs": 1774497694755
+      "updatedAtMs": 1774540956786
     },
     "/home/xing/.openclaw/agents/cron-runner/sessions/c5aac202-8cc2-44a9-8b65-06a86a05cd73.jsonl": {
       "agentId": "cron-runner",
@@ -5273,7 +5273,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 2238,
-      "updatedAtMs": 1774497694755
+      "updatedAtMs": 1774540956786
     },
     "/home/xing/.openclaw/agents/cron-runner/sessions/e7c77eb2-eb26-4c9c-a42d-3fcb2597d7c2.jsonl": {
       "agentId": "cron-runner",
@@ -5282,7 +5282,7 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 2251,
-      "updatedAtMs": 1774497694755
+      "updatedAtMs": 1774540956786
     },
     "/home/xing/.openclaw/agents/cron-runner/sessions/f069e00d-4a82-4d6c-84d9-c9380742eba5.jsonl": {
       "agentId": "cron-runner",
@@ -5291,9 +5291,171 @@
       "pending": null,
       "pendingBatch": null,
       "lastSize": 2251,
-      "updatedAtMs": 1774497694755
+      "updatedAtMs": 1774540956786
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/05556deb-bb8d-4999-ac1f-cbdac6835d19.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573038,
+      "committed": 4400,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 4400,
+      "updatedAtMs": 1774584259645
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/1e661f98-9f57-4ac1-9203-4e317c70679b.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573042,
+      "committed": 16576,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 16576,
+      "updatedAtMs": 1774584259645
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/57982cda-8816-424e-8c94-a9c98d3c9993.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573032,
+      "committed": 2250,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 2250,
+      "updatedAtMs": 1774584259646
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/6926f5ee-ab5d-40c2-ab72-13197ebc0cb2.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573122,
+      "committed": 18367,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 18367,
+      "updatedAtMs": 1774584259646
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/6dd7f3df-8dd9-426d-b5da-2023108e60bb.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573044,
+      "committed": 2251,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 2251,
+      "updatedAtMs": 1774584259646
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/7c246fb5-4fb1-4ee4-81ad-6f6ffd4f79c0.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573047,
+      "committed": 2251,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 2251,
+      "updatedAtMs": 1774584259646
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/7fda763b-8d29-48b2-b80a-aec312881e92.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573048,
+      "committed": 4287,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 4287,
+      "updatedAtMs": 1774584259646
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/cbcafee5-efae-48cf-91d6-2ade9fbe2748.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573045,
+      "committed": 6797,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 6797,
+      "updatedAtMs": 1774584259646
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/ce920ecf-71b2-44ff-8e18-5dfdd8d92db4.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573046,
+      "committed": 21873,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 21873,
+      "updatedAtMs": 1774584259646
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/0ca4f589-f55b-4728-8887-036b725dfdb2.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573053,
+      "committed": 2552,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 2552,
+      "updatedAtMs": 1774584259645
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/1a5a43b9-0c54-40c3-8559-1c97c52727eb.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573051,
+      "committed": 5761,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 5761,
+      "updatedAtMs": 1774584259645
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/28dd39d7-ef62-40b2-9077-f6917571ced2.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573056,
+      "committed": 106325,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 106325,
+      "updatedAtMs": 1774584259645
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/3fcca1ce-377a-4532-afa7-deb4011ce5f4.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573057,
+      "committed": 2401,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 2401,
+      "updatedAtMs": 1774584259645
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/5e0ba52c-941a-430b-a192-735bea705d4d.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573043,
+      "committed": 2327,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 2327,
+      "updatedAtMs": 1774584259646
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/9e5813cf-e713-4cf3-a38a-3a1778f2ce62.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573050,
+      "committed": 2250,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 2250,
+      "updatedAtMs": 1774584259646
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/bcda15a5-94a2-4cdc-b152-a711dfaba10c.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573052,
+      "committed": 2250,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 2250,
+      "updatedAtMs": 1774584259646
+    },
+    "/home/xing/.openclaw/agents/cron-runner/sessions/f1d58803-4cee-4d3c-8991-384c1eb28d60.jsonl": {
+      "agentId": "cron-runner",
+      "inode": 1573054,
+      "committed": 2251,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 2251,
+      "updatedAtMs": 1774584259646
+    },
+    "/home/xing/.openclaw/agents/main/sessions/a9d7a9c4-c18c-4245-888f-7c7750244ace.jsonl": {
+      "agentId": "main",
+      "inode": 918076,
+      "committed": 37854,
+      "pending": null,
+      "pendingBatch": null,
+      "lastSize": 37854,
+      "updatedAtMs": 1774584259646
     }
   },
   "createdAtMs": 1772409991778,
-  "updatedAtMs": 1774497834264
+  "updatedAtMs": 1774584259646
 }
